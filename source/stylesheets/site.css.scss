@@ -1,0 +1,439 @@
+@import "reset.css";
+@import "compass";
+
+// VARIABLES
+
+$sansSerif: Arial, Helvetica, Sans-serif;
+
+
+
+// MIXINS
+
+@mixin category-default {
+  display:block;
+  width:192px; height:19px;
+  background:transparent url(../images/categoryOpen.png) no-repeat 0 0;
+  position:relative;
+  left:-9px;
+  font-size:8pt;
+}
+
+@mixin rounded-full {
+  border:1px solid #e6e6e6;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+
+// GLOBALS
+
+body {
+  background:#fff;
+}
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+ 
+.clearfix {
+  display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+  display: block;
+}
+ 
+* html .clearfix {
+  height: 1%;
+}
+
+.placeholder {
+  @include rounded-full;
+  background:#efefef;
+}
+
+a {
+  text-decoration:none;
+  color:#999
+}
+
+
+// LAYOUT
+
+#container {
+  height:inherit;
+  width:auto;
+}
+
+#mainContent {
+   margin:20px 0 0 220px;
+}
+
+
+// TOPBAR //
+
+#topBar {
+  height:32px;
+  width:auto;
+  background-image:linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-o-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-moz-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-webkit-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-ms-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.26, rgb(42,47,51)),
+    color-stop(0.82, rgb(64,79,89))
+  );
+  -moz-box-shadow:0 1px 1px #bbb;
+  -webkit-box-shadow:0 1px 1px #bbb;
+  box-shadow:0 1px 1px #bbb;
+
+  h1 {
+    background: transparent url(/images/ui/bg_navHeader.png) no-repeat top center;
+    color:#fff;
+    font-family:$sansSerif;
+    font-size:14px;
+    font-weight:500;
+    height:39px;
+    left:20px;
+    letter-spacing:.02em;
+    margin:0;
+    padding:0;
+    position:absolute;
+    top:0;
+    width:181px;
+    z-index:10;
+
+    span {
+      display:block;
+      line-height:1.1em;
+      padding:3px 20px 0 40px;
+    }
+  }
+}
+
+#topTools {
+  position:relative;
+  left:220px;
+  padding:3px 0 0 0;
+
+  li {
+    border-top:1px solid #324049;
+    border-right:1px solid #324049;
+    border-bottom:1px solid #324049;
+    float:left;
+    font-family:$sansSerif;
+    font-size:11px;
+    line-height:2.2em;
+    display:inline;
+
+    &:first-child {
+      -webkit-border-top-left-radius: 4px;
+      -webkit-border-bottom-left-radius: 4px;
+      -moz-border-radius-topleft: 4px;
+      -moz-border-radius-bottomleft: 4px;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+      border-left:1px solid #000;
+    }
+
+    &:last-child {
+      -webkit-border-top-right-radius: 4px;
+      -webkit-border-bottom-right-radius: 4px;
+      -moz-border-radius-topright: 4px;
+      -moz-border-radius-bottomrigt: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+    }
+
+    &.calendar a {
+      background-image:url(../images/icons/calendar.png);
+      background-repeat:no-repeat;
+      background-position: 0 0;
+      &:hover {
+        color:#bae7fc;
+        background-image:url(../images/icons/calendar.png), linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/calendar.png), -o-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/calendar.png), -moz-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/calendar.png), -webkit-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/calendar.png), -ms-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/calendar.png), -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0.11, rgb(58,71,77)),
+          color-stop(0.74, rgb(107,142,160))
+        );
+      }
+
+    }
+
+    &.pulse a {
+      background-image:url(../images/icons/pulse.png);
+      background-repeat:no-repeat;
+      background-position: 0 0;
+      &:hover {
+        color:#bae7fc;
+        background-image:url(../images/icons/pulse.png), linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/pulse.png), -o-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/pulse.png), -moz-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/pulse.png), -webkit-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/pulse.png), -ms-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/pulse.png), -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0.11, rgb(58,71,77)),
+          color-stop(0.74, rgb(107,142,160))
+        );
+      }
+    }
+
+    &.security a {
+      background-image:url(../images/icons/security.png);
+      background-repeat:no-repeat;
+      background-position: 0 0;
+      &:hover {
+        color:#bae7fc;
+        background-image:url(../images/icons/security.png), linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/security.png), -o-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/security.png), -moz-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/security.png), -webkit-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/security.png), -ms-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
+        background-image:url(../images/icons/security.png), -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0.11, rgb(58,71,77)),
+          color-stop(0.74, rgb(107,142,160))
+        );
+      }
+    }
+
+    a {
+      background-image: linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
+      background-image: -o-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
+      background-image: -moz-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
+      background-image: -webkit-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
+      background-image: -ms-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
+      background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.54, rgb(42,47,50)),
+        color-stop(0.86, rgb(74,90,100))
+      );
+      border-top:1px solid #22282c;
+      border-bottom:1px solid #22282c;
+      border-left:1px solid #22282c;
+      color:#aaa;
+      line-height:2em;
+      padding:5px 10px 5px 27px;
+      text-shadow: #000 1px 1px 1px;
+    }
+
+    &:first-child a {
+      -webkit-border-top-left-radius: 4px;
+      -webkit-border-bottom-left-radius: 4px;
+      -moz-border-radius-topleft: 4px;
+      -moz-border-radius-bottomleft: 4px;
+      border-top-left-radius: 4px;
+      border-bottom-left-radius: 4px;
+    }
+
+    &:last-child a {
+      -webkit-border-top-right-radius: 4px;
+      -webkit-border-bottom-right-radius: 4px;
+      -moz-border-radius-topright: 4px;
+      -moz-border-radius-bottomrigt: 4px;
+      border-top-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-right:1px solid #5e6d76;
+    }
+  }
+}
+
+
+// LEFT NAVIGATION
+
+#leftNav {
+  background:transparent url(../images/appHover.png) no-repeat 0 0; 
+  position:absolute;
+  top: 32px;
+  left:19px;
+  margin:0 0 0 0;
+  font-family:arial;
+  font-size:8pt;
+  color:#999999;
+  padding:10px 0 0 0;
+  width:182px;
+  z-index:5;
+
+  li {
+    outline:none;
+
+    &.app {
+    display:block;
+    outline:none;
+    width:183px; height:30px;
+    background:transparent url(../images/appHover.png) no-repeat 0 0;
+    margin:0;
+    font-size:10pt;      
+  
+      &:hover {
+        display:block;
+        background-position:-183px 0px; 
+        cursor:pointer;
+        a {color:#333}
+      } 
+
+      a {
+        position:relative;
+        left:28px;
+        top:3px;
+        width:183px; height:30px;
+        word-wrap: normal;
+     }
+
+      .appImage {
+        display:block;
+        width: 24px; height:24px;
+        background-position:-24px 0px;
+        position:relative;
+        left:7px; top:3px;
+      }
+    }
+
+    &.category {
+      @include category-default;
+      background:transparent url(../images/categoryOpen.png) no-repeat 0 0;    
+      text-transform:uppercase;
+      &:hover {background-position:-192px 0px}
+      a {position:relative; left:18px; top:4px;
+        &:hover {color:#333333;}
+      }    
+    }
+
+    // icons
+
+    &#EmailStudio-nav .appImage {background:transparent url(../images/apps/email_hover.png) no-repeat -24px 0}
+    &#EmailStudio-nav:hover .appImage {background:transparent url(../images/apps/email_hover.png) no-repeat 0 0}
+
+    &#SocialEngage-nav .appImage {background:transparent url(../images/apps/social_hover.png) no-repeat -24px 0;}
+    &#SocialEngage-nav:hover .appImage {background:transparent url(../images/apps/social_hover.png) no-repeat 0 0;}
+
+    &#MobileConnect-nav .appImage {background:transparent url(../images/apps/mobile_hover.png) no-repeat -24px 0;}
+    &#MobileConnect-nav:hover  .appImage {background:transparent url(../images/apps/mobile_hover.png) no-repeat 0 0;}
+
+    &#PageDesigner-nav .appImage {background:transparent url(../images/apps/sites_hover.png) no-repeat -24px 0;}
+    &#PageDesigner-nav:hover .appImage {background:transparent url(../images/apps/sites_hover.png) no-repeat 0 0;}
+
+    &#Campaigns-nav .appImage {background:transparent url(../images/apps/campaigns_hover.png) no-repeat -24px 0;}
+    &#Campaigns-nav:hover .appImage {background:transparent url(../images/apps/campaigns_hover.png) no-repeat 0 0;}
+
+    &#Reports-nav .appImage {background:transparent url(../images/apps/reports_hover.png) no-repeat -24px 0;}
+    &#Reports-nav:hover .appImage {background:transparent url(../images/apps/reports_hover.png) no-repeat 0 0;}
+
+    &#Assets-nav .appImage {background:transparent url(../images/apps/assets_hover.png) no-repeat -24px 0;}
+    &#Assets-nav:hover .appImage {background:transparent url(../images/apps/assets_hover.png) no-repeat 0 0;}
+
+    &#Contacts-nav .appImage {background:transparent url(../images/apps/contacts_hover.png) no-repeat -24px 0;}
+    &#Contacts-nav:hover .appImage {background:transparent url(../images/apps/contacts_hover.png) no-repeat 0 0;}
+
+    &#Audience-nav .appImage {background:transparent url(../images/apps/audienceBuilder_hover.png) no-repeat -24px 0;}
+    &#Audience-nav:hover .appImage {background:transparent url(../images/apps/audienceBuilder_hover.png) no-repeat 0 0;}
+
+    &#Automations-nav .appImage {background:transparent url(../images/apps/reports_hover.png) no-repeat -24px 0;}
+    &#Automations-nav:hover .appImage {background:transparent url(../images/apps/reports_hover.png) no-repeat 0 0;}
+
+    &#Marketo-nav .appImage {background:transparent url(../images/apps/marketo_hover.png) no-repeat -24px 0;}
+    &#Marketo-nav:hover .appImage {background:transparent url(../images/apps/marketo_hover.png) no-repeat 0 0;}
+
+    &#Klout-nav .appImage {background:transparent url(../images/apps/klout_hover.png) no-repeat -24px 0;}
+    &#Klout-nav:hover .appImage {background:transparent url(../images/apps/klout_hover.png) no-repeat 0 0;}
+
+    &#Netbase-nav .appImage {background:transparent url(../images/apps/netbase_hover.png) no-repeat -24px 0;}
+    &#Netbase-nav:hover .appImage {background:transparent url(../images/apps/netbase_hover.png) no-repeat 0 0;}
+
+    &.categoryClosed {
+      @include category-default;
+      background:transparent url(../images/categoryClosed.png) no-repeat 0 0;    
+      text-transform:uppercase;
+      &:hover {background-position:-192px 0px}
+      a {position:relative; left:18px; top:4px;
+        &:hover {color:#333333;}
+      }    
+    }
+   
+    .flyout {
+      position:relative;
+      left:0;
+      top:-20px;
+      z-index:-1;
+      opacity: 0;
+      margin:0 0 0 0;
+      padding:0;
+      visibility:hidden;
+      -webkit-transition: opacity .5s ease-in-out;
+      -moz-transition: opacity .5s ease-in-out;
+      -o-transition: opacity .5s ease-in-out;
+      -ms-transition: opacity .5s ease-in-out;
+      transition: opacity .5s ease-in-out;
+
+      a {
+        position:relative;
+        left:28px;
+        top:3px;
+        width:183px; height:30px;
+      }
+
+      &.visible {
+        opacity:1;
+        visibility:visible;
+      }
+    }
+  } 
+
+  
+  #bottom-nav {
+   height:8px;
+   background:transparent url(../images/CollapsedSections.jpg) no-repeat scroll -19px -316px;
+   width:184px;
+  }
+
+}
+
+
+// MAIN CONTENT
+
+#view_calendar {
+ height:165px;
+ margin:0 0 15px 0;
+ width:1030px;
+ // background:transparent url(../images/calendar.jpg) no-repeat 0 0;
+}
+    
+#view_pulse {
+ height:280px;
+ margin:0 0 15px 0;
+ width:1030px;
+ // background:transparent url(../images/pulse.jpg) no-repeat 0 0;
+}
+    
+#view_campaigns {
+ height:280px;
+ width:1030px;
+ margin:0 0 15px 0;
+ // background:transparent url(../images/campaign.jpg) no-repeat 0 0;
+}
+
+
