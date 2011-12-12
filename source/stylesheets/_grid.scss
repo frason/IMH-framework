@@ -58,6 +58,28 @@
     background-position: 0px -30px;
   }
 }
+.grid-table {
+  margin-left: 0px;
+  table-layout: fixed;
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-color: gray;
+  font-weight: normal;
+  color: #555;
+
+  &.active-state {
+    background-image: url(../images/grid_active_th.png);
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+  }
+
+  &.data {
+    
+  }
+}
 
 
 
