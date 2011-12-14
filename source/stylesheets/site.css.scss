@@ -39,7 +39,7 @@ $sansSerif: Arial, Helvetica, Sans-serif;
 
 body {
   background:#fff;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:$sansSerif;
 }
 
 .clearfix:after {
@@ -111,6 +111,7 @@ a {
   -moz-box-shadow:0 1px 1px #bbb;
   -webkit-box-shadow:0 1px 1px #bbb;
   box-shadow:0 1px 1px #bbb;
+  z-index:2;
 
   h1 {
     background: transparent url(/images/ui/bg_navHeader.png) no-repeat top center;
@@ -663,7 +664,7 @@ a {
   color:#999999;
   padding:10px 0 0 0;
   width:182px;
-  z-index:5;
+  z-index:1;
 
   li {
     outline:none;
@@ -818,13 +819,6 @@ a {
  margin:0 0 15px 0;
  width:1030px;
  // background:transparent url(../images/calendar.jpg) no-repeat 0 0;
-}
-    
-#view_pulse {
- height:280px;
- margin:0 0 15px 0;
- width:1030px;
- // background:transparent url(../images/pulse.jpg) no-repeat 0 0;
 }
     
 #view_campaigns {
