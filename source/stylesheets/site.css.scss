@@ -1,5 +1,6 @@
 @import "reset.css";
 @import "compass";
+@import "grid";
 
 // VARIABLES
 
@@ -38,6 +39,7 @@ $sansSerif: Arial, Helvetica, Sans-serif;
 
 body {
   background:#fff;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .clearfix:after {
