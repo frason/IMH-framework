@@ -1,6 +1,5 @@
 // Pulse
 
-
 // VARIABLES
 
 $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
@@ -93,8 +92,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         opacity:0;
         display:block;
         width:24px;
-
-        -webkit-transition: opacity 100ms ease-in 100ms; /* property duration timing-function delay */
+        -webkit-transition: opacity 100ms ease-in 100ms;
         -moz-transition: opacity 100ms ease-in 100ms;
         -o-transition: opacity 100ms ease-in 100ms;
         transition: opacity 100ms ease-in 100ms;
@@ -124,11 +122,23 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         background:transparent url(../images/ui/bg_pulseArrows.png) no-repeat -62px -19px;
         height:32px;
         margin:105px auto 0 auto;
+        opacity:0;
         display:block;
         width:24px;
+        -webkit-transition: opacity 100ms ease-in 100ms;
+        -moz-transition: opacity 100ms ease-in 100ms;
+        -o-transition: opacity 100ms ease-in 100ms;
+        transition: opacity 100ms ease-in 100ms;
 
         &:hover {
           background:transparent url(../images/ui/bg_pulseArrows.png) no-repeat -19px -19px;
+        }
+      }
+
+      &:hover {
+        
+        a {
+          opacity:1;
         }
       }
     }
