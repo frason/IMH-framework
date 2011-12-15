@@ -41,8 +41,8 @@ $(document).ready(function() {
     // });
 
 
-	// new
-	
+	// Flyout functionality
+
 	$("ul#leftNav li.categoryClosed").hover(function() {
 		if (inprog == 0) {
 			inprog = 1;
@@ -63,10 +63,11 @@ $(document).ready(function() {
 			queue: true,
 			duration: speed,
 			easing: 'easeOutExpo'
-		});
-		$('.flyout', this).removeClass('visible');
+		}).removeClass('visible');
 		inprog = 0;
 	});
+
+    // taskbar
 	
 
 });
