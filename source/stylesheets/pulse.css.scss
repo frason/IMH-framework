@@ -1,0 +1,395 @@
+// Pulse
+
+// VARIABLES
+
+$sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
+
+// MIXINS
+
+@mixin rounded-full { //duplicate!
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+#view_pulse {
+  background-image: linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(204,214,221)),
+    color-stop(1, rgb(138,155,168))
+  );
+  font-family:$sansSerif;
+  height:263px;
+  margin:0 0 15px 0;
+  width:1030px;
+  padding:1px;
+  @include rounded-full;
+
+  .container {
+    background-image:url(../images/ui/bg_pulseBurst.png), linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
+    background-image:url(../images/ui/bg_pulseBurst.png), -o-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
+    background-image:url(../images/ui/bg_pulseBurst.png), -moz-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
+    background-image:url(../images/ui/bg_pulseBurst.png), -webkit-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
+    background-image:url(../images/ui/bg_pulseBurst.png), -ms-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
+    background-image:url(../images/ui/bg_pulseBurst.png), -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0.07, rgb(224,235,243)),
+      color-stop(0.54, rgb(153,172,186))
+    );
+    background-position:55px center;
+    height:inherit;
+    left:0;
+    position:relative;
+    top:0;
+    width:inherit;
+    @include rounded-full;
+
+  }
+
+  h2 {
+    background:url(../images/ui/bg_pulse.png) no-repeat bottom left;
+    color:#fff;
+    float:left;
+    font-size:20px;
+    font-weight:normal;
+    letter-spacing:.03em;
+    line-height:1.6em;
+    padding:0 0 0 14px;
+    height:48px;
+    width:113px;
+  }
+
+  .rail {
+
+    bottom:0;
+    height:231px; //gross!
+    left:0;
+    position:absolute;
+    overflow:hidden;
+    width:inherit;
+
+    .navRight {
+      bottom:0;
+      height:inherit;
+      position:absolute;
+      right:0;
+      width:40px;
+      z-index:1;
+
+      a {
+        background:transparent url(../images/ui/bg_pulseArrows.png) no-repeat -105px -19px;
+        height:32px;
+        margin:105px auto 0 auto;
+        opacity:0;
+        display:block;
+        width:24px;
+        -webkit-transition: opacity 100ms ease-in 100ms;
+        -moz-transition: opacity 100ms ease-in 100ms;
+        -o-transition: opacity 100ms ease-in 100ms;
+        transition: opacity 100ms ease-in 100ms;
+
+
+        &:hover {
+          background:transparent url(../images/ui/bg_pulseArrows.png) no-repeat -148px -19px;
+        }
+      }
+
+      &:hover {
+        
+        a {
+          opacity:1;
+        }
+      }
+    }
+
+    .navLeft {
+      left:0;
+      height:inherit;
+      position:absolute;
+      width:40px;
+      z-index:1;
+
+      a {
+        background:transparent url(../images/ui/bg_pulseArrows.png) no-repeat -62px -19px;
+        height:32px;
+        margin:105px auto 0 auto;
+        opacity:0;
+        display:block;
+        width:24px;
+        -webkit-transition: opacity 100ms ease-in 100ms;
+        -moz-transition: opacity 100ms ease-in 100ms;
+        -o-transition: opacity 100ms ease-in 100ms;
+        transition: opacity 100ms ease-in 100ms;
+
+        &:hover {
+          background:transparent url(../images/ui/bg_pulseArrows.png) no-repeat -19px -19px;
+        }
+      }
+
+      &:hover {
+        
+        a {
+          opacity:1;
+        }
+      }
+    }
+
+    .mainContent {
+      background-image: linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
+      background-image: -o-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
+      background-image: -moz-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
+      background-image: -webkit-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
+      background-image: -ms-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
+      background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.31, rgb(227,237,245)),
+        color-stop(1, rgb(189,204,215))
+      );
+      border-top:1px solid #d3dce2;
+      height:79px;
+      left:0;
+      bottom:0;
+      position:absolute;
+      width:3000px;
+
+      .gadget {
+
+        &.max {
+
+          background:url(../images/ui/bg_gadgetShadow.png) no-repeat bottom center;
+          float:left;
+          margin:0 20px;
+          padding:0 0 11px;
+          position:relative;
+          bottom:141px;
+          width:314px;
+
+          &:first-child {
+            margin:0 11px 0 32px;
+          }
+
+          .title {
+            color:#fff;
+            font-size:13px;
+            text-align:center;
+            margin:0 0 8px 0;  
+          }
+
+          > div {
+            background-image: linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
+            background-image: -o-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
+            background-image: -moz-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
+            background-image: -webkit-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
+            background-image: -ms-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
+            background-image: -webkit-gradient(
+              linear,
+              left bottom,
+              left top,
+              color-stop(0.31, rgb(226,244,254)),
+              color-stop(1, rgb(245,251,255))
+            );
+            border:1px solid #d5dfe7;
+            -moz-box-shadow:0 3px 2px #c0c9cd;
+            -webkit-box-shadow:0 3px 2px #c0c9cd;
+            box-shadow:0 0 3px #c0c9cd;
+            height:122px;
+            margin:0 auto;
+            padding:20px 13px;
+            width:254px;
+            @include rounded-full;
+          }
+
+          .tools {
+            right:24px;
+          }
+      
+        }
+
+        &.min {
+
+          float:left;
+          margin:0 22px;
+          position:relative;
+          bottom:96px;
+          width:158px;
+
+          &:first-child {
+            margin:0 20px 0 40px;
+          }
+
+          .title {
+            color:#5f6f7b;
+            font-size:11px;
+            text-align:center;
+            margin:0 0 8px 0;  
+          }
+
+          .tools {
+            display:none;
+          }
+
+          &:hover {
+            .tools {
+              display:block;
+            }
+          }
+
+          > div {
+            background-image: linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
+            background-image: -o-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
+            background-image: -moz-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
+            background-image: -webkit-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
+            background-image: -ms-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
+            background-image: -webkit-gradient(
+              linear,
+              left bottom,
+              left top,
+              color-stop(0.31, rgb(213,224,231)),
+              color-stop(1, rgb(250,252,252))
+            );
+            border:1px solid #dfe9ee;
+            cursor:default;
+            cursor:pointer;
+            -moz-box-shadow:0 3px 2px #b4bfc7;
+            -webkit-box-shadow:0 3px 2px #b4bfc7;
+            box-shadow:0 3px 2px #b4bfc7;
+            height:73px;
+            padding:9px;
+            width:138px;
+            @include rounded-full;
+          }
+
+          dl {
+            color:#93afc0;
+            font-size:10px;
+            text-align:center;
+
+            dt {
+              font-size:12px;
+              margin:0 0 4px 0;
+            }
+
+            dd {
+
+              span {
+                display:block;
+              }
+
+              .value {
+                color:#34bbf3;
+                font-size:32px;
+                margin:0 0 3px 0;
+              }
+
+              .desc {
+                font-size:12px;
+                margin:0 0 3px 0;
+              }
+            }
+          }
+        }
+
+        .tools {
+          float:none;
+          margin:0;
+          padding:0;
+          position:absolute;
+          right:5px;
+          width:30px;
+
+          li {
+
+            margin:0 0 0 5px;
+
+            a {
+              height:10px;
+              width:10px;
+            }
+
+            &.settings {
+              a {
+                background:url(../images/icons/pulse_sprite.png) no-repeat -10px -10px;
+                padding:0;
+
+                &:hover {
+                  background:url(../images/icons/pulse_sprite.png) no-repeat -10px -30px;
+                  color:#fff;
+                }
+              }
+            }
+
+            &.fullscreen {
+              a {
+                background:url(../images/icons/pulse_sprite.png) no-repeat -10px -50px;
+                padding:0;
+
+                &:hover {
+                  background:url(../images/icons/pulse_sprite.png) no-repeat -10px -70px;
+                  color:#fff;
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+
+  .tools {
+    display:inline;
+    float:right;
+    font-size:11px;
+    margin:0 5px 0 0;
+    padding:6px 4px 0 0;
+    
+    li {
+      display:inline;
+      float:left;
+      margin:0 0 0 10px;
+
+      a {
+        color:#6a7f90;
+        display:block;
+        line-height:1.5em;
+      }
+
+      &.settings {
+        a {
+          background:url(../images/icons/pulse_sprite.png) no-repeat -10px -7px;
+          padding:0 0 0 15px;
+
+          &:hover {
+            background:url(../images/icons/pulse_sprite.png) no-repeat -10px -27px;
+            color:#fff;
+          }
+        }
+      }
+
+      &.fullscreen {
+        a {
+          background:url(../images/icons/pulse_sprite.png) no-repeat -10px -47px;
+          padding:0 0 0 15px;
+
+          &:hover {
+            background:url(../images/icons/pulse_sprite.png) no-repeat -10px -67px;
+            color:#fff;
+          }
+        }
+      }
+    }
+  }
+
+}

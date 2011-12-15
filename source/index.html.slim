@@ -6,6 +6,20 @@ div id='container'
     h1 id='title'
       span Interactive Marketing Hub
 
+    ul id='taskbar'
+
+      li class='logout' 
+        a href='#' Log out
+      
+      li class='user-info'
+        a href='#' Welcome <span>Scott</span>
+        div class='menu userInfo'
+
+      li class='buDropDown'
+        a href='#'
+          strong Nike Football
+        div class='menu businessSwitch'
+
     ul id='topTools' class="clearfix"
 
       li class='calendar'
@@ -16,6 +30,41 @@ div id='container'
 
       li class='security'
         a href='#' Security
+
+  
+  div id='security'
+
+
+      ul class='collapsed'
+        li class='alerts'
+          ul
+            li class='label control'
+              span Alerts
+            li class='content' 2
+        li class='users'
+          ul
+            li class='label'  Users
+            li class='content' 2,999
+        li class='watchdog'
+          ul
+            li class='label' Watchdog
+            li class='content' High
+    
+      ul class='expanded'
+        li class='activity'
+          h2
+            a href='#' Account Activity
+          ul
+            li class='alerts'
+              span <em>2</em> Unread Alerts
+              a href='#' View All Alerts
+            li class='users'
+              span <em>2,999</em> Active Users
+              a href='#' View All Users
+            li class='watchdog'
+              span class='title' Watchdog Settings
+              span <em>High</em>
+              a href='#' View Settings
 
   ul id='leftNav'
   
@@ -94,7 +143,7 @@ div id='container'
     div id="view_calendar" class='placeholder'
       == partial 'calendar'
 
-    div id='view_pulse' class='placeholder'
+    div id='view_pulse'
       == partial 'pulse'
 
     div id='view_campaigns' class='placeholder'
