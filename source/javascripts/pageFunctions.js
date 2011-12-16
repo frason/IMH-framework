@@ -1,8 +1,42 @@
 // Global Variables
+
 var inprog = 0;
 var speed = '250';
+var barHeight = $('#topBar').outerHeight();
+
+
+// Let's get the viewport dimensions
+
+function draw_viewport () {
+   
+    window.viewport = {
+        height: function() {
+            return $(window).height();
+        },
+        width: function() {
+            return $(window).width();
+        },
+        scrollTop: function() {
+            return $(window).scrollTop();
+        },
+        scrollLeft: function() {
+            return $(window).scrollLeft();
+        }
+    };
+
+    $('#innerContent').height((viewport.height() - barHeight));
+
+}
+
+$(window).resize(function() {
+
+  $('#innerContent').height((viewport.height() - barHeight));
+
+});
 
 $(document).ready(function() {
+
+	draw_viewport();
 
 	// Left navigation
 	
@@ -78,7 +112,6 @@ $(document).ready(function() {
 	$('#security').click(function() {
 		$max = $('.expanded', this);
 		$min = $('.collapsed', this);
-		minHeight = $min.outerHeight();
 		
 		if ($min.is(':visible')) {
 			$min.slideToggle('fast');
@@ -88,7 +121,5 @@ $(document).ready(function() {
 			$max.slideToggle('fast');
 		}
 	});
-
-
 
 });
