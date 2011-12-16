@@ -1,16 +1,15 @@
 -content_for :title do
  title IMH
 
-div id='container'
-  div id='topBar'
+div id='topBar'
+  div
     h1 id='title'
       span Interactive Marketing Hub
-
+  
     ul id='taskbar'
-
       li class='logout' 
         a href='#' Log out
-      
+    
       li class='user-info'
         a href='#' Welcome <span>Scott</span>
         div class='menu userInfo'
@@ -21,7 +20,6 @@ div id='container'
         div class='menu businessSwitch'
 
     ul id='topTools' class="clearfix"
-
       li class='calendar'
         a href='#' Calendar
 
@@ -30,10 +28,10 @@ div id='container'
 
       li class='security'
         a href='#' Security
-
   
-  div id='security'
+div id='container'
 
+  div id='security'
 
       ul class='collapsed'
         li class='alerts'
@@ -41,10 +39,12 @@ div id='container'
             li class='label control'
               span Alerts
             li class='content' 2
+
         li class='users'
           ul
             li class='label'  Users
             li class='content' 2,999
+
         li class='watchdog'
           ul
             li class='label' Watchdog
@@ -66,85 +66,87 @@ div id='container'
               span <em>High</em>
               a href='#' View Settings
 
-  ul id='leftNav'
+  div id="innerContent"
+
+    ul id='leftNav'
   
-   li id='Channels' class='category' 
-     a href='#' Channels
+      li id='Channels' class='category' 
+        a href='#' Channels
 
-   li id='EmailStudio-nav' class='app'
-     div class='appImage'
-       a href='#' Email
+      li id='EmailStudio-nav' class='app'
+        div class='appImage'
+          a href='#' Email
 
-   li id='SocialEngage-nav' class='app'
-     div class='appImage'
-       a href='#' Social
+      li id='SocialEngage-nav' class='app'
+        div class='appImage'
+          a href='#' Social
 
-   li id='MobileConnect-nav' class='app' 
-     div class='appImage'
-       a href='#' Mobile 
+      li id='MobileConnect-nav' class='app' 
+        div class='appImage'
+          a href='#' Mobile 
 
-   li id='PageDesigner-nav' class='app'
-     div class='appImage'
-       a href='#' Sites
+      li id='PageDesigner-nav' class='app'
+        div class='appImage'
+          a href='#' Sites
 
-   li id='HubTools' class='category' 
-     a href='#' Hub Tools 
+      li id='HubTools' class='category' 
+        a href='#' Hub Tools 
 
-   li id='Campaigns-nav' class='app'
-     div class='appImage'
-       a href='#' Campaigns
+      li id='Campaigns-nav' class='app'
+        div class='appImage'
+          a href='#' Campaigns
   
-   li id='Reports-nav' class='app'
-     div class='appImage'
-       a href='#' Reports
+      li id='Reports-nav' class='app'
+        div class='appImage'
+          a href='#' Reports
 
-   li id='Assets-nav' class='app'
-     div class='appImage'
-       a href='#' Assets  
+      li id='Assets-nav' class='app'
+        div class='appImage'
+          a href='#' Assets  
  
-   li id='Contacts-nav' class='app'
-     div class='appImage'
-       a href='#' Contacts 
+      li id='Contacts-nav' class='app'
+        div class='appImage'
+          a href='#' Contacts 
  
-   li id='HubApps' class='categoryClosed'
-     a href='#' Hub Apps (2)
+      li id='HubApps' class='categoryClosed'
+        a href='#' Hub Apps (2)
   
-     ul class='flyout'
+        ul class='flyout'
     
-       li id='Audience-nav' class='app'
-         div class='appImage'
-           a href='#'  Audience
+          li id='Audience-nav' class='app'
+            div class='appImage'
+              a href='#'  Audience
   
-       li id='Automations-nav' class='app'
-         div class='appImage'
-           a href='#' Automations
+          li id='Automations-nav' class='app'
+            div class='appImage'
+              a href='#' Automations
  
-   li id='Partner' class='categoryClosed' 
-     a href='#' Partner Apps (3)
+      li id='Partner' class='categoryClosed' 
+        a href='#' Partner Apps (3)
 
-     ul class='flyout'
+        ul class='flyout'
  
-       li id='Marketo-nav' class='app'
-         div class='appImage'
-           a href='#' Marketo
+          li id='Marketo-nav' class='app'
+            div class='appImage'
+              a href='#' Marketo
 
-       li id='Klout-nav' class='app'
-         div class='appImage'
-           a href='#' Klout
+          li id='Klout-nav' class='app'
+            div class='appImage'
+              a href='#' Klout
  
-       li id='Netbase-nav' class='app'
-         div class='appImage' 
-           a href='#' Netbase
+          li id='Netbase-nav' class='app'
+            div class='appImage' 
+              a href='#' Netbase
+            
+      li id='bottom-nav'
 
-   li id='bottom-nav'
+    div id='mainContent'
 
-  div id='mainContent'
+      div id="view_calendar"
+        == partial 'calendar'
 
-    div id="view_calendar" class='placeholder'
-      == partial 'calendar'
+      div id='view_pulse'
+        == partial 'pulse'
 
-    div id='view_pulse'
-      == partial 'pulse'
-
-    div id='view_campaigns' class='placeholder'
-      == partial 'campaigns'
+      div id='view_campaigns' class='placeholder'
+        == partial 'campaigns'
