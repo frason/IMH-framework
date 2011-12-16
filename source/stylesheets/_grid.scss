@@ -1,4 +1,7 @@
 /* _grid.scss */
+p {font-size:11px; text-align:left;}
+
+
 
 .grid-header {
   color: #666;
@@ -6,6 +9,15 @@
   -moz-box-shadow: inset 0 0 0 1px #fff;
   -webkit-box-shadow: inset 0 0 0 1px #fff;
   box-shadow: inset 0 0 0 1px #fff;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
   padding: 10px;
   display: block;
 }
@@ -37,7 +49,8 @@
   border-radius: 3px;
   width: 160px;
   font-size: 11px;
-  color: #333;
+  color: #B2B2B2;
+  //color: #333;
   padding: 4px 4px 3px 4px;
   border: none;
   background: white;
@@ -58,6 +71,301 @@
     background-position: 0px -30px;
   }
 }
+.grid-table {
+  margin-left: 0px;
+  table-layout: fixed;
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-color: gray;
+  font-weight: normal;
+  color: #555;
+}
 
+.table-header-row {
+  border: solid 1px #BBB;
+}
 
+.active-state {
+  background-image: url(../images/grid_active_th.png);
+  background-repeat: repeat-x;
+  background-position: 0px 0px;
+  background-color: #C9E1EC;
+  //display:block;
+}
 
+.arrow-icon {
+  float:right;
+  display:inline;
+  background-image: url(../images/icons/ui-icons_256x240.png);
+  background-repeat: no-repeat;  
+  background-position: 0 -16px;
+  width: 16px; 
+  height: 16px;
+  cursor:pointer;  
+  position:relative;
+  top:-4px;
+  margin:5px;
+}
+
+.default-state {
+  background: #F8F9F9 url(../images/grid_th_bg.png);
+  background-repeat: repeat-x;
+  background-position: 0px 0px;
+  background-color: #C9E1EC;
+}
+
+.table-header-title {
+  font-size:11px;
+  font-weight:bold;
+  text-align:left;
+  color: #666;
+  position: relative;
+  padding: 10px 0px 10px 10px; 
+}
+.grid-table-scroll{
+  overflow-x: auto; 
+  overflow-y: auto; 
+  height: 297px; 
+  background-color: #fff;
+}
+
+.grid-table-data {
+  margin-left: 0px; 
+  table-layout: fixed; 
+  width: 100%;
+  border: solid 1px #c1c1c1;
+
+}
+
+.data-row {
+  border-bottom-style: dotted;
+  border-bottom-color: #c1c1c1; 
+  border-bottom-width: 1px;
+  &:hover {
+    background-color: #e6f4fa;
+  } 
+}
+
+.sorting-column {
+  background-color: rgba(170, 170, 170, 0.1);//#F8F8F8;
+  //opacity:0.3
+}
+
+.campaign-item {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  margin: 4px 7px;
+  &.blue {
+    background: #b2d3eb;
+  }
+  &.orange {
+    background: #fbd3b9;
+  }
+  &.yellow {
+    background: #f3efa5;
+  }
+  &.purple {
+    background: #e2cef1;
+  }
+}
+
+.campaign-name {
+  font-size:11px;
+  font-weight:bold;
+  text-align:left;
+  color: #666;
+  position: relative;
+  padding: 4px;
+}
+
+.data-text {
+  font-size:11px;
+  font-weight:normal;
+  text-align:left;
+  color: #999;
+  padding: 0px 10px 6px 10px;
+}
+
+.last-next-sent {
+  
+  a {font-size:11px; text-align:left; color:#1b5198;}
+  
+  .email{
+    background: url(../images/icons/email-campaign.png);   
+    display:block;
+    width:17px;
+    height:12px;
+    float:left;
+    position:relative;
+    left:5px;
+    top:4px;
+    margin:0px 7px 10px 0px;
+  }
+  .facebook {
+    background: url(../images/icons/facebook-campaign.png);   
+    display:block;
+    width:17px;
+    height:12px;
+    float:left;
+    position:relative;
+    left:5px;
+    top:4px;
+    margin:0px 7px 10px 0px;
+  }
+  .twitter {
+    background: url(../images/icons/twitter-campaign.png);    
+    display:block;
+    width:17px;
+    height:12px;
+    float:left;
+    position:relative;
+    left:5px;
+    top:4px;
+    margin:0px 7px 10px 0px;
+  }
+}
+.grid-footer {
+  color: #666;
+  background: #F0F2F3;
+  -moz-box-shadow: inset 0 0 0 1px #fff;
+  -webkit-box-shadow: inset 0 0 0 1px #fff;
+  box-shadow: inset 0 0 0 1px #fff;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-top:1px solid #CCC;
+  padding: 10px;
+  display: block;
+}
+
+.data-paging {
+  //float:left;
+  display:inline-block;
+}
+
+.dropdown {
+  float: left;
+  display:inline;
+  cursor: pointer;
+  background: #DEE2E4 url(../images/drop_bg.png) repeat-x;
+  position: relative;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 11px;
+  border: solid 1px #BBB;
+  color: #666;
+  border-image: initial;
+  margin: 5px;
+  
+  .per-page {
+    height:21px;
+    width:65px;
+  }
+
+  .page-number {
+    float:right;
+    width:16px;
+    height:16px;
+  }
+}
+.dropdown-text {
+  float: left;
+  padding: 2px 4px 1px 5px;
+  border: none;
+  white-space: nowrap;
+}
+
+.dropdown-icon {
+  float:right;
+  display:inline;
+  background-image: url(../images/icons/ui-icons_256x240.png);
+  background-repeat: no-repeat;  
+  background-position: -64px -16px;
+  width: 16px; 
+  height: 16px;
+  position:relative;
+  top:0px;
+  .per-page-icon {
+    //height:16px;
+    //width:16px;
+    margin:5px;
+  }
+  .page-number-icon {
+    //width:16px;
+    //height:16px;
+  }
+}
+
+.data-paging-text {
+  float:right;
+  display:inline;
+}
+
+.data-paging-nav {
+  float:right;
+  display:inline-block;
+}
+
+.paging-prev {
+  background-image: url(../images/transparent_pagination_sprite.png);
+  background-repeat: no-repeat;  
+  background-position: 0px -20px;
+  width: 20px; 
+  height: 20px;
+  position:relative;
+  top:-3px;
+  margin:5px;
+  opacity:0.35;
+}
+
+.page-box {
+  float:right;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  width: 50px;
+  height:17px;
+  border: solid 1px #BBB;
+  background: white;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px
+}
+.page-input {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  width: 48px;
+  font-size: 11px;
+  color: #B2B2B2;
+  //color: #333;
+  //padding: 2px 2px 3px 4px;
+  border: none;
+  background: white;
+}
+
+.paging-next{
+  background-image: url(../images/transparent_pagination_sprite.png);
+  background-repeat: no-repeat;  
+  background-position: 0px -60px;
+  width: 20px; 
+  height: 20px;
+  position:relative;
+  top:-3px;
+  margin:5px;
+  opacity:0.35;
+  &:hover {
+    
+  }
+}
