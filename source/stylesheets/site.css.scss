@@ -2,6 +2,7 @@
 @import "compass";
 @import "grid";
 
+
 // VARIABLES
 
 $sansSerif: Arial, Helvetica, Sans-serif;
@@ -38,7 +39,7 @@ $sansSerif: Arial, Helvetica, Sans-serif;
 // GLOBALS
 
 body {
-  background:#fff url(/images/ui/bg_topBar.png) repeat-x top center;
+  // background:#fff url(/images/ui/bg_topBar.png) repeat-x top center;
   font-family:$sansSerif;
 }
 
@@ -80,12 +81,22 @@ a {
 
 #container {
   height:inherit;
-  width:auto;
+  left:0;
+  margin:0 auto;
+  position:relative;
+  top:0;
+  width:1250px;
+}
+
+#innerContent {
+  margin:0 0 0 19px;
+  overflow-x:hidden;
+  overflow-y:auto;
 }
 
 #mainContent {
-   padding:52px 0 0 0;
-   margin:0 0 0 220px;
+   padding:53px 0 0 0;
+   margin:0 0 0 201px;
 }
 
 
@@ -93,39 +104,46 @@ a {
 
 #topBar {
   height:32px;
-  width:auto;
-  // background-image:linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
-  // background-image:-o-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
-  // background-image:-moz-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
-  // background-image:-webkit-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
-  // background-image:-ms-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
-  // background-image:-webkit-gradient(
-  //   linear,
-  //   left bottom,
-  //   left top,
-  //   color-stop(0.26, rgb(42,47,51)),
-  //   color-stop(0.82, rgb(64,79,89))
-  // );
+  background-image:linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-o-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-moz-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-webkit-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-ms-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
+  background-image:-webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.26, rgb(42,47,51)),
+    color-stop(0.82, rgb(64,79,89))
+  );
   position:fixed;
+  -moz-box-shadow:0 1px 1px #bbb;
+  -webkit-box-shadow:0 1px 1px #bbb;
+  box-shadow:0 1px 1px #bbb;
   width:100%;
-  // -moz-box-shadow:0 1px 1px #bbb;
-  // -webkit-box-shadow:0 1px 1px #bbb;
-  // box-shadow:0 1px 1px #bbb;
   z-index:3;
+
+  > div {
+    left:0;
+    margin:0 auto;
+    padding:0 20px;
+    position:relative;
+    top:0;
+    width:1210px;
+  }
 
   h1 {
     background: transparent url(/images/ui/bg_navHeader.png) no-repeat top center;
     color:#fff;
+    display:inline;
+    float:left;
     font-family:$sansSerif;
     font-size:14px;
     font-weight:500;
     height:39px;
-    left:20px;
     letter-spacing:.02em;
-    margin:0;
+    margin:0 18px 0 0;
     padding:0;
-    position:absolute;
-    top:0;
     width:181px;
     z-index:10;
 
@@ -142,7 +160,7 @@ a {
   float:right;
   font-family:$sansSerif;
   font-size:11px;
-  padding:0 10px 0 0;
+  padding:0;
     
     li {
       color:#aaa;
@@ -193,6 +211,10 @@ a {
         line-height:2.9em;
         margin:0;
         padding:0 10px;
+
+        &:last-child {
+          padding:0 0 0 10px;
+        }
 
         &:hover, &.selected {
             background-image: linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
@@ -474,8 +496,6 @@ a {
 }
 
 #topTools {
-  position:relative;
-  left:220px;
   padding:3px 0 0 0;
 
   li {
@@ -657,7 +677,6 @@ a {
   background:transparent url(../images/appHover.png) no-repeat 0 0; 
   position:fixed;
   top: 32px;
-  left:19px;
   margin:0 0 0 0;
   font-family:arial;
   font-size:8pt;
@@ -813,17 +832,10 @@ a {
 
 
 // MAIN CONTENT
-
-#view_calendar {
- height:165px;
- margin:0 0 15px 0;
- width:1030px;
- // background:transparent url(../images/calendar.jpg) no-repeat 0 0;
-}
     
 #view_campaigns {
  height:280px;
- width:1030px;
+ width:992px;
  margin:0 0 15px 0;
  // background:transparent url(../images/campaign.jpg) no-repeat 0 0;
 }
