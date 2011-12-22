@@ -126,10 +126,10 @@ a {
   > div {
     left:0;
     margin:0 auto;
-    padding:0 20px;
+    padding:0 10px 0 20px;
     position:relative;
     top:0;
-    width:1210px;
+    width:1220px;
   }
 
   h1 {
@@ -213,7 +213,7 @@ a {
         padding:0 10px;
 
         &:last-child {
-          padding:0 0 0 10px;
+          padding:0 10px 0 10px;
         }
 
         &:hover, &.selected {
@@ -829,15 +829,3 @@ a {
   }
 
 }
-
-
-// MAIN CONTENT
-    
-#view_campaigns {
- height:280px;
- width:992px;
- margin:0 0 15px 0;
- // background:transparent url(../images/campaign.jpg) no-repeat 0 0;
-}
-
-

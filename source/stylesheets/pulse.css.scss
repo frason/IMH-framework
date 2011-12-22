@@ -143,6 +143,76 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
       }
     }
 
+    footer {
+      bottom:0;
+      left:0;
+      padding:0 0 11px 0;
+      position:absolute;
+      text-align:center;
+      width:100%;
+      z-index:1;
+
+      .count {
+        left:0;
+        margin: 0 auto 7px auto;
+        position:relative;
+        top:0;
+      }
+
+      .indicator {
+        background:#b7c6d1;
+        border:1px solid #333;
+        height:11px;
+        width:29px;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        left:-3px;
+        opacity:.2;
+        position:absolute;
+        top:-4px;
+        z-index:1;
+      }
+
+      .gadget {
+        background:#adbdc8;
+        display:inline;
+        float:left;
+        height:3px;
+        margin:1px 2px 0 0;
+        width:4px;
+
+        &.max {
+          height:5px;
+          margin:0 2px 0 0;
+          width:7px;
+          -webkit-border-radius: 2px;
+          -moz-border-radius: 2px;
+          border-radius: 2px;
+
+          &:nth-of-type(4n+4) {
+            margin:0px 5px 0 0;
+          }
+
+          &:nth-of-type(5n+5) {
+            margin:0 2px 0 4px;
+          }
+        }
+
+        &:nth-of-type(4n+4) {
+          margin:1px 5px 0 0;
+        }
+
+        &:nth-of-type(5n+5) {
+          margin:1px 2px 0 1px;
+        }
+
+        &:last-of-type {
+          margin-right:0;
+        }
+      }
+    }
+
     .mainContent {
       background-image: linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
       background-image: -o-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
@@ -163,7 +233,43 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
       position:absolute;
       width:3000px;
 
+      > div {
+        display:inline;
+        float:left;
+        height:231px;
+        margin:-152px 0 0 0;
+        padding:0 32px;
+        width:928px;
+      }
+
       .gadget {
+
+        img {
+          height:100%;
+          width:100%;
+        }
+
+        // &:nth-child(4n+4) {
+          
+        //   &.min {
+        //     margin:0 50px 0 22px;
+        //   }
+
+        //   &.max {
+        //     margin:0 36px 0 20px;
+        //   }
+        // }
+
+        // &:nth-child(5n+5) {
+
+        //   &.min {
+        //     margin:0 22px 0 40px; 
+        //   }
+
+        //   &.max {
+        //     margin:0 20px 0 50px;
+        //   }
+        // }
 
         &.max {
 
@@ -172,11 +278,33 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           margin:0 20px;
           padding:0 0 11px;
           position:relative;
-          bottom:141px;
+          bottom:-11px;
           width:314px;
+          -webkit-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+
+          -moz-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+
+          -ms-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+          -o-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+          transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220); /* easeInQuart */
+         // -webkit-transform-origin: 50%, 50%;
+         -moz-transform-origin: 0, 0;
+         // -ms-transform-origin: 50%, 50%;
+         // -o-transform-origin: 50%, 50%;
+         // transform-origin: 50%, 50%;
+
+          &.flip {
+            -webkit-transform: translateX(38px) translateY(46px) originX(50%) originY(50%) scalex(0.5);
+
+            // -moz-transform: scalex(0);
+            -moz-transition: -moz-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+
+            -o-transform: translateX(38px) translateY(46px) originX(50%) originY(50%) scalex(0.5);
+            transform: translateX(38px) translateY(46px) originX(50%) originY(50%) scalex(0.5);
+          }
 
           &:first-child {
-            margin:0 11px 0 32px;
+            margin:0 11px 0 0;
           }
 
           .title {
@@ -221,11 +349,32 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           float:left;
           margin:0 22px;
           position:relative;
-          bottom:96px;
+          bottom:-58px;
           width:158px;
+          -webkit-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+          -moz-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+          -ms-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+          -o-transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+          transition: width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220); /* easeInQuart */
+          // -webkit-transform-origin: 50%, 50%;
+          -moz-transform-origin: center, center;
+          // -ms-transform-origin: 50%, 50%;
+          // -o-transform-origin: 50%, 50%;
+          // transform-origin: 50%, 50%;
+
+          &.flip {
+            -webkit-transform: translateX(38px) translateY(46px) originX(50%) originY(50%) scalex(0.5);
+
+            -moz-transition-property: -moz-transform scalex(0);
+            -moz-transition-duration: 2s;
+            -moz-transition-timing-function: cubic-bezier(0.895, 0.030, 0.685, 0.220);
+
+            -o-transform: translateX(38px) translateY(46px) originX(50%) originY(50%) scalex(0.5);
+            transform: translateX(38px) translateY(46px) originX(50%) originY(50%) scalex(0.5);
+          }
 
           &:first-child {
-            margin:0 20px 0 40px;
+            margin-left:6px;
           }
 
           .title {
@@ -298,6 +447,14 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
               }
             }
           }
+        }
+
+        &:first-child {
+          // margin-left:0;
+        }
+
+        &:last-child {
+          margin-right:0;
         }
 
         .tools {
