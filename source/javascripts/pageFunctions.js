@@ -25,46 +25,197 @@ function draw_viewport () {
     };
 
     $('#innerContent').height((viewport.height() - barHeight));
+    $('#overlay').width(viewport.width()).height(viewport.height());
 
 }
 
 $(window).resize(function() {
 
   $('#innerContent').height((viewport.height() - barHeight));
+  $('#overlay').width(viewport.width()).height(viewport.height());
 
 });
 
+// Easy centering
+// jQuery.fn.center = function () {
+//     this.css("position","absolute");
+//     this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
+//     this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
+//     return this;
+// }
+
+
+
+// Global - hide modal
+$(document).click(function() {
+		
+	var view = $('#cal:visible, #plse:visible');
+	$('#overlay').fadeOut(speed);
+	view.shrinkTo(view.data("source"), {
+		complete: function() {
+			view.fadeOut(speed);
+		}
+	});
+
+});
+
+
+// Common UI Functions
+var common = {
+	menuAnimate: function() {
+		// Animate Left Menu
+		$('#leftNav').css({
+			top: -350,
+			opacity: '.01'
+		});
+		$('#leftNav').delay(500).animate({
+			top: 32,
+			opacity: '1'
+		}, {
+			duration: 500,
+			easing: 'easeOutExpo'
+		});
+	},
+	bu: function(obj) {
+		var $this = obj;
+		if ($this.parent().find('.menu').is(':visible')) {
+			$this.parent().find('.menu').fadeOut(speed);
+			$this.removeClass('selected');
+		} else {
+			$this.parent().find('.menu').fadeIn(speed);
+			$this.addClass('selected');
+			$this.parent().find('.menu').hover(function() {
+				$this.parent().find('.menu').show();	
+			}, function() {
+				$this.parent().find('.menu').fadeOut(speed);
+				$this.parent().find('a:first').removeClass('selected');
+			});
+		}
+	}
+}
+
+
+
+// Calendar Functions
+var calendar = {
+	scrollRight: function(obj) {
+		var $this = obj;
+		var ribbonWidth = $('#view_calendar .ribbon').innerWidth();
+		var curWeekPos = $this.parent().find('.table').position();
+		if (curWeekPos.left < ribbonWidth) {
+			$this.parent().find('.table').animate({
+				left: ("-"+ribbonWidth)
+			}, speed, 'swing');	
+		}
+	},
+	scrollLeft: function(obj) {
+		var $this = obj;
+		var ribbonWidth = $('#view_calendar .ribbon').innerWidth();
+		var curWeekPos = $this.parent().find('.table').position();
+		if (curWeekPos.left < ribbonWidth) {
+			$this.parent().find('.table').animate({
+					left: 0
+			}, speed, 'swing');
+		}
+	}
+}
+
+
+// Pulse Functions
+var pulse = {
+	scrollRight: function(obj) {
+		var $this = obj;
+		var pulseWidth = $('#view_pulse .rail').innerWidth();
+		var curPulsePos = $this.parent().find('.mainContent').position();
+		if (curPulsePos.left < pulseWidth) {
+			$this.parent().find('.mainContent').animate({
+				left: ("-"+pulseWidth)
+			}, speed, 'easeInOutBack');
+			$('.indicator').animate({
+				left: 25
+			}, speed, 'easeInOutBack');
+		}
+	},
+	scrollLeft: function(obj) {
+		var $this = obj;
+		var pulseWidth = $('#view_pulse .rail').innerWidth();
+		var curPulsePos = $this.parent().find('.mainContent').position();
+		if (curPulsePos.left < pulseWidth) {
+			$this.parent().find('.mainContent').animate({
+				left: 0
+			}, speed, 'easeInOutBack');
+			$('.indicator').animate({
+				left: -3
+			}, speed, 'easeInOutBack');
+		}
+	},
+	gadgetry: function(obj) {
+		var $this = obj;
+		var index = $('.mainContent .gadget').index($this);
+
+		// is it maxed?
+		if ($this.hasClass('max')) {
+			$this
+				.toggleClass('max flip', false)
+				.toggleClass('min');
+			$('.rail .count .gadget')
+				.eq(index)
+				.toggleClass('max', false)
+				.toggleClass('min');
+		}	else {
+			$this
+				.parents('.mainContent')
+				.find('.max')
+				.not($this)
+				.toggleClass('max flip', false)
+				.toggleClass('min');
+			$this
+				.toggleClass('min', false)
+				.toggleClass('max flip');
+			$('.rail .count .gadget.max')
+				.not(':eq('+index+')')
+				.toggleClass('max', false)
+				.toggleClass('min');
+			$('.rail .count .gadget')
+				.eq(index)
+				.toggleClass('min', false)
+				.toggleClass('max');
+		}
+	},
+	runIndicator: function() {
+		var gadgetCount = $('.gadget').length;
+		var totalWidth = 0;
+		var arr = [];
+		$('.rail footer .gadget').each(function() {
+			arr.push($(this).outerWidth(true));
+		});
+		$.each(arr, function() {
+			totalWidth += this;
+		});
+		$('.rail .count').width(totalWidth + 9).addClass('show');
+	}
+}
+
+
+
+
+
+
+
+// When document is scriptable
 $(document).ready(function() {
 
-	var ribbonWidth = $('#view_calendar .ribbon').innerWidth();
-	var pulseWidth = $('#view_pulse .rail').innerWidth();
-
 	draw_viewport();
-
-	// Left navigation
-	
-	$('#leftNav').css({
-		top: -350,
-		opacity: '.01'
-	});
-	
-	$('#leftNav').delay(500).animate({
-		top: 32,
-		opacity: '1'
-	}, {
-		duration: 500,
-		easing: 'easeOutExpo'
-	});
+	common.menuAnimate();
 
 
-	// Flyout functionality
+	// Menu Flyout functionality
 
 	$('ul#leftNav li.categoryClosed').hover(function() {
 		if (inprog == 0) {
 			inprog = 1;
 			$('.flyout', this).stop().animate({
 				left:187
-				// opacity:'1' handled by CSS now
 			}, {
 				queue: false,
 				duration: speed,
@@ -74,7 +225,6 @@ $(document).ready(function() {
 	}, function() {
 		$('.flyout', this).stop().animate({
 			left:-187
-			// opacity:'.01' handled by CSS now
 		}, {
 			queue: true,
 			duration: speed,
@@ -99,14 +249,8 @@ $(document).ready(function() {
 	});
 	
 	$('.buDropDown a:first').click(function() {
-		if ($(this).parent().find('.menu').is(':visible')) {
-			$(this).parent().find('.menu').fadeOut(speed);
-			$(this).removeClass('selected');
-		} else {
-			$(this).parent().find('.menu').fadeIn(speed);
-			$(this).addClass('selected');
-		}
-
+		common.bu($(this));
+		return false;
 	});
 	
 	
@@ -123,19 +267,64 @@ $(document).ready(function() {
 			$min.slideToggle('fast');
 			$max.slideToggle('fast');
 		}
+		return false;
 	});
 
 	// Dropdown menus
 
 	$('.dropdown-icon').click(function() {
 		var options = $(this).closest('.dropdown').find('.options');
+		var opHeight = options.outerHeight();
+		var pos = $(this).closest('.dropdown').offset();
+
 		if (options.is(':visible')) {
 			options.fadeOut(100);
 		} else {
-			options.fadeIn(100);
+			if ((pos.top + opHeight) > viewport.height()) {
+				
+				options.css("top", -opHeight).fadeIn(100);
+			} else {
+				options.fadeIn(100);
+			}
 		}
+		return false;
 	});
 
+
+
+	//Fullscreen
+
+	$('a[title*="Fullscreen"]').click(function(e) {
+		
+		var rel = $(this).attr('rel');
+		var views = $("#" + rel);
+
+		views.data("source", $(this)).growFrom($(this), {
+			duration: speed, 
+			complete: function() {
+				// $('#overlay').fadeIn(speed);
+			}
+		});
+		$('#overlay').fadeIn(speed);
+		e.stopPropagation();
+		return false;
+	});
+
+	$('#cal a[title*="close"], #plse a[title*="close"]').click(function() {
+		var views = $(this).closest("div");
+		$('#overlay').fadeOut(speed);
+		views.shrinkTo(views.data("source"), {
+			complete: function() {
+				views.fadeOut(speed);
+			}
+		});
+		return false;
+	});
+
+	$('#cal, #plse').click(function(e){
+		e.stopPropagation();
+		return false;
+	});
 
 
 	// Calendar
@@ -151,130 +340,67 @@ $(document).ready(function() {
 		inprog = 0;
 	});
 
-	// Left/Right scrolling Events
+	// Left/Right scrolling
 
 	$('.ribbon .navRight').click(function() {
-		var curWeekPos = $(this).parent().find('.table').position();
-
-		if (curWeekPos.left < ribbonWidth) {
-			$(this).parent().find('.table').animate({
-					left: ("-"+ribbonWidth)
-			}, speed, 'swing');	
-		}
+		calendar.scrollRight($(this));
+		return false;
 	})
 
 	$('.ribbon .navLeft').click(function() {
-		var curWeekPos = $(this).parent().find('.table').position();
-
-		if (curWeekPos.left < ribbonWidth) {
-			$(this).parent().find('.table').animate({
-					left: 0
-			}, speed, 'swing');
-		}
+		calendar.scrollLeft($(this));
+		return false;
 	})
+
+	// Switch Views
+
+	$('.toggleView .month a, .toggleView .week a').click(function() {
+		$(this).parents('li').find('.selected').removeClass('selected');
+		$(this).addClass('selected');
+		return false;
+	});
+
+
 
 	// Pulse
 
 
 	//Max/Min
 
-	$('.gadget').each(function() {
+	if ($('.mainContent .gadget').length >= 1) {
 
+		$('.mainContent .gadget').each(function() {
 
-		// clone each and append to pagination indicator
-		$(this).clone().html('').appendTo('.rail footer .count').end();
+			// clone each and append to pagination indicator
+			$(this).clone().html('').appendTo('.rail footer .count').end();
 
-
-		$(this).click(function() {
-
-			// our current index
-			var index = $('.mainContent .gadget').index(this);
-
-			// is it maxed?
-			if ($(this).hasClass('max')) {
-				$(this).toggleClass('max flip', false).toggleClass('min');
-				$('.rail .count .gadget').eq(index).toggleClass('max', false).toggleClass('min');
-			}	else {
-				$(this).parents('.mainContent').find('.max').not($(this)).toggleClass('max flip', false).toggleClass('min');
-				$(this).toggleClass('min', false).toggleClass('max flip');
-
-				$('.rail .count').find('.max:not(:eq('+index+'))').toggleClass('max', false).toggleClass('min');
-				$('.rail .count .gadget').eq(index).toggleClass('min', false).toggleClass('max');
-			}
 		});
-	});
+
+		$('.mainContent .gadget').click(function() {
+			pulse.gadgetry($(this));
+			return false;
+		});
+
+	}
+
 
 	// Left/Right scrolling Events
 
 	$('.rail .navRight').click(function() {
-		var curPulsePos = $(this).parent().find('.mainContent').position();
-
-		if (curPulsePos.left < pulseWidth) {
-			$(this).parent().find('.mainContent').animate({
-				left: ("-"+pulseWidth)
-			}, speed, 'easeInOutBack');
-			$('.indicator').animate({
-				left: 25
-			}, speed, 'easeInOutBack');
-		}
+		pulse.scrollRight($(this));
+		return false;
 	});
 
 	$('.rail .navLeft').click(function() {
-		var curPulsePos = $(this).parent().find('.mainContent').position();
-
-		if (curPulsePos.left < pulseWidth) {
-			$(this).parent().find('.mainContent').animate({
-				left: 0
-			}, speed, 'easeInOutBack');
-			$('.indicator').animate({
-				left: -3
-			}, speed, 'easeInOutBack');
-		}
+		pulse.scrollLeft($(this));
+		return false;
 	});
-
-// Indicator
-
-if ($('.gadget').size() >= 1 ) {
-	
-	var gadgetCount = $('.gadget').size();
-	var totalWidth = 0;
-
-	var arr = [];
-	$('.rail footer .gadget').each(function() {
-		arr.push($(this).outerWidth(true));
-	});
-
-	$.each(arr, function() {
-		totalWidth += this;
-	});
-
-	$('.rail footer .count').width(totalWidth+3);
-
-		
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });
+
+
+//When everythig is loaded
+$(window).load(function() {
+	pulse.runIndicator();
+})
