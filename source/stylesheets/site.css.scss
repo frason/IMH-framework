@@ -76,6 +76,265 @@ a {
   color:#999
 }
 
+#overlay {
+  height:100;
+  background:#000;
+  display:none;
+  z-index:100;
+  opacity:.50;
+  filter:alpha(opacity=50);
+  filter: “alpha(opacity=50)”;
+  left:0;
+  position:absolute;
+  top:0;
+  width:100%;
+}
+
+#container #cal, #container #plse {
+  display:none;
+  background:#fff;
+  -webkit-border-radius: 6px;
+  moz-border-radius: 6px;
+  border-radius: 6px;
+  -moz-box-shadow:0 2px 14px #444;
+  -webkit-box-shadow:0 2px 14px #444;
+  box-shadow:0 2px 14px #444;
+  left:0;
+  margin:20px;
+  position:absolute;
+  top:0;
+  width:1211px;
+  z-index:200;
+
+  img {
+    clear:both;
+    display:block;
+    height:auto;
+    width:100%;
+  }
+
+  header {
+    border-bottom:1px solid #adb6bf;
+    padding:13px 10px 9px 15px;
+
+    h2 {
+      font-size:20px;
+    }
+  }
+
+  .tools {
+    display:inline;
+    float:right;
+
+    li {
+      display:inline;
+      float:right;
+      line-height:18px;
+
+      a[title*="close"] {
+        background:transparent url(/images/icons/lightbox_close.png) no-repeat center center;
+        display:block;
+        height:10px;
+        margin:4px 0 0 0;
+        width:10px;
+      }
+
+      &.toggleView {
+
+        margin:0 309px 0 0;
+        width:160px;
+
+        li {
+
+          a {
+            border:1px solid #b5c6d2;
+            color:#4e8abe;
+            display:block;
+            font-size:11px;
+            background-image: linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+            background-image: -o-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+            background-image: -moz-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+            background-image: -webkit-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+            background-image: -ms-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+            background-image: -webkit-gradient(
+              linear,
+              left bottom,
+                left top,
+              color-stop(0.11, rgb(221,231,238)),
+              color-stop(0.8, rgb(255,255,255))
+            );
+            -moz-box-shadow:0 1px 2px #dbdbdb;
+            -webkit-box-shadow:0 1px 2px #dbdbdb;
+            box-shadow:0 1px 2px #dbdbdb;
+
+            &.selected {
+              background:#dae7f1;
+              -moz-box-shadow:0 0 6px #b5c6d2 inset;
+              -webkit-box-shadow:0 0 6px #b5c6d2 inset;
+              box-shadow:0 0 6px #b5c6d2 inset;
+
+              &:hover {
+                background:#dae7f1;
+                -moz-box-shadow:0 0 6px #b5c6d2 inset;
+                -webkit-box-shadow:0 0 6px #b5c6d2 inset;
+                box-shadow:0 0 6px #b5c6d2 inset;
+              }
+            }
+
+            &:hover {
+              background-image: linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+              background-image: -o-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+              background-image: -moz-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+              background-image: -webkit-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+              background-image: -ms-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+              background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0.11, rgb(201,223,239)),
+                color-stop(0.8, rgb(242,249,255))
+              );
+            }
+          }
+
+          &:first-child a {
+            
+            @include rounded-full;
+            margin:0 0 0 10px;
+
+            span {
+              background:transparent url(/images/ui/bg_calendarPaging.png) no-repeat -55px -20px;
+              display:block;
+              height:16px;
+              width:16px;
+            }
+          }
+
+          &:last-child a {
+
+            @include rounded-full;
+            margin:0 10px 0 0;
+
+            span {
+              background:transparent url(/images/ui/bg_calendarPaging.png) no-repeat -20px -20px;
+              display:block;
+              height:16px;
+              width:16px;
+            }
+          }
+
+          &.month a {
+            padding:0 10px 1px 10px;
+            -webkit-border-top-right-radius: 3px;
+            -webkit-border-bottom-right-radius: 3px;
+            -moz-border-radius-topright: 3px;
+            -moz-border-radius-bottomright: 3px;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+          }
+
+          &.week a {
+            padding:0 10px 1px 10px;
+            -webkit-border-top-left-radius: 3px;
+            -webkit-border-bottom-left-radius: 3px;
+            -moz-border-radius-topleft: 3px;
+            -moz-border-radius-bottomleft: 3px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+          }
+        }
+      }
+
+      .search-input {
+        border:1px solid #ced1d2;
+        color:#999;
+        font-family:inherit;
+        font-size:11px;
+        margin:0 10px 0 0;
+        padding:1px 10px;
+        width:55px;
+        -webkit-border-radius:10px;
+        moz-border-radius:10px;
+        border-radius:10px;
+        -moz-box-shadow:0 1px 1px #d3d3d3 inset;
+        -webkit-box-shadow:0 1px 1px #d3d3d3 inset;
+        box-shadow:0 1px 1px #d3d3d3 inset;
+      }
+
+      &.squib {
+        float:left;
+        font-size:11px;
+        opacity:.70;
+        filter:alpha(opacity=70);
+        filter: “alpha(opacity=70)”;
+
+        span {
+          background-image: linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+          background-image: -o-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+          background-image: -moz-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+          background-image: -webkit-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+          background-image: -ms-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+          background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0, rgb(226,232,237)),
+            color-stop(0.6, rgb(246,246,246))
+          );
+          border:1px solid #c9d4db;
+          -moz-box-shadow:0 1px 1px #d9d9d9;
+          -webkit-box-shadow:0 1px 1px #d9d9d9;
+          box-shadow:0 1px 1px #d9d9d9;
+          color:#9bbbd7;
+          padding:1px 5px;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px;
+          vertical-align:top;
+        }
+      }
+
+      &.settings {
+        font-size:11px;
+
+        a {
+          background:transparent url(/images/icons/pulse_sprite.png) no-repeat -10px -9px;
+          color:#4e8abe;
+          margin:0 20px 0 0;
+          padding:0 0 0 14px;
+        }
+      }
+    }
+  }
+
+}
+
+#cal {
+    
+  header {
+    border-bottom:1px solid #e3e3e3;
+    padding:1px 10px 4px 15px !important;
+
+    .label {
+      color:#666;
+      font-size:11px;
+    }
+
+    h2 {
+      margin:1px 0 0 0;
+    }
+  }
+
+  .tools {  
+    padding:10px 0 0 0;
+    width:960px;
+
+    a[title*="close"] {
+      margin:6px 0 0 0;
+    }
+  }
+
+}
 
 // LAYOUT
 

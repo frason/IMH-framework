@@ -191,7 +191,9 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
             border-radius: 6px;
             display:inline;
             float:left;
+            height:100px;
             margin:0 7px;
+            width:975px;
             -moz-box-shadow:0 1px 2px 0px #ccc;
             -webkit-box-shadow:0 1px 2px 0px #ccc;
             box-shadow:0 1px 2px 0px #ccc;
@@ -213,7 +215,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
               // -webkit-box-shadow:0 1px 2px 0px #ccc;
               // box-shadow:0 1px 2px 0px #ccc;
               // height:100px; defined by containing div
-              width:137.8px;
+              width:137.5px;
 
               &.first {
                 border-left:none;
@@ -257,7 +259,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
                   );
                   border-right:1px solid #cecece;
                   border-bottom:1px solid #cecece;
-                  border-left:1px solid #cecece;
+                  // border-left:1px solid #cecece;
                   -webkit-border-bottom-right-radius: 6px;
                   -webkit-border-bottom-left-radius: 6px;
                   -moz-border-radius-bottomright: 6px;
@@ -268,8 +270,12 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
                   -webkit-box-shadow:0 1px 2px 0px #d9d9d9;
                   box-shadow:0 1px 2px 0px #d9d9d9;
                   height: 96px;
-                  margin: 0 -1px -10px;
-                  width: 131px;
+                  margin: 0 -1px -10px 0;
+                  width: 130px;
+                }
+
+                + li {
+                  border-left:none;
                 }
               }
 

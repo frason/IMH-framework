@@ -150,3 +150,42 @@ div id='container'
 
       div id='view_campaigns'
         == partial 'campaigns'
+
+  div id="cal"
+    header
+      ul class='tools'
+        li
+          a title="close" href="#"
+        li
+          form class='search'
+            input type="text" class="search-input" value="Search" onfocus="if(this.value == 'Search') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search';}"
+        li class='toggleView'
+          ul class='clearfix'
+            li
+              a title='Next' href='#'
+                span
+            li class='month'
+              a title='Month View' href='#' class='selected' Month
+            li class='week'
+              a title='Week View' href='#' Week
+            li
+              a title='Previous' href='#'
+                span
+        li class='squib'
+          span Today
+              
+      span class='label' Week starting
+      h2 December 26, 2011
+    img src="images/placeholders/calendar_week.png"
+  
+  div id="plse"
+    header
+      ul class="tools"
+        li
+          a title="close" href="#"
+        li class='settings'
+          a title='settings' href='#' Settings
+      h2 Pulse
+    img src="images/placeholders/pulse_full.png"
+
+div id='overlay'
