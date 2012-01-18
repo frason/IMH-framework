@@ -57,7 +57,7 @@ div id='container'
           ul
             li class='alerts'
               span <em>2</em> Unread Alerts
-              a href='#' View All Alerts
+              a title='Fullscreen' rel='scrty' href='#' View All Alerts
             li class='users'
               span <em>2,999</em> Active Users
               a href='#' View All Users
@@ -141,15 +141,12 @@ div id='container'
       li id='bottom-nav'
 
     div id='mainContent'
+      
+      == partial 'calendar'
 
-      div id="view_calendar"
-        == partial 'calendar'
+      == partial 'pulse'
 
-      div id='view_pulse'
-        == partial 'pulse'
-
-      div id='view_campaigns'
-        == partial 'campaigns'
+      == partial 'campaigns'
 
   div id="cal"
     header
@@ -187,5 +184,15 @@ div id='container'
           a title='settings' href='#' Settings
       h2 Pulse
     img src="images/placeholders/pulse_full.png"
+  
+  div id='scrty'
+    header
+      ul class="tools"
+        li
+          a title="close" href="#"
+        li class='settings'
+          a title='settings' href='#' Security Settings
+      h2 Account Activity
+    img src="images/placeholders/alerts_full.png"
 
 div id='overlay'

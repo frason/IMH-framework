@@ -1,6 +1,5 @@
 @import "reset.css";
 @import "compass";
-@import "grid";
 
 
 // VARIABLES
@@ -90,223 +89,233 @@ a {
   width:100%;
 }
 
-#container #cal, #container #plse {
-  display:none;
-  background:#fff;
-  -webkit-border-radius: 6px;
-  moz-border-radius: 6px;
-  border-radius: 6px;
-  -moz-box-shadow:0 2px 14px #444;
-  -webkit-box-shadow:0 2px 14px #444;
-  box-shadow:0 2px 14px #444;
-  left:0;
-  margin:20px;
-  position:absolute;
-  top:0;
-  width:1211px;
-  z-index:200;
+#container {
 
-  img {
-    clear:both;
-    display:block;
-    height:auto;
-    width:100%;
+  #cal, #plse {
+    left:0;
+    width:1211px;
   }
+  
+  #cal, #plse, #scrty {
+    display:none;
+    background:#fff;
+    -webkit-border-radius: 6px;
+    moz-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow:0 2px 14px #444;
+    -webkit-box-shadow:0 2px 14px #444;
+    box-shadow:0 2px 14px #444;
+    margin:20px;
+    position:absolute;
+    top:0;
+    z-index:200;
 
-  header {
-    border-bottom:1px solid #adb6bf;
-    padding:13px 10px 9px 15px;
-
-    h2 {
-      font-size:20px;
+    img {
+      clear:both;
+      display:block;
+      height:auto;
+      width:100%;
     }
-  }
 
-  .tools {
-    display:inline;
-    float:right;
+    header {
+      border-bottom:1px solid #adb6bf;
+      color:#333;
+      padding:13px 10px 9px 15px;
 
-    li {
+      h2 {
+        font-size:20px;
+      }
+    }
+
+    .tools {
       display:inline;
       float:right;
-      line-height:18px;
 
-      a[title*="close"] {
-        background:transparent url(/images/icons/lightbox_close.png) no-repeat center center;
-        display:block;
-        height:10px;
-        margin:4px 0 0 0;
-        width:10px;
-      }
+      li {
+        display:inline;
+        float:right;
+        line-height:18px;
 
-      &.toggleView {
+        a[title*="close"] {
+          background:transparent url(../images/icons/lightbox_close.png) no-repeat center center;
+          display:block;
+          height:10px;
+          margin:4px 0 0 0;
+          width:10px;
+        }
 
-        margin:0 309px 0 0;
-        width:160px;
+        &.toggleView {
+          margin:0 309px 0 0;
+          width:160px;
 
-        li {
+          li {
 
-          a {
-            border:1px solid #b5c6d2;
-            color:#4e8abe;
-            display:block;
-            font-size:11px;
-            background-image: linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
-            background-image: -o-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
-            background-image: -moz-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
-            background-image: -webkit-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
-            background-image: -ms-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
-            background-image: -webkit-gradient(
-              linear,
-              left bottom,
-                left top,
-              color-stop(0.11, rgb(221,231,238)),
-              color-stop(0.8, rgb(255,255,255))
-            );
-            -moz-box-shadow:0 1px 2px #dbdbdb;
-            -webkit-box-shadow:0 1px 2px #dbdbdb;
-            box-shadow:0 1px 2px #dbdbdb;
-
-            &.selected {
-              background:#dae7f1;
-              -moz-box-shadow:0 0 6px #b5c6d2 inset;
-              -webkit-box-shadow:0 0 6px #b5c6d2 inset;
-              box-shadow:0 0 6px #b5c6d2 inset;
-
-              &:hover {
-                background:#dae7f1;
-                -moz-box-shadow:0 0 6px #b5c6d2 inset;
-                -webkit-box-shadow:0 0 6px #b5c6d2 inset;
-                box-shadow:0 0 6px #b5c6d2 inset;
-              }
-            }
-
-            &:hover {
-              background-image: linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
-              background-image: -o-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
-              background-image: -moz-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
-              background-image: -webkit-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
-              background-image: -ms-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+            a {
+              border:1px solid #b5c6d2;
+              color:#4e8abe;
+              display:block;
+              font-size:11px;
+              background-image: linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+              background-image: -moz-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+              background-image: -webkit-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
+              background-image: -ms-linear-gradient(bottom, rgb(221,231,238) 11%, rgb(255,255,255) 80%);
               background-image: -webkit-gradient(
                 linear,
                 left bottom,
                 left top,
-                color-stop(0.11, rgb(201,223,239)),
-                color-stop(0.8, rgb(242,249,255))
+                color-stop(0.11, rgb(221,231,238)),
+                color-stop(0.8, rgb(255,255,255))
               );
+              -moz-box-shadow:0 1px 2px #dbdbdb;
+              -webkit-box-shadow:0 1px 2px #dbdbdb;
+              box-shadow:0 1px 2px #dbdbdb;
+
+              &.selected {
+                background:#dae7f1;
+                -moz-box-shadow:0 0 6px #b5c6d2 inset;
+                -webkit-box-shadow:0 0 6px #b5c6d2 inset;
+                box-shadow:0 0 6px #b5c6d2 inset;
+
+                &:hover {
+                  background:#dae7f1;
+                  -moz-box-shadow:0 0 6px #b5c6d2 inset;
+                  -webkit-box-shadow:0 0 6px #b5c6d2 inset;
+                  box-shadow:0 0 6px #b5c6d2 inset;
+                }
+              }
+
+              &:hover {
+                background-image: linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+                background-image: -moz-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+                background-image: -webkit-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+                background-image: -ms-linear-gradient(bottom, rgb(201,223,239) 11%, rgb(242,249,255) 80%);
+                background-image: -webkit-gradient(
+                  linear,
+                  left bottom,
+                  left top,
+                  color-stop(0.11, rgb(201,223,239)),
+                  color-stop(0.8, rgb(242,249,255))
+                );
+              }
             }
-          }
 
-          &:first-child a {
-            
-            @include rounded-full;
-            margin:0 0 0 10px;
+            &:first-child a {
+              @include rounded-full;
+              margin:0 0 0 10px;
 
-            span {
-              background:transparent url(/images/ui/bg_calendarPaging.png) no-repeat -55px -20px;
-              display:block;
-              height:16px;
-              width:16px;
+              span {
+                background:transparent url(../images/ui/bg_calendarPaging.png) no-repeat -55px -20px;
+                display:block;
+                height:16px;
+                width:16px;
+              }
             }
-          }
 
-          &:last-child a {
+            &:last-child a {
+              @include rounded-full;
+              margin:0 10px 0 0;
 
-            @include rounded-full;
-            margin:0 10px 0 0;
-
-            span {
-              background:transparent url(/images/ui/bg_calendarPaging.png) no-repeat -20px -20px;
-              display:block;
-              height:16px;
-              width:16px;
+              span {
+                background:transparent url(../images/ui/bg_calendarPaging.png) no-repeat -20px -20px;
+                display:block;
+                height:16px;
+                width:16px;
+              }
             }
-          }
 
-          &.month a {
-            padding:0 10px 1px 10px;
-            -webkit-border-top-right-radius: 3px;
-            -webkit-border-bottom-right-radius: 3px;
-            -moz-border-radius-topright: 3px;
-            -moz-border-radius-bottomright: 3px;
-            border-top-right-radius: 3px;
-            border-bottom-right-radius: 3px;
-          }
+            &.month a {
+              padding:0 10px 1px 10px;
+              -webkit-border-top-right-radius: 3px;
+              -webkit-border-bottom-right-radius: 3px;
+              -moz-border-radius-topright: 3px;
+              -moz-border-radius-bottomright: 3px;
+              border-top-right-radius: 3px;
+              border-bottom-right-radius: 3px;
+            }
 
-          &.week a {
-            padding:0 10px 1px 10px;
-            -webkit-border-top-left-radius: 3px;
-            -webkit-border-bottom-left-radius: 3px;
-            -moz-border-radius-topleft: 3px;
-            -moz-border-radius-bottomleft: 3px;
-            border-top-left-radius: 3px;
-            border-bottom-left-radius: 3px;
+            &.week a {
+              padding:0 10px 1px 10px;
+              -webkit-border-top-left-radius: 3px;
+              -webkit-border-bottom-left-radius: 3px;
+              -moz-border-radius-topleft: 3px;
+              -moz-border-radius-bottomleft: 3px;
+              border-top-left-radius: 3px;
+              border-bottom-left-radius: 3px;
+            }
           }
         }
-      }
 
-      .search-input {
-        border:1px solid #ced1d2;
-        color:#999;
-        font-family:inherit;
-        font-size:11px;
-        margin:0 10px 0 0;
-        padding:1px 10px;
-        width:55px;
-        -webkit-border-radius:10px;
-        moz-border-radius:10px;
-        border-radius:10px;
-        -moz-box-shadow:0 1px 1px #d3d3d3 inset;
-        -webkit-box-shadow:0 1px 1px #d3d3d3 inset;
-        box-shadow:0 1px 1px #d3d3d3 inset;
-      }
-
-      &.squib {
-        float:left;
-        font-size:11px;
-        opacity:.70;
-        filter:alpha(opacity=70);
-        filter: “alpha(opacity=70)”;
-
-        span {
-          background-image: linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
-          background-image: -o-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
-          background-image: -moz-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
-          background-image: -webkit-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
-          background-image: -ms-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
-          background-image: -webkit-gradient(
-            linear,
-            left bottom,
-            left top,
-            color-stop(0, rgb(226,232,237)),
-            color-stop(0.6, rgb(246,246,246))
-          );
-          border:1px solid #c9d4db;
-          -moz-box-shadow:0 1px 1px #d9d9d9;
-          -webkit-box-shadow:0 1px 1px #d9d9d9;
-          box-shadow:0 1px 1px #d9d9d9;
-          color:#9bbbd7;
-          padding:1px 5px;
-          -webkit-border-radius: 4px;
-          -moz-border-radius: 4px;
-          border-radius: 4px;
-          vertical-align:top;
+        .search-input {
+          border:1px solid #ced1d2;
+          color:#999;
+          font-family:inherit;
+          font-size:11px;
+          margin:0 10px 0 0;
+          padding:1px 10px;
+          width:55px;
+          -webkit-border-radius:10px;
+          moz-border-radius:10px;
+          border-radius:10px;
+          -moz-box-shadow:0 1px 1px #d3d3d3 inset;
+          -webkit-box-shadow:0 1px 1px #d3d3d3 inset;
+          box-shadow:0 1px 1px #d3d3d3 inset;
         }
-      }
 
-      &.settings {
-        font-size:11px;
+        &.squib {
+          float:left;
+          font-size:11px;
+          opacity:.70;
+          filter:alpha(opacity=70);
+          filter: “alpha(opacity=70)”;
 
-        a {
-          background:transparent url(/images/icons/pulse_sprite.png) no-repeat -10px -9px;
-          color:#4e8abe;
-          margin:0 20px 0 0;
-          padding:0 0 0 14px;
+          span {
+            background-image: linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+            background-image: -moz-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+            background-image: -webkit-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+            background-image: -ms-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
+            background-image: -webkit-gradient(
+              linear,
+              left bottom,
+              left top,
+              color-stop(0, rgb(226,232,237)),
+              color-stop(0.6, rgb(246,246,246))
+            );
+            border:1px solid #c9d4db;
+            -moz-box-shadow:0 1px 1px #d9d9d9;
+            -webkit-box-shadow:0 1px 1px #d9d9d9;
+            box-shadow:0 1px 1px #d9d9d9;
+            color:#9bbbd7;
+            padding:1px 5px;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            vertical-align:top;
+          }
+        }
+
+        &.settings {
+          font-size:11px;
+
+          a {
+            background:transparent url(../images/icons/pulse_sprite.png) no-repeat -10px -9px;
+            color:#4e8abe;
+            margin:0 20px 0 0;
+            padding:0 0 0 14px;
+          }
         }
       }
     }
   }
 
+  #scrty {
+    background:#e9eef1;
+    left:115px;
+    width:980px;
+
+    header {
+      border-bottom:none;
+    }
+  }
 }
 
 #cal {
@@ -364,7 +373,6 @@ a {
 #topBar {
   height:32px;
   background-image:linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
-  background-image:-o-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
   background-image:-moz-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
   background-image:-webkit-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
   background-image:-ms-linear-gradient(bottom, rgb(42,47,51) 26%, rgb(64,79,89) 82%);
@@ -392,7 +400,7 @@ a {
   }
 
   h1 {
-    background: transparent url(/images/ui/bg_navHeader.png) no-repeat top center;
+    background: transparent url(../images/ui/bg_navHeader.png) no-repeat top center;
     color:#fff;
     display:inline;
     float:left;
@@ -445,7 +453,6 @@ a {
 
           &:hover, &.selected {
             background-image: linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
-            background-image: -o-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
             background-image: -moz-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
             background-image: -webkit-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
             background-image: -ms-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
@@ -477,7 +484,6 @@ a {
 
         &:hover, &.selected {
             background-image: linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
-            background-image: -o-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
             background-image: -moz-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
             background-image: -webkit-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
             background-image: -ms-linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
@@ -577,7 +583,6 @@ a {
         border-left:1px solid #b5c6d2;
         border-bottom:1px solid #b5c6d2;
         background-image: linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
-        background-image: -o-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
         background-image: -moz-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
         background-image: -webkit-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
         background-image: -ms-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
@@ -728,7 +733,6 @@ a {
     
     h2 {
       background-image: linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
-      background-image: -o-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
       background-image: -moz-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
       background-image: -webkit-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
       background-image: -ms-linear-gradient(bottom, rgb(221,231,238) 6%, rgb(255,255,255) 77%);
@@ -788,7 +792,6 @@ a {
 
     &.calendar a {
       background-image:url(../images/icons/calendar.png), linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
-      background-image:url(../images/icons/calendar.png), -o-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/calendar.png), -moz-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/calendar.png), -webkit-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/calendar.png), -ms-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
@@ -805,7 +808,6 @@ a {
       &:hover {
         color:#bae7fc;
         background-image:url(../images/icons/calendar.png), linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
-        background-image:url(../images/icons/calendar.png), -o-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/calendar.png), -moz-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/calendar.png), -webkit-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/calendar.png), -ms-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
@@ -822,7 +824,6 @@ a {
 
     &.pulse a {
       background-image:url(../images/icons/pulse.png), linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
-      background-image:url(../images/icons/pulse.png), -o-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/pulse.png), -moz-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/pulse.png), -webkit-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/pulse.png), -ms-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
@@ -839,7 +840,6 @@ a {
       &:hover {
         color:#bae7fc;
         background-image:url(../images/icons/pulse.png), linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
-        background-image:url(../images/icons/pulse.png), -o-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/pulse.png), -moz-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/pulse.png), -webkit-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/pulse.png), -ms-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
@@ -855,7 +855,6 @@ a {
 
     &.security a {
       background-image:url(../images/icons/security.png), linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
-      background-image:url(../images/icons/security.png), -o-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/security.png), -moz-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/security.png), -webkit-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
       background-image:url(../images/icons/security.png), -ms-linear-gradient(bottom, rgb(42,47,50) 12%, rgb(75,91,100) 78%);
@@ -872,7 +871,6 @@ a {
       &:hover {
         color:#bae7fc;
         background-image:url(../images/icons/security.png), linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
-        background-image:url(../images/icons/security.png), -o-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/security.png), -moz-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/security.png), -webkit-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
         background-image:url(../images/icons/security.png), -ms-linear-gradient(bottom, rgb(58,71,77) 11%, rgb(107,142,160) 74%);
@@ -888,7 +886,6 @@ a {
 
     a {
       background-image: linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
-      background-image: -o-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
       background-image: -moz-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
       background-image: -webkit-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
       background-image: -ms-linear-gradient(bottom, rgb(42,47,50) 54%, rgb(74,90,100) 86%);
@@ -1055,7 +1052,6 @@ a {
       width:181px;
       -webkit-transition: opacity .5s ease-in-out;
       -moz-transition: opacity .5s ease-in-out;
-      -o-transition: opacity .5s ease-in-out;
       -ms-transition: opacity .5s ease-in-out;
       transition: opacity .5s ease-in-out;
 

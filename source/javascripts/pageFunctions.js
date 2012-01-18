@@ -49,7 +49,7 @@ $(window).resize(function() {
 // Global - hide modal
 $(document).click(function() {
 		
-	var view = $('#cal:visible, #plse:visible');
+	var view = $('#cal:visible, #plse:visible, #scrty:visible');
 	$('#overlay').fadeOut(speed);
 	view.shrinkTo(view.data("source"), {
 		complete: function() {
@@ -117,6 +117,104 @@ var calendar = {
 					left: 0
 			}, speed, 'swing');
 		}
+	},
+	removeEvent: function(obj) {
+		var $this = obj;
+		$this.next('.detail').remove();
+	},
+	getEvent: function(obj, i) {
+		var $this = obj;
+		var $item = i;
+		var $dayPos = $this.parents('.day').position();
+		var $parPos = $this.parents('.day').parent().position();
+		var $pos = $this.parent().position();
+		var $cwidth = $('.seven').innerWidth();
+		var events = [
+			{
+				eventColor: 'purple',
+				eventAssoc: 'iTunes Download Program',
+				eventType: 'Mobile',
+				eventImage: '',
+				eventTitle: 'Release Party Text Message',
+				eventDescrip: '8:00 AM'
+			},
+			{
+				eventColor: 'red',
+				eventAssoc: 'Best Buy Channel Program',
+				eventType: 'Twitter',
+				eventImage: 'images/placeholders/eventTwitterThumbnail.png',
+				eventTitle: 'Where you at, ATL?',
+				eventDescrip: '9:00 AM'
+			},
+			{
+				eventColor: 'red',
+				eventAssoc: 'Best Buy Channel Program',
+				eventType: 'Facebook',
+				eventImage: 'images/placeholders/eventFacebooklThumbnail.png',
+				eventTitle: 'You want to roll VIP with Soulja Boy?',
+				eventDescrip: '9:00 AM'
+			},
+			{
+				eventColor: 'red',
+				eventAssoc: 'Best Buy Channel Program',
+				eventType: 'Email',
+				eventImage: 'images/placeholders/eventEmailThumbnail.png',
+				eventTitle: 'Release Party Announcement',
+				eventDescrip: '9:00 AM'
+			},
+			{
+				eventColor: 'green',
+				eventAssoc: 'Globetrotting Release Party',
+				eventType: 'Twitter',
+				eventImage: 'images/placeholders/eventTwitterThumbnail.png',
+				eventTitle: 'Where you at, ATL?',
+				eventDescrip: '9:00 AM'
+			}
+		];
+
+		// alert($parPos.left + $pos.left);
+
+		if ($('.eventDetail').is(':visible')) {
+			$('#view_' + $this.attr('rel'))
+				.animate({
+					left: $parPos.left + $pos.left + $this.parent().outerWidth(true) + 9,
+					opacity: 0
+				}, 400);
+		} else {
+			$.get('../_templates.html', null, function(template) {
+				$view = $.tmpl(template, events[$item]);
+
+				if ($cwidth - $parPos.left < 265) {
+					$this.parents('#calendar.ribbon')
+						.before($view);
+					$view
+						.css({
+							'top' : $parPos.top + $pos.top + 10,
+							// 'left' : $parPos.left + $pos.left + $this.parent().outerWidth(true)
+						})
+						.addClass('right')
+						.animate({
+							// right: $parPos.left + $pos.left + $this.parent().outerWidth(true) -272,
+							opacity: 1
+						}, 400)
+						.attr('id','view_'+$this.attr('rel'));
+				} else {
+					$this.parents('#calendar.ribbon')
+						.before($view);
+					$view
+						.css({
+							'top' : $parPos.top + $pos.top + 10,
+							'left' : $parPos.left + $pos.left + $this.parent().outerWidth(true) + 9
+						})
+						.animate({
+							left: $parPos.left + $pos.left + $this.parent().outerWidth(true) + 2,
+							opacity: 1
+						}, 400)
+						.attr('id','view_'+$this.attr('rel'));
+				}
+			});
+
+		}
 	}
 }
 
@@ -125,6 +223,7 @@ var calendar = {
 var pulse = {
 	scrollRight: function(obj) {
 		var $this = obj;
+		var indPos = $('.indicator').position();
 		var pulseWidth = $('#view_pulse .rail').innerWidth();
 		var curPulsePos = $this.parent().find('.mainContent').position();
 		if (curPulsePos.left < pulseWidth) {
@@ -138,8 +237,9 @@ var pulse = {
 	},
 	scrollLeft: function(obj) {
 		var $this = obj;
+		var indPos = $('.indicator').position();
 		var pulseWidth = $('#view_pulse .rail').innerWidth();
-		var curPulsePos = $this.parent().find('.mainContent').position();
+		var curPulsePos = $this.parent().find('.mainContent ').position();
 		if (curPulsePos.left < pulseWidth) {
 			$this.parent().find('.mainContent').animate({
 				left: 0
@@ -310,7 +410,7 @@ $(document).ready(function() {
 		return false;
 	});
 
-	$('#cal a[title*="close"], #plse a[title*="close"]').click(function() {
+	$('#cal a[title*="close"], #plse a[title*="close"], #scrty a[title*="close"]').click(function() {
 		var views = $(this).closest("div");
 		$('#overlay').fadeOut(speed);
 		views.shrinkTo(views.data("source"), {
@@ -321,7 +421,7 @@ $(document).ready(function() {
 		return false;
 	});
 
-	$('#cal, #plse').click(function(e){
+	$('#cal, #plse, #scrty').click(function(e){
 		e.stopPropagation();
 		return false;
 	});
@@ -351,6 +451,24 @@ $(document).ready(function() {
 		calendar.scrollLeft($(this));
 		return false;
 	})
+
+	// Event Hover
+
+	$('.eventList .event').on({
+		mouseenter: function() {
+			var item = $(this).attr('rel');
+			calendar.getEvent($(this),item);
+		},
+		mouseleave: function() {
+			var item = $(this).attr('rel');
+			calendar.getEvent($(this),item);
+
+			window.setTimeout(function() {
+				$('#view_'+ item).remove();
+			}, 1000);
+		}
+	});
+
 
 	// Switch Views
 

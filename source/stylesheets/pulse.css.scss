@@ -1,3 +1,5 @@
+@import "animations.css";
+
 // Pulse
 
 // VARIABLES
@@ -12,86 +14,8 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
   border-radius: 3px;
 }
 
-// ANIMATIONS
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-transform-origin:center center;
-    -webkit-transform: scale(1); 
-    }
-  50% {
-    -webkit-transform-origin:center center;
-    -webkit-transform: scale(1.02);
-  }
-  100% {
-    -webkit-transform-origin:center center;
-    -webkit-transform: scale(1);
-  }
-}
-
-@-moz-keyframes pulse {
-  0% {
-    -moz-transform-origin:center center;
-    -moz-transform: scale(1); 
-    }
-  50% {
-    -moz-transform-origin:center center;
-    -moz-transform: scale(1.02);
-  }
-  100% {
-    -moz-transform-origin:center center;
-    -moz-transform: scale(1);
-  }
-}
-
-@-o-keyframes pulse {
-  0% {
-    -o-transform-origin:center center;
-    -o-transform: scale(1); 
-    }
-  50% {
-    -o-transform-origin:center center;
-    -o-transform: scale(1.02);
-  }
-  100% {
-    -o-transform-origin:center center;
-    -o-transform: scale(1);
-  }
-}
-
-@-ms-keyframes pulse {
-  0% {
-    -ms-transform-origin:center center;
-    -ms-transform: scale(1); 
-    }
-  50% {
-    -ms-transform-origin:center center;
-    -ms-transform: scale(1.02);
-  }
-  100% {
-    -ms-transform-origin:center center;
-    -ms-transform: scale(1);
-  }
-}
-
-@-keyframes pulse {
-  0% {
-    -transform-origin:center center;
-    -transform: scale(1); 
-    }
-  50% {
-    -transform-origin:center center;
-    -transform: scale(1.02);
-  }
-  100% {
-    -transform-origin:center center;
-    -transform: scale(1);
-  }
-}
-
 #view_pulse {
   background-image: linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
-  background-image: -o-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
   background-image: -moz-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
   background-image: -webkit-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
   background-image: -ms-linear-gradient(bottom, rgb(204,214,221) 0%, rgb(138,155,168) 100%);
@@ -111,7 +35,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
 
   .container {
     background-image:url(../images/ui/bg_pulseBurst.png), linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
-    background-image:url(../images/ui/bg_pulseBurst.png), -o-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
     background-image:url(../images/ui/bg_pulseBurst.png), -moz-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
     background-image:url(../images/ui/bg_pulseBurst.png), -webkit-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
     background-image:url(../images/ui/bg_pulseBurst.png), -ms-linear-gradient(bottom, rgb(224,235,243) 7%, rgb(153,172,186) 54%);
@@ -170,7 +93,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         width:24px;
         -webkit-transition: opacity 100ms ease-in 100ms;
         -moz-transition: opacity 100ms ease-in 100ms;
-        -o-transition: opacity 100ms ease-in 100ms;
+        -ms-transition: opacity 100ms ease-in 100ms;
         transition: opacity 100ms ease-in 100ms;
 
 
@@ -203,7 +126,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         width:24px;
         -webkit-transition: opacity 100ms ease-in 100ms;
         -moz-transition: opacity 100ms ease-in 100ms;
-        -o-transition: opacity 100ms ease-in 100ms;
+        -ms-transition: opacity 100ms ease-in 100ms;
         transition: opacity 100ms ease-in 100ms;
 
         &:hover {
@@ -239,7 +162,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           opacity:1;
           -webkit-transition: opacity 100ms ease-in 100ms;
           -moz-transition: opacity 100ms ease-in 100ms;
-          -o-transition: opacity 100ms ease-in 100ms;
+          -ms-transition: opacity 100ms ease-in 100ms;
           transition: opacity 100ms ease-in 100ms; 
         }
       }
@@ -300,7 +223,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
 
     .mainContent {
       background-image: linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
-      background-image: -o-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
       background-image: -moz-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
       background-image: -webkit-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
       background-image: -ms-linear-gradient(bottom, rgb(227,237,245) 31%, rgb(189,204,215) 100%);
@@ -332,14 +254,12 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         -webkit-transform-origin:center center;
         -moz-transform-origin:center center;
         -ms-transform-origin:center center;
-        -o-transform-origin:center center;
         transform-origin:center center;
 
         > div {
           -webkit-transform-origin:center center;
           -moz-transform-origin:center center;
           -ms-transform-origin:center center;
-          -o-transform-origin:center center;
           transform-origin:center center;
         }
 
@@ -363,7 +283,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           -webkit-transition: -webkit-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
           -moz-transition:-moz-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
           -ms-transition: -ms-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
-          -o-transition: -o-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
           transition: transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
 
           &.flip {
@@ -389,7 +308,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
 
           > div {
             background-image: linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
-            background-image: -o-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
             background-image: -moz-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
             background-image: -webkit-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
             background-image: -ms-linear-gradient(bottom, rgb(226,244,254) 31%, rgb(245,251,255) 100%);
@@ -404,7 +322,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
             -webkit-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
             -moz-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
             -ms-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
-            -o-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
             transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
 
             cursor:default;
@@ -438,20 +355,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           -webkit-transition: -webkit-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
           -moz-transition: -moz-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
           -ms-transition: -ms-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
-          -o-transition: -o-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
           transition: transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
-
-          &.flip {
-
-            > div {
-              // -moz-transform-origin: center center;
-              // -moz-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
-              // border: 0 none;
-              // opacity: 0;
-              // padding: 0;
-              // width: 0;
-            }
-          }
 
           &:first-child {
             margin-left:6px;
@@ -476,7 +380,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
 
           > div {
             background-image: linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
-            background-image: -o-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
             background-image: -moz-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
             background-image: -webkit-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
             background-image: -ms-linear-gradient(bottom, rgb(213,224,231) 31%, rgb(250,252,252) 100%);
@@ -488,10 +391,13 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
               color-stop(1, rgb(250,252,252))
             );
 
+            -webkit-animation: shrinkIn 200ms ease-out 1 alternate forwards;
             -webkit-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+            -moz-animation: stepBackward 200ms ease-out 1 backwards;
             -moz-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+            -ms-animation: stepBackward 200ms ease-out 1 alternate;
             -ms-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
-            -o-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+            animation: stepBackward 200ms ease-out 1 alternate;
             transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
 
             border:1px solid #dfe9ee;
@@ -538,16 +444,54 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           &:hover {
 
             > div {
-              -webkit-animation: pulse 500ms ease-in-out;
-              -webkit-animation-iteration-count: infinite;
-              -moz-animation: pulse 500ms ease-in-out;
-              -moz-animation-iteration-count: infinite;
-              -o-animation: pulse 500ms ease-in-out;
-              -o-animation-iteration-count: infinite;
-              -ms-animation: pulse 500ms ease-in-out;
-              -ms-animation-iteration-count: infinite;
-              animation: pulse 500ms ease-in-out;
-              animation-iteration-count: infinite;
+              -webkit-animation: growOut 200ms ease-out 1 forwards;
+              -moz-animation: growOut 200ms ease-out 1 forwards;
+              -ms-animation: growOut 200ms ease-out 1 forwards;
+              animation: growOut 200ms ease-out 1 forwards;
+            }
+
+            &.pulse {
+              
+              > div {
+                -webkit-animation: pulse 500ms ease-in-out;
+                -webkit-animation-iteration-count: infinite;
+                -moz-animation: pulse 500ms ease-in-out;
+                -moz-animation-iteration-count:infinite;
+                -ms-animation: pulse 500ms ease-in-out;
+                -ms-animation-iteration-count: infinite;
+                animation: pulse 500ms ease-in-out;
+                animation-iteration-count: infinite;
+              }
+            }
+
+            &.growDown {
+
+              > div {
+                -webkit-animation: growDown 200ms cubic-bezier(0.895, 0.030, 0.685, 0.220) 1 alternate forwards;
+                -moz-animation: growDown 200ms cubic-bezier(0.895, 0.030, 0.685, 0.220) 1 alternate forwards;
+                -ms-animation: growDown 200ms cubic-bezier(0.895, 0.030, 0.685, 0.220) 1 alternate forwards;
+                animation: growDown 200ms cubic-bezier(0.895, 0.030, 0.685, 0.220) 1 alternate forwards;
+              }
+            }
+
+            &.stepForward_2 {
+              
+              > div {
+                -webkit-animation: stepForward_2 200ms linear 1 forwards;
+                -moz-animation: stepForward 200ms ease-out 1 forwards;
+                -ms-animation: stepForward 200ms ease-out 1 forwards;
+                animation: stepForward 200ms ease-out 1 forwards;
+              }
+            }
+
+            &.walkTo {
+              
+              > div {
+                -webkit-animation: walkTo 300ms ease-out 1 forwards;
+                -moz-animation: walkTo 300ms ease-out 1 forwards;
+                -ms-animation: stepForward 200ms ease-out 1 forwards;
+                animation: stepForward 200ms ease-out 1 forwards;
+              }
             }
           }
         }
