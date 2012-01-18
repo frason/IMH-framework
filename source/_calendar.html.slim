@@ -1,98 +1,122 @@
 link rel="stylesheet" href="stylesheets/calendar.css"
 
-div class='container'
+div id="view_calendar"
 
-	header
-		ul class='tools clearfix'
-			li class='fullscreen'
-				a rel='cal' title='Fullscreen' href='#' Full Screen
-		h2 Calendar
-			<span class='range'> September – October 2010</span>
-			<span class='squib'> Today</span>
+	div class='container'
 
-	div id='calendar' class='ribbon'
+		header
+			ul class='tools clearfix'
+				li class='fullscreen'
+					a rel='cal' title='Fullscreen' href='#' Full Screen
+			h2 Calendar
+				<span class='range'> September – October 2010</span>
+				<span class='squib'> Today</span>
 
-		div class='navRight'
-			a href='#'
-	
-		div class='navLeft'
-			a href='#'
+		div id='calendar' class='ribbon'
 
-		ul class='table clearfix'
-			li class='seven'
-				ul class='clearfix'
-					li class='first'
-						div class='day'
-							header
-								span class='day-number' 26
-								span class='day-name' Sun
-							
-					li
-						div class='day'
-							header
-								span class='day-number' 27
-								span class='day-name' Mon
-					li
-						div class='day'
-							header
-								span class='day-number' 28
-								span class='day-name' Tue
-					li class='highlight'
-						div class='day'
-							header
-								span class='day-number' 29
-								span class='day-name' Wed
-							footer
-								span class='label today' Today
-					li
-						div class='day'
-							header
-								span class='day-number' 30
-								span class='day-name' Thu
-					li
-						div class='day'
-							header
-								span class='day-number' 1
-								span class='day-name' Fri
-					li class='last'
-						div class='day'
-							header
-								span class='day-number' 2
-								span class='day-name' Sat
-			li class='seven'
-				ul class='clearfix'
-					li class='first'
-						div class='day'
-							header
-								span class='day-number' 3
-								span class='day-name' Sun
-					li
-						div class='day'
-							header
-								span class='day-number' 4
-								span class='day-name' Mon
-					li
-						div class='day'
-							header
-								span class='day-number' 5
-								span class='day-name' Tue
-					li
-						div class='day'
-							header
-								span class='day-number' 6
-								span class='day-name' Wed
-					li
-						div class='day'
-							header
-								span class='day-number' 7
-								span class='day-name' Thu
-					li
-						div class='day'
-							header
-								span class='day-number' 8
-								span class='day-name' Fri
-					li class='last'
-						div class='day'
-							header
-								span class='day-number' 9
-								span class='day-name' Sat
+			div class='navRight'
+				a href='#'
+		
+			div class='navLeft'
+				a href='#'
+
+			ul class='table clearfix'
+				li class='seven'
+					ul class='clearfix'
+						li class='first'
+							div class='day'
+								header
+									span class='day-number' 26
+									span class='day-name' Sun
+								section
+									ul class='eventList'
+										li class='purple'
+											a rel='0' title='Mobile Event' href='#' class='event mobile' 1
+						li
+							div class='day'
+								header
+									span class='day-number' 27
+									span class='day-name' Mon
+								section
+									ul class='eventList'
+										li class='red rowTwo'
+											a rel='1' title='Twitter Event' href='#' class='event twitter' 1
+						li
+							div class='day'
+								header
+									span class='day-number' 28
+									span class='day-name' Tue
+						li class='highlight'
+							div class='day'
+								header
+									span class='day-number' 29
+									span class='day-name' Wed
+								section
+									ul class='eventList'
+										li class='purple'
+											a rel='0' title='Mobile Event' href='#' class='event mobile' 1
+										li class='red'
+											a rel='2' title='Facebook Event' href='#' class='event facebook' 1
+											a rel='3' title='Email Event' href='#' class='event email' 1
+								footer
+									span class='label today' Today
+						li
+							div class='day'
+								header
+									span class='day-number' 30
+									span class='day-name' Thu
+								section
+									ul class='eventList'
+										li class='green rowThree'
+											a rel='4' title='Twitter Event' href='#' class='event twitter' 1
+						li
+							div class='day'
+								header
+									span class='day-number' 1
+									span class='day-name' Fri
+						li class='last'
+							div class='day'
+								header
+									span class='day-number' 2
+									span class='day-name' Sat
+								section
+									ul class='eventList'
+										li class='purple'
+											a rel='0' title='Mobile Event' href='#' class='event mobile' 1
+				li class='seven'
+					ul class='clearfix'
+						li class='first'
+							div class='day'
+								header
+									span class='day-number' 3
+									span class='day-name' Sun
+						li
+							div class='day'
+								header
+									span class='day-number' 4
+									span class='day-name' Mon
+						li
+							div class='day'
+								header
+									span class='day-number' 5
+									span class='day-name' Tue
+						li
+							div class='day'
+								header
+									span class='day-number' 6
+									span class='day-name' Wed
+						li
+							div class='day'
+								header
+									span class='day-number' 7
+									span class='day-name' Thu
+						li
+							div class='day'
+								header
+									span class='day-number' 8
+									span class='day-name' Fri
+						li class='last'
+							div class='day'
+								header
+									span class='day-number' 9
+									span class='day-name' Sat

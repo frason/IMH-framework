@@ -82,7 +82,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
 
           &.squib {
             background-image: linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
-            background-image: -o-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
             background-image: -moz-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
             background-image: -webkit-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
             background-image: -ms-linear-gradient(bottom, rgb(226,232,237) 0%, rgb(246,246,246) 60%);
@@ -108,11 +107,228 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
       }
     }
 
+    .eventDetail {
+      // display:none;
+      opacity:0;
+      position:absolute;
+      right:-275px;
+      top:-20px;
+      width:265px;
+      z-index:2;
+      -moz-box-shadow:0 7px 9px #999;
+      -webkit-box-shadow:0 7px 9px #999;
+      box-shadow:0 7px 9px #999;
+      @include rounded-full;
+      // -moz-transform:translateX(-10px);
+      // -moz-transform-origin: 0% 0%;
+      // -moz-transition: -moz-transform 400ms ease-in-out;
+
+      > div {
+        background:#f6f6f6;
+        @include rounded-full;
+        // -moz-transition: -moz-transform 400ms ease-in-out;
+      }
+
+      .pointer { //ugly
+        background:transparent url(../images/ui/bg_leftMenuPointer.png) no-repeat center center;
+        height:9px;
+        left:-5px;
+        position:absolute;
+        top:23px;
+        width:5px;
+        z-index:1;
+      }
+
+      header {
+        -webkit-border-top-left-radius: 3px;
+        -webkit-border-top-right-radius: 3px;
+        -moz-border-radius-topleft: 3px;
+        -moz-border-radius-topright: 3px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        color:#fff;
+        font-size:10px;
+        padding:4px 10px;
+        text-transform:uppercase;
+
+        .eventAssoc {
+          display:inline;
+          float:right;
+          text-transform:none;
+        }
+
+        &.purple {
+          background-image: linear-gradient(bottom, rgb(147,155,221) 13%, rgb(187,192,237) 92%);
+          background-image: -o-linear-gradient(bottom, rgb(147,155,221) 13%, rgb(187,192,237) 92%);
+          background-image: -moz-linear-gradient(bottom, rgb(147,155,221) 13%, rgb(187,192,237) 92%);
+          background-image: -webkit-linear-gradient(bottom, rgb(147,155,221) 13%, rgb(187,192,237) 92%);
+          background-image: -ms-linear-gradient(bottom, rgb(147,155,221) 13%, rgb(187,192,237) 92%);
+          background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.13, rgb(147,155,221)),
+            color-stop(0.92, rgb(187,192,237))
+          );
+        }
+
+        &.red {
+          background-image: linear-gradient(bottom, rgb(231,138,120) 13%, rgb(247,176,164) 92%);
+          background-image: -o-linear-gradient(bottom, rgb(231,138,120) 13%, rgb(247,176,164) 92%);
+          background-image: -moz-linear-gradient(bottom, rgb(231,138,120) 13%, rgb(247,176,164) 92%);
+          background-image: -webkit-linear-gradient(bottom, rgb(231,138,120) 13%, rgb(247,176,164) 92%);
+          background-image: -ms-linear-gradient(bottom, rgb(231,138,120) 13%, rgb(247,176,164) 92%);
+          background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.13, rgb(231,138,120)),
+            color-stop(0.92, rgb(247,176,164))
+          );
+        }
+
+        &.green {
+          background-image: linear-gradient(bottom, rgb(170,201,91) 13%, rgb(209,233,143) 92%);
+          background-image: -o-linear-gradient(bottom, rgb(170,201,91) 13%, rgb(209,233,143) 92%);
+          background-image: -moz-linear-gradient(bottom, rgb(170,201,91) 13%, rgb(209,233,143) 92%);
+          background-image: -webkit-linear-gradient(bottom, rgb(170,201,91) 13%, rgb(209,233,143) 92%);
+          background-image: -ms-linear-gradient(bottom, rgb(170,201,91) 13%, rgb(209,233,143) 92%);
+          background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.13, rgb(170,201,91)),
+            color-stop(0.92, rgb(209,233,143))
+          );
+        }
+      }
+
+      section {
+        font-size:12px;
+        padding:8px 10px 15px;
+
+        h4 {
+          font-weight:600;
+          margin:0 0 7px 0;
+        }
+
+        a {
+          color:#2168a7;
+          height:auto;
+          line-height:normal;
+          padding:0;
+        }
+
+        p {
+          font-size:12px;
+        }
+
+        img {
+          height:auto;
+          margin:0 10px 0 0;
+          width:auto;
+        }
+      }
+
+      &.right {
+        right:275px !important;
+
+        .pointer { //ugly
+          background:transparent url(../images/ui/bg_leftMenuPointer.png) no-repeat center center;
+          right:-5px;
+        }
+      }
+    }
+
     #calendar {
       left:0;
       position:relative;
       top:0;
       width:100%;
+
+      .eventList {
+        
+        li {
+          background-color:#fff;
+          border-left:none !important;
+          border-right:none !important;
+          clear:left;
+          left:0;
+          margin:0 0 3px 0;
+          position:relative;
+          top:0;
+          width:auto !important;
+          @include rounded-full;
+
+          a {
+            color:#666;
+            height:16px;
+            line-height:1.6em;
+            padding:2px 4px;
+
+            &.mobile {
+              background-image: url(../images/icons/calendar_sprite.png); 
+              background-repeat:no-repeat;
+              background-position:-5px -112px;
+              padding:2px 5px 2px 20px;
+            }
+
+            &.twitter {
+              background-image: url(../images/icons/calendar_sprite.png); 
+              background-repeat:no-repeat;
+              background-position:-5px -68px;
+              padding:2px 5px 2px 20px;
+            }
+
+            &.facebook {
+              background-image: url(../images/icons/calendar_sprite.png); 
+              background-repeat:no-repeat;
+              background-position:-5px -90px;
+              padding:2px 5px 2px 20px;
+            }
+
+            &.email {
+              background-image: url(../images/icons/calendar_sprite.png); 
+              background-repeat:no-repeat;
+              background-position:-5px -47px;
+              padding:2px 5px 2px 20px;
+            }
+
+          }
+
+          &.rowTwo {
+            top:19px !important;
+          }
+
+          &.rowThree {
+            top:38px !important;
+          }
+
+          &.purple {
+            background-color:#d2d6f6;
+
+            &:hover {
+              background-color:#bdc2ed;
+            }
+          }
+
+          &.red {
+            background-color:#f8cfc7;
+
+            &:hover {
+              background-color:#f6b8ac;
+            }
+          }
+
+          &.green {
+            background-color:#d7edad;
+
+            &:hover {
+              background-color:#c9e299;
+            }
+          }
+        }
+      }
       
       &.ribbon {
 
@@ -201,9 +417,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
             li {
               border-right:1px solid #ddd;
               border-left:1px solid #fff;
-              // border-top:1px solid #ddd;
-              // border-bottom:1px solid #ddd;
-              // background:#f6f6f6;
               color:#666;
               display:inline;
               float:left;
@@ -211,32 +424,14 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
               left:0;
               position:relative;
               top:0;
-              // -moz-box-shadow:0 1px 2px 0px #ccc;
-              // -webkit-box-shadow:0 1px 2px 0px #ccc;
-              // box-shadow:0 1px 2px 0px #ccc;
-              // height:100px; defined by containing div
               width:137.5px;
 
               &.first {
                 border-left:none;
-                // -webkit-border-top-left-radius: 6px;
-                // -webkit-border-bottom-left-radius: 6px;
-                // -moz-border-radius-topleft: 6px;
-                // -moz-border-radius-bottomleft: 6px;
-                // border-top-left-radius: 6px;
-                // border-bottom-left-radius: 6px;
-                // margin:0 0 0 8px;
               }
 
               &.last {
                 border-right:none;
-                // -webkit-border-top-right-radius: 6px;
-                // -webkit-border-bottom-right-radius: 6px;
-                // -moz-border-radius-topright: 6px;
-                // -moz-border-radius-bottomright: 6px;
-                // border-top-right-radius: 6px;
-                // border-bottom-right-radius: 6px;
-                // margin:0 6px 0 0;
               }
 
               &.highlight {
@@ -246,7 +441,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
             
                 .day {
                   background-image: linear-gradient(bottom, rgb(254,238,218) 13%, rgb(255,251,246) 79%);
-                  background-image: -o-linear-gradient(bottom, rgb(254,238,218) 13%, rgb(255,251,246) 79%);
                   background-image: -moz-linear-gradient(bottom, rgb(254,238,218) 13%, rgb(255,251,246) 79%);
                   background-image: -webkit-linear-gradient(bottom, rgb(254,238,218) 13%, rgb(255,251,246) 79%);
                   background-image: -ms-linear-gradient(bottom, rgb(254,238,218) 13%, rgb(255,251,246) 79%);
@@ -308,7 +502,6 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
 
                     &.today {
                       background-image: linear-gradient(bottom, rgb(248,154,32) 13%, rgb(253,176,75) 79%);
-                      background-image: -o-linear-gradient(bottom, rgb(248,154,32) 13%, rgb(253,176,75) 79%);
                       background-image: -moz-linear-gradient(bottom, rgb(248,154,32) 13%, rgb(253,176,75) 79%);
                       background-image: -webkit-linear-gradient(bottom, rgb(248,154,32) 13%, rgb(253,176,75) 79%);
                       background-image: -ms-linear-gradient(bottom, rgb(248,154,32) 13%, rgb(253,176,75) 79%);
@@ -338,7 +531,8 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
             }
           }
         }
-      } 
+      }
+
     }
   }
 }
