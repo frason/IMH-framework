@@ -1,0 +1,33 @@
+doctype html
+head
+//pulls in title from individual page
+== yield_content :title
+meta http-equiv='Content-Type' content='text/html' charset='utf-8'
+script type="text/javascript" src="../javascripts/jquery-1.4.2.min.js"
+script type="text/javascript" src="../javascripts/jquery.easing.1.3.js"
+script type="text/javascript" src="../javascripts/growshrink.js"
+script type="text/javascript" src="../javascripts/pageFunctions.js"
+link rel="stylesheet" href="/stylesheets/indv.css"
+link rel="stylesheet" href="/stylesheets/site.css"
+
+
+body
+//TODO: Include Susy Grids here
+
+// Header - pulls in header from individual object page (ex. Prototype | Calendar)
+== yield_content :header
+
+// Options - Checks for optsions, IF Options, then display options functionality
+== if content_for?(:options)
+	== yield_content :options
+
+// Container for individual object
+div class='indv-container'
+	 	== yield
+
+== yield_content :documentation
+
+div class='indv-footer'
+	hr class='embossed'
+	img src='images/designmap.png'
+	p ExactTarget - Prototype
