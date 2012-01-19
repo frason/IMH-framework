@@ -21,7 +21,7 @@ function draw_viewport () {
         },
         scrollLeft: function() {
             return $(window).scrollLeft();
-        }
+        } 
     };
 
     $('#innerContent').height((viewport.height() - barHeight));
@@ -175,45 +175,54 @@ var calendar = {
 		// alert($parPos.left + $pos.left);
 
 		if ($('.eventDetail').is(':visible')) {
-			$('#view_' + $this.attr('rel'))
-				.animate({
-					left: $parPos.left + $pos.left + $this.parent().outerWidth(true) + 9,
-					opacity: 0
-				}, 400);
+			if ($cwidth - $parPos.left < 265) {
+				$('#view_' + $this.attr('rel'))
+					.stop()
+					.animate({
+						right: $dayPos.left + 159,
+						opacity: 0
+					}, 400);
+			} else {
+				$('#view_' + $this.attr('rel'))
+					.stop()
+					.animate({
+						left: $parPos.left + $pos.left + $this.outerWidth(true) + 9,
+						opacity: 0
+					}, 400);
+			}
 		} else {
 			$.get('../_templates.html', null, function(template) {
 				$view = $.tmpl(template, events[$item]);
-
+			
 				if ($cwidth - $parPos.left < 265) {
-					$this.parents('#calendar.ribbon')
-						.before($view);
+					$this.parents('#calendar.ribbon').before($view);
 					$view
+						.stop()
 						.css({
 							'top' : $parPos.top + $pos.top + 10,
-							// 'left' : $parPos.left + $pos.left + $this.parent().outerWidth(true)
+							'right' : $dayPos.left + 157
 						})
 						.addClass('right')
 						.animate({
-							// right: $parPos.left + $pos.left + $this.parent().outerWidth(true) -272,
+							right: $dayPos.left + 148,
 							opacity: 1
 						}, 400)
-						.attr('id','view_'+$this.attr('rel'));
+						.attr('id','view_' + $this.attr('rel'));
 				} else {
-					$this.parents('#calendar.ribbon')
-						.before($view);
+					$this.parents('#calendar.ribbon').before($view);
 					$view
+						.stop()
 						.css({
 							'top' : $parPos.top + $pos.top + 10,
-							'left' : $parPos.left + $pos.left + $this.parent().outerWidth(true) + 9
+							'left' : $parPos.left + $pos.left + $this.outerWidth(true) + 9
 						})
 						.animate({
-							left: $parPos.left + $pos.left + $this.parent().outerWidth(true) + 2,
+							left: $parPos.left + $pos.left + $this.outerWidth(true) + 2,
 							opacity: 1
 						}, 400)
-						.attr('id','view_'+$this.attr('rel'));
+						.attr('id','view_' + $this.attr('rel'));
 				}
 			});
-
 		}
 	}
 }
@@ -454,19 +463,21 @@ $(document).ready(function() {
 
 	// Event Hover
 
-	$('.eventList .event').on({
-		mouseenter: function() {
-			var item = $(this).attr('rel');
-			calendar.getEvent($(this),item);
-		},
-		mouseleave: function() {
-			var item = $(this).attr('rel');
-			calendar.getEvent($(this),item);
+	$('.eventList .event').each(function() {
+		$(this).on({
+			mouseenter: function() {
+				var item = $(this).attr('rel');
+				calendar.getEvent($(this),item);
+			},
+			mouseleave: function() {
+				var item = $(this).attr('rel');
+				calendar.getEvent($(this),item);
 
-			window.setTimeout(function() {
-				$('#view_'+ item).remove();
-			}, 1000);
-		}
+				window.setTimeout(function() {
+					$('#view_'+ item).remove();
+				}, 1000);
+			}
+		});
 	});
 
 
