@@ -1,1 +1,24 @@
+// Allows for the alternative layout called Individual
+---
+
+layout: individual
+
+---
+
+//Page Title
+-content_for :title do
+ title Calendar
+
+//Page Header
+-content_for :header do 
+	p class='project' Prototype | 
+	span class='page' Calendar
+
+// Options 
+// If there are no options then you can comment this :options section out
+-content_for :options do
+	div class='indv-options' 
+		p TODO: Options go here
+
+// Main Content
 == partial 'calendar'

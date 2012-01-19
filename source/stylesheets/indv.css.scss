@@ -1,0 +1,92 @@
+@import "compass/css3";
+@import "susy/susy.scss";
+
+@font-face {
+	font-family: universBold;
+	src: url('/fonts/UniversLTStd-Bold.otf'); 
+}
+
+@font-face {
+	font-family: univers;
+	src: url('/fonts/UniversLTStd.otf'); 
+}
+
+@font-face {
+	font-family: universCond;
+	src: url('/fonts/UniversLTStd-Cn.otf'); 
+}
+
+// VARIABLES
+
+$sansSerif: Arial, Helvetica, Sans-serif;
+$fontColor: #525151;
+$default-text-shadow-color: #d1d1d1;
+$default-text-shadow-blur: 1px;
+$default-text-shadow-v-offset: 1px;
+
+p {font-size:11px; text-align:left; color: #525151}
+
+body {
+	background-image:url('/images/indv-bg.png');
+	background-repeat:repeat;
+}
+
+.project {
+	@include single-text-shadow;
+	display:inline-block;
+	color: $fontColor;
+	text-transform:uppercase;
+	font-family:universBold;
+  font-size:30px;
+  //font-weight:bold;
+	margin: 30px 0px 30px 30px;
+}
+
+.page {
+	@include single-text-shadow;
+	display:inline-block;
+	color: $fontColor;
+	font-family:universCond;
+  font-size:30px;
+  //font-weight:normal;
+  margin: 0px 4px;
+}
+
+.indv-container {
+	@include border-radius(8px, 8px); 
+	background-color:#FFF;
+	display:inline-block;
+  //position:relative;
+  margin: 100px;
+  padding: 10px;
+  @include box-shadow(#666 0px 20px 30px);
+}
+
+.indv-options {
+	margin: 30px;
+}
+
+.indv-footer {
+	display:inline-block;
+  position:relative;
+	width:100%;
+	//margin:20px;
+	border-top: 1px #999;
+	
+	img {
+		display:inline-block;
+		margin: 5px 10px 10px 30px;
+		float:left;
+	}
+	
+	p {font-size:9px;margin: 19px;}
+
+	hr.embossed {
+		opacity: 0.3;
+    border: 0;
+    height: 0;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #fff;
+}
+}
+
