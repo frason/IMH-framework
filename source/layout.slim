@@ -2,15 +2,28 @@ doctype html
 head
 //pulls in title from index page
 == yield_content :title
-meta http-equiv='Content-Type' content='text/html' charset='utf-8'
-script type="text/javascript" src="javascripts/jquery-1.7.1.min.js"
-script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"
-script type="text/javascript" src="javascripts/jquery.easing.1.3.js"
-script type="text/javascript" src="javascripts/growshrink.js"
-script type="text/javascript" src="javascripts/pageFunctions.js"
-link rel="stylesheet" href="stylesheets/site.css"
 
+meta http-equiv='Content-Type' content='text/html' charset='utf-8'
+
+== javascript_include_tag 'jquery-1.7.1.min'
+script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"
+== javascript_include_tag 'jquery.easing.1.3'
+== javascript_include_tag 'growshrink'
+== javascript_include_tag 'pageFunctions'
+== stylesheet_link_tag 'site'
 
 body
 
  == yield
+
+ ul class='switcher collapsed'
+ 	li class='label'
+ 		span Prototype Options
+ 	li
+ 		a href='/calendar.html' Calendar
+ 	li
+ 		a href='/pulse.html' Pulse
+ 	li
+ 		a href='/campaigns.html' Campaigns
+ 	li class='control'
+ 		a 

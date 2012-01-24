@@ -1,11 +1,26 @@
 @import "reset.css";
-@import "compass";
+@import "compass/css3";
+@import "susy";
 
 
 // VARIABLES
 
 $sansSerif: Arial, Helvetica, Sans-serif;
 
+@font-face {
+  font-family: universBold;
+  src: url('/fonts/UniversLTStd-Bold.otf'); 
+}
+
+@font-face {
+  font-family: univers;
+  src: url('/fonts/UniversLTStd.otf'); 
+}
+
+@font-face {
+  font-family: universCond;
+  src: url('/fonts/UniversLTStd-Cn.otf'); 
+}
 
 
 // MIXINS
@@ -64,7 +79,7 @@ html[xmlns] .clearfix {
 }
 
 .placeholder {
-  @include rounded-full;
+  @include border-radius(3px, 3px);
   background:#efefef;
   border:1px solid #e6e6e6;
 }
@@ -89,6 +104,93 @@ a {
   width:100%;
 }
 
+.switcher {
+  background:#ececec;
+  border:1px solid #ccc;
+  color:#525151;
+  position:absolute;
+  top:53px;
+  left:0;
+  padding:10px;
+  z-index:10;
+  @include border-radius(0 6px 6px 0);
+  @include box-shadow(#666 0px 20px 30px);
+
+  &.collapsed {
+    height: 152px;
+    left: -134px;
+    padding: 10px 42px 10px 10px;
+
+    li.label {
+      border-bottom: medium none;
+      cursor: pointer;
+      display: block;
+      font-size: 16px;
+      line-height: 1.8em;
+      position: absolute;
+      right: -44px;
+      top: 62px;
+      -moz-transform: rotate(90deg);
+    }
+
+    li.control {
+
+      left: 145px;
+      position: absolute;
+      top: 152px;
+      
+      a {
+        background:transparent url(/images/icons/ui-icons_256x240.png) no-repeat -34px -50px;
+        display:block;
+        height:12px;
+        margin:0;
+        padding:0;
+        width:12px;
+        @include box-shadow(none);
+        @include border-radius(0px);
+      }
+    }
+  }
+
+  li {
+
+    display:block;
+
+    &.label {
+      cursor: pointer;
+      font-family: universBold;
+      font-size:14px;
+      border-bottom:1px dotted #ccc;
+      margin: 0 0 10px;
+      padding: 0 0 7px;
+    }
+
+    &:last-child {
+
+      a {
+        margin:0;
+        padding:0;
+        @include background-image(none); 
+        @include box-shadow(none);
+        @include border-radius(0px);
+      }
+    }
+  }
+
+  a {
+    color: #FFFFFF;
+    display: block;
+    font-family: universCond;
+    margin: 0 0 7px;
+    padding: 6px 0 4px 0;
+    text-align: center;
+    width:122px;
+    @include background-image(linear-gradient(#b6b5b5, #999999)); 
+    @include box-shadow(#333 0px 1px 1px);
+    @include border-radius(4px, 4px);
+  }  
+}
+
 #container {
 
   #cal, #plse {
@@ -99,12 +201,8 @@ a {
   #cal, #plse, #scrty {
     display:none;
     background:#fff;
-    -webkit-border-radius: 6px;
-    moz-border-radius: 6px;
-    border-radius: 6px;
-    -moz-box-shadow:0 2px 14px #444;
-    -webkit-box-shadow:0 2px 14px #444;
-    box-shadow:0 2px 14px #444;
+    @include border-radius(6px, 6px);
+    @include box-shadow(#444 0 2px 14px);
     margin:20px;
     position:absolute;
     top:0;
@@ -166,21 +264,15 @@ a {
                 color-stop(0.11, rgb(221,231,238)),
                 color-stop(0.8, rgb(255,255,255))
               );
-              -moz-box-shadow:0 1px 2px #dbdbdb;
-              -webkit-box-shadow:0 1px 2px #dbdbdb;
-              box-shadow:0 1px 2px #dbdbdb;
+              @include box-shadow(#dbdbdb 0 1px 2px);
 
               &.selected {
                 background:#dae7f1;
-                -moz-box-shadow:0 0 6px #b5c6d2 inset;
-                -webkit-box-shadow:0 0 6px #b5c6d2 inset;
-                box-shadow:0 0 6px #b5c6d2 inset;
+                @include box-shadow(#b5c6d2 0 0 6px inset);
 
                 &:hover {
                   background:#dae7f1;
-                  -moz-box-shadow:0 0 6px #b5c6d2 inset;
-                  -webkit-box-shadow:0 0 6px #b5c6d2 inset;
-                  box-shadow:0 0 6px #b5c6d2 inset;
+                  @include box-shadow(#b5c6d2 0 0 6px inset);
                 }
               }
 
@@ -200,7 +292,7 @@ a {
             }
 
             &:first-child a {
-              @include rounded-full;
+              @include border-radius(3px, 3px);
               margin:0 0 0 10px;
 
               span {
@@ -212,7 +304,7 @@ a {
             }
 
             &:last-child a {
-              @include rounded-full;
+              @include border-radius(3px, 3px);
               margin:0 10px 0 0;
 
               span {
@@ -225,22 +317,12 @@ a {
 
             &.month a {
               padding:0 10px 1px 10px;
-              -webkit-border-top-right-radius: 3px;
-              -webkit-border-bottom-right-radius: 3px;
-              -moz-border-radius-topright: 3px;
-              -moz-border-radius-bottomright: 3px;
-              border-top-right-radius: 3px;
-              border-bottom-right-radius: 3px;
+              @include border-radius(0 3px 3px 0);
             }
 
             &.week a {
               padding:0 10px 1px 10px;
-              -webkit-border-top-left-radius: 3px;
-              -webkit-border-bottom-left-radius: 3px;
-              -moz-border-radius-topleft: 3px;
-              -moz-border-radius-bottomleft: 3px;
-              border-top-left-radius: 3px;
-              border-bottom-left-radius: 3px;
+              @include border-radius(3px 0 0 3px);
             }
           }
         }
@@ -253,12 +335,8 @@ a {
           margin:0 10px 0 0;
           padding:1px 10px;
           width:55px;
-          -webkit-border-radius:10px;
-          moz-border-radius:10px;
-          border-radius:10px;
-          -moz-box-shadow:0 1px 1px #d3d3d3 inset;
-          -webkit-box-shadow:0 1px 1px #d3d3d3 inset;
-          box-shadow:0 1px 1px #d3d3d3 inset;
+          @include border-radius(10px, 10px);
+          @include box-shadow(#d3d3d3 0 1px 1px inset);
         }
 
         &.squib {
@@ -281,14 +359,10 @@ a {
               color-stop(0.6, rgb(246,246,246))
             );
             border:1px solid #c9d4db;
-            -moz-box-shadow:0 1px 1px #d9d9d9;
-            -webkit-box-shadow:0 1px 1px #d9d9d9;
-            box-shadow:0 1px 1px #d9d9d9;
+            @include box-shadow(#d9d9d9 0 1px 1px);
             color:#9bbbd7;
             padding:1px 5px;
-            -webkit-border-radius: 4px;
-            -moz-border-radius: 4px;
-            border-radius: 4px;
+            @include border-radius(4px, 4px);
             vertical-align:top;
           }
         }
@@ -365,6 +439,10 @@ a {
 #mainContent {
    padding:53px 0 0 0;
    margin:0 0 0 201px;
+
+   > div {
+     margin:0 0 15px 0;
+   }
 }
 
 
@@ -384,9 +462,7 @@ a {
     color-stop(0.82, rgb(64,79,89))
   );
   position:fixed;
-  -moz-box-shadow:0 1px 1px #bbb;
-  -webkit-box-shadow:0 1px 1px #bbb;
-  box-shadow:0 1px 1px #bbb;
+  @include box-shadow(#bbb 0 1px 1px);
   width:100%;
   z-index:3;
 
@@ -401,7 +477,6 @@ a {
 
   h1 {
     background: transparent url(../images/ui/bg_navHeader.png) no-repeat top center;
-    color:#fff;
     display:inline;
     float:left;
     font-family:$sansSerif;
@@ -412,7 +487,11 @@ a {
     margin:0 18px 0 0;
     padding:0;
     width:181px;
-    z-index:10;
+    // z-index:10;
+
+    a {
+      color:#fff;
+    }
 
     span {
       display:block;
@@ -442,14 +521,14 @@ a {
       &.buDropDown {
         border:1px solid #242d34;
         margin:3px 0 0;
-        @include rounded-full;
+        @include border-radius(3px, 3px);
 
         a {
           border:1px solid #44494d;
           font-weight:bold;
           line-height: 1.9em;
           margin:0;
-          @include rounded-full;
+          @include border-radius(3px, 3px);
 
           &:hover, &.selected {
             background-image: linear-gradient(bottom, rgb(72,92,100) 26%, rgb(77,97,107) 50%, rgb(67,84,94) 94%);
@@ -538,9 +617,7 @@ a {
   left:20px;
   position:absolute;
   z-index:10;
-  -moz-box-shadow:0 0 1px #bbb;
-  -webkit-box-shadow:0 0 1px #bbb;
-  box-shadow:0 0 1px #bbb;
+  @include box-shadow(#bbb 0 0 1px);
   width:181px;
 
   .container {
@@ -564,18 +641,29 @@ a {
       width:57px;
 
       &:first-child {
-        -webkit-border-top-left-radius: 3px;
-        -moz-border-radius-topleft: 3px;
-        border-top-left-radius: 3px;
+        @include border-radius(3px 0 0 0);
         width:55px;
+
+        .label {
+          @include border-radius(3px 0 0 0);
+        }
+
+        + li {
+          
+          .label {
+            @include border-radius(0);
+          }
+        }
       }
 
       &:last-child {
         border-right:1px solid #b5c6d2;
-        -webkit-border-top-right-radius: 3px;
-        -moz-border-radius-topright: 3px;
-        border-top-right-radius: 3px;
+        @include border-radius(0 3px 0 0);
         width:68px;
+
+        .label {
+          @include border-radius(0 3px 0 0);
+        }
       }
 
       .label {
@@ -625,6 +713,7 @@ a {
 
         .content {
           background:#fcfcfc url(../images/icons/securityHigh.png) no-repeat -1px center;
+          margin:0 -1px 0 0;
           padding:6px 4px 6px 20px;
         }
       }
@@ -746,7 +835,7 @@ a {
       border:1px solid #b5c6d2;
       font-size:12px;
       font-weight:normal;
-      @include rounded-top;
+      @include border-radius(3px 3px 0 0);
 
       a {
         background:url(../images/ui/bg_collapseToggle.png) no-repeat -2px -28px;
@@ -772,22 +861,12 @@ a {
     display:inline;
 
     &:first-child {
-      -webkit-border-top-left-radius: 4px;
-      -webkit-border-bottom-left-radius: 4px;
-      -moz-border-radius-topleft: 4px;
-      -moz-border-radius-bottomleft: 4px;
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
+      @include border-radius(4px 0 0 0);
       border-left:1px solid #000;
     }
 
     &:last-child {
-      -webkit-border-top-right-radius: 4px;
-      -webkit-border-bottom-right-radius: 4px;
-      -moz-border-radius-topright: 4px;
-      -moz-border-radius-bottomrigt: 4px;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
+      @include border-radius(0 4px 0 0);
     }
 
     &.calendar a {
@@ -906,21 +985,11 @@ a {
     }
 
     &:first-child a {
-      -webkit-border-top-left-radius: 4px;
-      -webkit-border-bottom-left-radius: 4px;
-      -moz-border-radius-topleft: 4px;
-      -moz-border-radius-bottomleft: 4px;
-      border-top-left-radius: 4px;
-      border-bottom-left-radius: 4px;
+      @include border-radius(4px 0 4px 0);
     }
 
     &:last-child a {
-      -webkit-border-top-right-radius: 4px;
-      -webkit-border-bottom-right-radius: 4px;
-      -moz-border-radius-topright: 4px;
-      -moz-border-radius-bottomrigt: 4px;
-      border-top-right-radius: 4px;
-      border-bottom-right-radius: 4px;
+      @include border-radius(0 4px 4px 0);
       border-right:1px solid #5e6d76;
     }
   }
@@ -933,13 +1002,13 @@ a {
   background:transparent url(../images/appHover.png) no-repeat 0 0; 
   position:fixed;
   top: 32px;
-  margin:0 0 0 0;
+  margin:0 0 0 -1px;
   font-family:arial;
   font-size:8pt;
   color:#999999;
   padding:10px 0 0 0;
   width:182px;
-  z-index:2;
+  z-index:-1;
 
   li {
     outline:none;
@@ -1048,7 +1117,7 @@ a {
       margin:0 0 0 0;
       padding:0;
       visibility:hidden;
-      @include rounded-full;
+      @include border-radius(3px, 3px);
       width:181px;
       -webkit-transition: opacity .5s ease-in-out;
       -moz-transition: opacity .5s ease-in-out;

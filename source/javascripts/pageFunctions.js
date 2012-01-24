@@ -36,14 +36,6 @@ $(window).resize(function() {
 
 });
 
-// Easy centering
-// jQuery.fn.center = function () {
-//     this.css("position","absolute");
-//     this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
-//     this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
-//     return this;
-// }
-
 
 
 // Global - hide modal
@@ -62,8 +54,20 @@ $(document).click(function() {
 
 // Common UI Functions
 var common = {
-	menuAnimate: function() {
-		// Animate Left Menu
+	ptypeMenu: function(obj) {
+		var $this = obj;
+
+		if($this.parent().is('.collapsed')) {
+			$this.parent().animate({
+				left: '-1px'
+			}, 150).removeClass('collapsed');
+		} else {
+			$this.parent().animate({
+				left: '-134px'
+			}, 150).addClass('collapsed');
+		}
+	},
+	menuExpand: function() {
 		$('#leftNav').css({
 			top: -350,
 			opacity: '.01'
@@ -75,6 +79,15 @@ var common = {
 			duration: 500,
 			easing: 'easeOutExpo'
 		});
+	},
+	menuCollapse: function() {
+		$('#leftNav').animate({
+			top:-350,
+			opacity: '.01'
+		}, {
+			duration: 500,
+			easing: 'easeOutExpo'
+		})
 	},
 	bu: function(obj) {
 		var $this = obj;
@@ -191,7 +204,7 @@ var calendar = {
 					}, 400);
 			}
 		} else {
-			$.get('../_templates.html', null, function(template) {
+			$.get('templates.htm', function(template) {
 				$view = $.tmpl(template, events[$item]);
 			
 				if ($cwidth - $parPos.left < 265) {
@@ -315,10 +328,16 @@ var pulse = {
 $(document).ready(function() {
 
 	draw_viewport();
-	common.menuAnimate();
+	common.menuExpand();
 
 
-	// Menu Flyout functionality
+	// Left Menu
+
+	$('#leftNav li a').click(function() {
+		var ref = $(this).attr('href');
+
+		common.menuCollapse();
+	});
 
 	$('ul#leftNav li.categoryClosed').hover(function() {
 		if (inprog == 0) {
@@ -341,6 +360,8 @@ $(document).ready(function() {
 		}).removeClass('visible');
 		inprog = 0;
 	});
+
+
 
 
 	// Taskbar menus
@@ -525,6 +546,12 @@ $(document).ready(function() {
 		return false;
 	});
 
+
+	// P-type Switcher 
+
+	$('.switcher .label').click(function() {
+		common.ptypeMenu($(this));
+	});
 
 });
 
