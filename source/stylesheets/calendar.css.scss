@@ -119,18 +119,14 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
       -webkit-box-shadow:0 7px 9px #999;
       box-shadow:0 7px 9px #999;
       @include rounded-full;
-      // -moz-transform:translateX(-10px);
-      // -moz-transform-origin: 0% 0%;
-      // -moz-transition: -moz-transform 400ms ease-in-out;
 
       > div {
         background:#f6f6f6;
         @include rounded-full;
-        // -moz-transition: -moz-transform 400ms ease-in-out;
       }
 
       .pointer { //ugly
-        background:transparent url(../images/ui/bg_leftMenuPointer.png) no-repeat center center;
+        background:transparent url(../images/ui/bg_leftMenuPointer.png) no-repeat center left;
         height:9px;
         left:-5px;
         position:absolute;
@@ -231,11 +227,12 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
       }
 
       &.right {
-        right:275px !important;
+        right:150px;
 
         .pointer { //ugly
-          background:transparent url(../images/ui/bg_leftMenuPointer.png) no-repeat center center;
-          right:-5px;
+          background:transparent url(../images/ui/bg_leftMenuPointer.png) no-repeat center right;
+          left:auto;
+          right:-5px !important;
         }
       }
     }
@@ -465,7 +462,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
                   box-shadow:0 1px 2px 0px #d9d9d9;
                   height: 96px;
                   margin: 0 -1px -10px 0;
-                  width: 130px;
+                  width: 126px;
                 }
 
                 + li {
@@ -477,7 +474,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
 
                 height:91px;
                 left:0;
-                padding:6px 3px 3px 3px;
+                padding:6px 5px 3px 5px;
                 position:relative;
                 top:0;
                 width:auto;

@@ -21,7 +21,7 @@ function draw_viewport () {
         },
         scrollLeft: function() {
             return $(window).scrollLeft();
-        }
+        } 
     };
 
     $('#innerContent').height((viewport.height() - barHeight));
@@ -35,14 +35,6 @@ $(window).resize(function() {
   $('#overlay').width(viewport.width()).height(viewport.height());
 
 });
-
-// Easy centering
-// jQuery.fn.center = function () {
-//     this.css("position","absolute");
-//     this.css("top", (($(window).height() - this.outerHeight()) / 2) + $(window).scrollTop() + "px");
-//     this.css("left", (($(window).width() - this.outerWidth()) / 2) + $(window).scrollLeft() + "px");
-//     return this;
-// }
 
 
 
@@ -62,8 +54,20 @@ $(document).click(function() {
 
 // Common UI Functions
 var common = {
-	menuAnimate: function() {
-		// Animate Left Menu
+	ptypeMenu: function(obj) {
+		var $this = obj;
+
+		if($this.parent().is('.collapsed')) {
+			$this.parent().animate({
+				left: '-1px'
+			}, 150).removeClass('collapsed');
+		} else {
+			$this.parent().animate({
+				left: '-134px'
+			}, 150).addClass('collapsed');
+		}
+	},
+	menuExpand: function() {
 		$('#leftNav').css({
 			top: -350,
 			opacity: '.01'
@@ -75,6 +79,15 @@ var common = {
 			duration: 500,
 			easing: 'easeOutExpo'
 		});
+	},
+	menuCollapse: function() {
+		$('#leftNav').animate({
+			top:-350,
+			opacity: '.01'
+		}, {
+			duration: 500,
+			easing: 'easeOutExpo'
+		})
 	},
 	bu: function(obj) {
 		var $this = obj;
@@ -175,45 +188,54 @@ var calendar = {
 		// alert($parPos.left + $pos.left);
 
 		if ($('.eventDetail').is(':visible')) {
-			$('#view_' + $this.attr('rel'))
-				.animate({
-					left: $parPos.left + $pos.left + $this.parent().outerWidth(true) + 9,
-					opacity: 0
-				}, 400);
+			if ($cwidth - $parPos.left < 265) {
+				$('#view_' + $this.attr('rel'))
+					.stop()
+					.animate({
+						right: $dayPos.left + 159,
+						opacity: 0
+					}, 400);
+			} else {
+				$('#view_' + $this.attr('rel'))
+					.stop()
+					.animate({
+						left: $parPos.left + $pos.left + $this.outerWidth(true) + 9,
+						opacity: 0
+					}, 400);
+			}
 		} else {
-			$.get('../_templates.html', null, function(template) {
+			$.get('templates.htm', function(template) {
 				$view = $.tmpl(template, events[$item]);
-
+			
 				if ($cwidth - $parPos.left < 265) {
-					$this.parents('#calendar.ribbon')
-						.before($view);
+					$this.parents('#calendar.ribbon').before($view);
 					$view
+						.stop()
 						.css({
 							'top' : $parPos.top + $pos.top + 10,
-							// 'left' : $parPos.left + $pos.left + $this.parent().outerWidth(true)
+							'right' : $dayPos.left + 157
 						})
 						.addClass('right')
 						.animate({
-							// right: $parPos.left + $pos.left + $this.parent().outerWidth(true) -272,
+							right: $dayPos.left + 148,
 							opacity: 1
 						}, 400)
-						.attr('id','view_'+$this.attr('rel'));
+						.attr('id','view_' + $this.attr('rel'));
 				} else {
-					$this.parents('#calendar.ribbon')
-						.before($view);
+					$this.parents('#calendar.ribbon').before($view);
 					$view
+						.stop()
 						.css({
 							'top' : $parPos.top + $pos.top + 10,
-							'left' : $parPos.left + $pos.left + $this.parent().outerWidth(true) + 9
+							'left' : $parPos.left + $pos.left + $this.outerWidth(true) + 9
 						})
 						.animate({
-							left: $parPos.left + $pos.left + $this.parent().outerWidth(true) + 2,
+							left: $parPos.left + $pos.left + $this.outerWidth(true) + 2,
 							opacity: 1
 						}, 400)
-						.attr('id','view_'+$this.attr('rel'));
+						.attr('id','view_' + $this.attr('rel'));
 				}
 			});
-
 		}
 	}
 }
@@ -306,10 +328,16 @@ var pulse = {
 $(document).ready(function() {
 
 	draw_viewport();
-	common.menuAnimate();
+	common.menuExpand();
 
 
-	// Menu Flyout functionality
+	// Left Menu
+
+	$('#leftNav li a').click(function() {
+		var ref = $(this).attr('href');
+
+		common.menuCollapse();
+	});
 
 	$('ul#leftNav li.categoryClosed').hover(function() {
 		if (inprog == 0) {
@@ -332,6 +360,8 @@ $(document).ready(function() {
 		}).removeClass('visible');
 		inprog = 0;
 	});
+
+
 
 
 	// Taskbar menus
@@ -454,19 +484,21 @@ $(document).ready(function() {
 
 	// Event Hover
 
-	$('.eventList .event').on({
-		mouseenter: function() {
-			var item = $(this).attr('rel');
-			calendar.getEvent($(this),item);
-		},
-		mouseleave: function() {
-			var item = $(this).attr('rel');
-			calendar.getEvent($(this),item);
+	$('.eventList .event').each(function() {
+		$(this).on({
+			mouseenter: function() {
+				var item = $(this).attr('rel');
+				calendar.getEvent($(this),item);
+			},
+			mouseleave: function() {
+				var item = $(this).attr('rel');
+				calendar.getEvent($(this),item);
 
-			window.setTimeout(function() {
-				$('#view_'+ item).remove();
-			}, 1000);
-		}
+				window.setTimeout(function() {
+					$('#view_'+ item).remove();
+				}, 1000);
+			}
+		});
 	});
 
 
@@ -514,6 +546,12 @@ $(document).ready(function() {
 		return false;
 	});
 
+
+	// P-type Switcher 
+
+	$('.switcher .label').click(function() {
+		common.ptypeMenu($(this));
+	});
 
 });
 
