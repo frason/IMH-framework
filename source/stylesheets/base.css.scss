@@ -1,0 +1,17 @@
+// Imports -------------------------------------------------------------------
+
+@import "susy";
+
+// Grid ----------------------------------------------------------------------
+
+// 1em = 10px - see body css below
+$total-cols: 7;                    /* a 7-column grid */
+$col-width: 18em;                    /* each column is 18em wide or 180px */
+$gutter-width: 2em;                 /* 2em gutters between columns - 20px*/
+$side-gutter-width: $gutter-width;  /* 2em padding at the edges of the page as well */
+
+
+// Default font settings. 
+// The font-size percentage is of 16px. (0.625 * 16px ~ 10px) 
+// by setting the font-size to 62.5 we set the em to 10px */
+body {font-size: 62.5%; background-color:blue}

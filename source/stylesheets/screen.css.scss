@@ -1,0 +1,60 @@
+// Imports -------------------------------------------------------------------
+
+@import "base";
+
+/* Layout ------------------------------------------------------------------*/
+
+div {
+  //background-color:gray;
+  //opacity:0.8;
+}
+
+#wrapper {
+	margin: auto;
+  width: 120em;
+	max-width: 100%;
+}
+
+.container {
+  @include container;
+  @include susy-grid-background;
+}
+
+/* Header --------------------------------------------------------------*/
+
+h1 {
+  @include full;
+  //@include prefix(1);
+}
+
+
+/* Nav --------------------------------------------------------------*/
+
+
+
+/* Content --------------------------------------------------------------*/
+
+div[role="main"] {
+  @include pad (1, 1, 5);
+  @include prefix(1);
+  @include suffix (1);
+
+  article {
+
+    //@include pad (1, 1, 5);
+    //@include columns(3, 5);
+  }
+  aside {
+    //@include columns(2,5);
+    //@include prefix(3);
+  }
+}
+
+/* Footer --------------------------------------------------------------*/
+
+footer {
+  @include full;
+  //@include alpha;
+ //@include omega;
+  //@include pad(1,1);
+}

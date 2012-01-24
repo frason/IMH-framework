@@ -11,15 +11,40 @@ layout: individual
 
 //Page Header
 -content_for :header do 
-	p class='project' Prototype | 
+	h1 class='project' Prototype | 
 	span class='page' Campaigns
 
 // Options 
-// If there are no options then you can comment this :options section out
+// If there are options then you can use this :options section 
+-content_for :options do
+	div class='indv-options' Campaigns - Clickable Mockup
 
-//-content_for :options do
+	a href='pulse.html'
+		div class="option-button left"
+			div class="leftArrow"
+	a href='campaigns.html'
+		div class="option-button right"
+			div class="rightArrow"
+
+// No Options
+// If no options comment out the section above and show the section below
+//-content_for :noOptions do
 //	div class='indv-options' 
-//		p TODO: Options go here
+//		p Campaigns Grid
+
 
 // Main Content
 == partial 'campaigns'
+
+// Documentation on Current Option
+-content_for :documentation do
+	div class='indv-documentation' 
+		div class='documentation-Link'
+			p Documentation PDF
+			span class='title' ET_DataBackground_Modes_2012-01-23.pdf
+			a href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf'
+				img src='images/PDF.png'
+		h3 == lorem.words 2	
+		p == lorem.sentences 6 
+		p == lorem.sentences 7
+		
