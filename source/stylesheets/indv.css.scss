@@ -1,5 +1,5 @@
 @import "compass/css3";
-@import "susy/susy.scss";
+@import "susy";
 
 @font-face {
 	font-family: universBold;
@@ -20,15 +20,22 @@
 
 $sansSerif: Arial, Helvetica, Sans-serif;
 $fontColor: #525151;
+$fontColorLight: #666;
 $default-text-shadow-color: #d1d1d1;
 $default-text-shadow-blur: 1px;
 $default-text-shadow-v-offset: 1px;
 
-p {font-size:11px; text-align:left; color: #525151}
+p {font-size:11px; text-align:left; color: #525151; line-height:200%}
 
 body {
 	background-image:url('/images/indv-bg.png');
 	background-repeat:repeat;
+}
+
+#indv-container {
+	height: auto; 
+	min-height: 100%;
+	
 }
 
 .project {
@@ -44,33 +51,122 @@ body {
 
 .page {
 	@include single-text-shadow;
+	text-transform:capitalize;
 	display:inline-block;
 	color: $fontColor;
 	font-family:universCond;
   font-size:30px;
-  //font-weight:normal;
   margin: 0px 4px;
 }
 
 .indv-container {
+	//clear:both;
 	@include border-radius(8px, 8px); 
 	background-color:#FFF;
-	display:inline-block;
-  //position:relative;
-  margin: 100px;
+  width: 995px;
+  height:auto;
+  margin: 0 auto;
   padding: 10px;
   @include box-shadow(#666 0px 20px 30px);
+  overflow:hidden;
 }
 
 .indv-options {
-	margin: 30px;
+	width:1015px;
+	margin: 40px auto;
+	color: $fontColor;
+	text-transform:uppercase;
+	font-family:universCond;
+  font-size:26px;
 }
 
-.indv-footer {
-	display:inline-block;
-  position:relative;
+.option-button{
+	@include background-image(linear-gradient(#b6b5b5, #999999)); 
+	@include border-radius(50px, 50px);
+	@include box-shadow(#333 0px 1px 1px);
+	width:50px;
+	margin:10px, auto;
+	position:relative;
+	top:125px;
+
+	opacity:0.5;
+
+	&.right{float:right; left:-5%}
+
+	&.left{float:left; left:5%}
+	&:hover{
+		@include box-shadow(#333 0px 3px 5px);
+		@include background-image(linear-gradient(#c5c3c3, #b6b5b5 48%, #a6a2a2 52%, #8e8e8e)); 
+		opacity:1;
+		cursor:pointer;
+	}
+
+	.leftArrow{
+		background-image:url('/images/arrowLeft.png');
+		width:50px;
+		height:50px;
+		background-repeat:no-repeat;
+		background-position: 15px 12px;	
+	}
+	
+	.rightArrow{
+		width:50px;
+		height:50px;
+		background-image:url('/images/arrowRight.png');
+		background-position: 20px 12px;
+		background-repeat:no-repeat;
+	}
+}
+
+
+
+.indv-documentation {
+	background-color:#ddd;
+	width:995px;
+	margin: 40px auto;
+	padding: 10px;
+	border-style:solid;
+	border-top-width:1px;
+	border-color:#fff;
+	@include border-radius(8px, 8px); 
+	@include box-shadow(#666 0px -1px 1px);
+	h3 { 
+		font-family:univers; 
+		font-size: 22px; 
+		margin:15px 40px; 
+		color:$fontColor;
+		text-transform:capitalize;
+	}
+	p {margin:15px 40px; font-size: 16px; color:$fontColorLight}
+	img {margin:5px 22px;}
+	hr.embossedLight {
+		margin:10px 40px 20px 40px;
+		opacity: 0.3;
+    border: 0;
+    height: 0;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #fff;
+  }
+	div.documentation-Link {
+		margin:20px 20px 20px 40px;
+		height:180px;
+		float:right;
+		background-color:#fff;
+		@include border-radius(8px, 8px); 
+		@include box-shadow(#999 0px 1px 1px);
+		p {margin:15px 20px; font-size: 16px; color:$fontColorLight}
+		span.title {float:left; margin:5px 20px 20px 20px; font-size: 9px; color:$fontColorLight}
+		img {float:left; margin:5px 20px 20px 20px;}
+	}
+}
+
+#indv-footer {
+	clear: both;
+ 	position: relative;
+ 	z-index: 10;
+ 	height: 3em;
+ 	margin-top: 3em;
 	width:100%;
-	//margin:20px;
 	border-top: 1px #999;
 	
 	img {

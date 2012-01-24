@@ -3,31 +3,39 @@ head
 //pulls in title from individual page
 == yield_content :title
 meta http-equiv='Content-Type' content='text/html' charset='utf-8'
-script type="text/javascript" src="../javascripts/jquery-1.4.2.min.js"
-script type="text/javascript" src="../javascripts/jquery.easing.1.3.js"
-script type="text/javascript" src="../javascripts/growshrink.js"
-script type="text/javascript" src="../javascripts/pageFunctions.js"
+script type="text/javascript" src="javascripts/jquery-1.7.1.min.js"
+script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js"
+script type="text/javascript" src="javascripts/jquery.easing.1.3.js"
+script type="text/javascript" src="javascripts/growshrink.js"
+script type="text/javascript" src="javascripts/pageFunctions.js"
 link rel="stylesheet" href="/stylesheets/indv.css"
 link rel="stylesheet" href="/stylesheets/site.css"
 
 
 body
 //TODO: Include Susy Grids here
-
+div id='indv-container'
 // Header - pulls in header from individual object page (ex. Prototype | Calendar)
 == yield_content :header
 
 // Options - Checks for optsions, IF Options, then display options functionality
 == if content_for?(:options)
 	== yield_content :options
+	
+
+// No Options - Checks if noOptions has content and will display that message
+== if content_for?(:noOptions)
+	== yield_content :noOptions
 
 // Container for individual object
 div class='indv-container'
-	 	== yield
+	== yield
 
-== yield_content :documentation
+// Documentation for individual object
+== if content_for?(:documentation)
+	== yield_content :documentation
 
-div class='indv-footer'
+div id='indv-footer'
 	hr class='embossed'
 	img src='images/designmap.png'
-	p ExactTarget - Prototype
+	p ExactTarget - Prototype:title
