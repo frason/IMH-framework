@@ -1,0 +1,104 @@
+div id='topBar'
+  div
+    h1 id='title'
+      a href='/'
+        - if data.page.page_name.nil?
+            span Interactive Marketing Hub
+        - else
+          - data.page.page_name.each do |f|
+              span class='single' = f
+  
+    ul id='taskbar'
+      li class='logout' 
+        a href='#' Log out
+    
+      li class='user-info'
+        a href='#' Welcome <span>Scott</span>
+        div class='menu userInfo'
+
+      li class='buDropDown'
+        a href='#'
+          strong Nike Football
+        div class='menu businessSwitch'
+
+    ul id='topTools' class="clearfix"
+      li class='calendar'
+        a href='#' rel='cal' title='Fullscreen' Calendar
+
+      li class='pulse'
+        a href='#' rel='plse' title='Fullscreen' Pulse
+
+      li class='security'
+        a href='#' rel='scrty' title='Fullscreen' Security
+      
+    ul id='leftNav'
+  
+      li id='Channels' class='category' 
+        a href='#' Channels
+
+      li id='EmailStudio-nav' class='app'
+        div class='appImage'
+          a href='#' Email
+
+      li id='SocialEngage-nav' class='app'
+        div class='appImage'
+          a href='#' Social
+
+      li id='MobileConnect-nav' class='app' 
+        div class='appImage'
+          a href='#' Mobile 
+
+      li id='PageDesigner-nav' class='app'
+        div class='appImage'
+          a href='#' Sites
+
+      li id='HubTools' class='category' 
+        a href='#' Hub Tools 
+
+      li id='Campaigns-nav' class='app'
+        div class='appImage'
+          a href='page_campaigns.html' Campaigns
+  
+      li id='Reports-nav' class='app'
+        div class='appImage'
+          a href='#' Reports
+
+      li id='Assets-nav' class='app'
+        div class='appImage'
+          a href='#' Assets  
+ 
+      li id='Contacts-nav' class='app'
+        div class='appImage'
+          a href='#' Contacts 
+ 
+      li id='HubApps' class='categoryClosed'
+        a href='#' Hub Apps (2)
+  
+        ul class='flyout'
+    
+          li id='Audience-nav' class='app'
+            div class='appImage'
+              a href='#'  Audience
+  
+          li id='Automations-nav' class='app'
+            div class='appImage'
+              a href='#' Automations
+ 
+      li id='Partner' class='categoryClosed' 
+        a href='#' Partner Apps (3)
+
+        ul class='flyout'
+ 
+          li id='Marketo-nav' class='app'
+            div class='appImage'
+              a href='#' Marketo
+
+          li id='Klout-nav' class='app'
+            div class='appImage'
+              a href='#' Klout
+ 
+          li id='Netbase-nav' class='app'
+            div class='appImage' 
+              a href='#' Netbase
+            
+      li id='bottom-nav'
