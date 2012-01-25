@@ -60,7 +60,7 @@ var common = {
 		if($this.parent().is('.collapsed')) {
 			$this.parent().animate({
 				left: '-1px'
-			}, 150).removeClass('collapsed');
+			}, speed, 'easeOutExpo').removeClass('collapsed');
 		} else {
 			$this.parent().animate({
 				left: '-134px'
