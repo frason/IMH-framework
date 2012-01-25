@@ -105,19 +105,20 @@ a {
 }
 
 .switcher {
-  background:#ececec;
-  border:1px solid #ccc;
-  color:#525151;
+  background:#333;
+  //background:transparent url(/images/icons/ui-icons_256x240.png) no-repeat -34px -50px;
+  //border:1px solid #ccc;
+  color:#999;
   position:absolute;
-  top:53px;
+  top:100px;
   left:0;
   padding:10px;
   z-index:10;
   @include border-radius(0 6px 6px 0);
-  @include box-shadow(#666 0px 20px 30px);
+  @include box-shadow(#666 0px 5px 5px);
 
   &.collapsed {
-    height: 152px;
+    height: 102px;
     left: -134px;
     padding: 10px 42px 10px 10px;
 
@@ -125,29 +126,28 @@ a {
       border-bottom: medium none;
       cursor: pointer;
       display: block;
+      font-family:univers;
       font-size: 16px;
       line-height: 1.8em;
       position: absolute;
-      right: -44px;
-      top: 62px;
-      -moz-transform: rotate(90deg);
+      right: -5px;
+      top: 25px;
+      @include rotateZ(90deg);
     }
 
     li.control {
 
       left: 145px;
       position: absolute;
-      top: 152px;
+      top: 102px;
       
       a {
-        background:transparent url(/images/icons/ui-icons_256x240.png) no-repeat -34px -50px;
+        background:transparent url(/images/icons/ui-iconsLight_256x240.png) no-repeat -34px -50px;
         display:block;
         height:12px;
         margin:0;
         padding:0;
         width:12px;
-        @include box-shadow(none);
-        @include border-radius(0px);
       }
     }
   }
@@ -180,14 +180,23 @@ a {
   a {
     color: #FFFFFF;
     display: block;
-    font-family: universCond;
+    font-family: univers;
     margin: 0 0 7px;
     padding: 6px 0 4px 0;
     text-align: center;
     width:122px;
+    opacity:0.5;
     @include background-image(linear-gradient(#b6b5b5, #999999)); 
     @include box-shadow(#333 0px 1px 1px);
     @include border-radius(4px, 4px);
+      &:hover {
+        @include box-shadow(#333 0px 3px 5px);
+        @include background-image(linear-gradient(#c5c3c3, #b6b5b5 48%, #a6a2a2 52%, #8e8e8e)); 
+        opacity:0.8;
+    //opacity:1;
+    //cursor:pointer;
+      
+    }
   }  
 }
 
