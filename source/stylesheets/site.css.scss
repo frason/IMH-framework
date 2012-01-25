@@ -506,6 +506,11 @@ a {
       display:block;
       line-height:1.1em;
       padding:3px 20px 0 40px;
+      @include text-shadow(#a96d25 0 1px 0);
+
+      &.single {
+        line-height:2.1em;
+      }
     }
   }
 }
