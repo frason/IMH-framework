@@ -17,7 +17,7 @@ div {
 
 .container {
   @include container;
-  @include susy-grid-background;
+  //@include susy-grid-background;
 }
 
 /* Header --------------------------------------------------------------*/
@@ -54,7 +54,7 @@ div[role="main"] {
 
 footer {
   @include full;
-  //@include alpha;
+  @include alpha;
  //@include omega;
   //@include pad(1,1);
 }

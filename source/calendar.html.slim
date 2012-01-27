@@ -17,8 +17,7 @@ layout: individual
 // Options 
 // If there are no options then you can comment this :options section out
 -content_for :options do
-	div class='indv-options' 
-		p Calendar - Clickable Mockup
+	h2 class='indv-options' Calendar - Clickable Mockup
 
 	a href='campaigns.html'
 		div class="option-button left"
@@ -39,7 +38,7 @@ layout: individual
 
 // Documentation on Current Option
 -content_for :documentation do
-	div class='indv-documentation' 
+	article class='indv-documentation' 
 		div class='documentation-Link'
 			p Documentation PDF
 			span class='title' ET_DataBackground_Modes_2012-01-23.pdf
@@ -50,7 +49,6 @@ layout: individual
 		p == lorem.sentences 2 
 		p == lorem.sentences 4
 		img src='images/ix/calRibbon.png'
-		hr class='embossedLight'
-
 		
-//		p == lorem.sentences 4
+-content_for :switcher do
+	== partial 'switcher'

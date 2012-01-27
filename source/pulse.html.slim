@@ -17,7 +17,7 @@ layout: individual
 // Options 
 // If there are options then you can use this :options section 
 -content_for :options do
-	div class='indv-options' Pulse - Clickable Mockup
+	h2 class='indv-options' Pulse - Clickable Mockup
 	
 	a href='calendar.html'
 		div class="option-button left"
@@ -31,27 +31,30 @@ layout: individual
 //-content_for :noOptions do
 //	div class='indv-options' 
 //	p Campaigns Grid
+
 // Main Content
 == partial 'pulse'
 
 // Documentation on Current Option
 -content_for :documentation do
-	div class='indv-documentation' 
+	article class='indv-documentation' 
 		div class='documentation-Link'
 			p Documentation PDF
 			span class='title' ET_DataBackground_Modes_2012-01-23.pdf
 			a href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf'
 				img src='images/PDF.png'
-		
+
 		h3 Ribbon Scroll	
 		p == lorem.sentences 2 
 		p == lorem.sentences 4
 		img src='images/ix/ribbonScroll.png'
+			
 		hr class='embossedLight'
 		h3 Page Scroll	
 		p == lorem.sentences 4
 		img src='images/ix/pageScroll.png'
-		
-//		p == lorem.sentences 4
+			
+-content_for :switcher do
+	== partial 'switcher'
 
 
