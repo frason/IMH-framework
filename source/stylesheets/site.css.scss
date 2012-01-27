@@ -106,16 +106,19 @@ a {
 
 .switcher {
   background:#333;
-  //background:transparent url(/images/icons/ui-icons_256x240.png) no-repeat -34px -50px;
-  //border:1px solid #ccc;
   color:#999;
   position:absolute;
   top:100px;
   left:0;
   padding:10px;
   z-index:10;
+  opacity:0.3;
   @include border-radius(0 6px 6px 0);
   @include box-shadow(#666 0px 5px 5px);
+
+  &:hover {
+    opacity:1
+  }
 
   &.collapsed {
     height: 102px;
@@ -130,8 +133,9 @@ a {
       font-size: 16px;
       line-height: 1.8em;
       position: absolute;
-      right: -5px;
+      right: -32px;
       top: 25px;
+      padding:10px 25px;
       @include rotateZ(90deg);
     }
 

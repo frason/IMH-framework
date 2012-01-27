@@ -11,18 +11,18 @@ layout: individual
 
 //Page Header
 -content_for :header do 
-	h1 class='project' Prototype | 
-	span class='page' Campaigns
+		h1 class='project' Prototype | 
+		span class='page' Campaigns
 
 // Options 
 // If there are options then you can use this :options section 
 -content_for :options do
-	div class='indv-options' Campaigns - Clickable Mockup
+	h2 class='indv-options' Campaigns - Clickable Mockup
 
 	a href='pulse.html'
 		div class="option-button left"
 			div class="leftArrow"
-	a href='campaigns.html'
+	a href='calendar.html'
 		div class="option-button right"
 			div class="rightArrow"
 
@@ -38,7 +38,7 @@ layout: individual
 
 // Documentation on Current Option
 -content_for :documentation do
-	div class='indv-documentation' 
+	article class='indv-documentation' 
 		div class='documentation-Link'
 			p Documentation PDF
 			span class='title' ET_DataBackground_Modes_2012-01-23.pdf
@@ -47,4 +47,9 @@ layout: individual
 		h3 == lorem.words 2	
 		p == lorem.sentences 6 
 		p == lorem.sentences 7
-		
+
+-content_for :switcher do
+	== partial 'switcher'
+
+	
+			
