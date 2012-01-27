@@ -1,0 +1,27 @@
+// Allows for the alternative layout called Singleton
+---
+
+layout: singleton
+page_name:
+  - Campaigns
+
+---
+
+//Page Title
+-content_for :title do
+ title Page - Campaigns
+
+/!- unless data.page.page_name.empty?
+/!	- data.page.page_name.each do |f|
+/!		strong = f
+/!- else
+/!	p
+/!		| No items found.  Please add some inventory. Thank you!
+
+
+
+
+
+/!- data.page.page_name.each do |f|
+/!	strong = f
+

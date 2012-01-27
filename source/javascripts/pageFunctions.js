@@ -67,19 +67,6 @@ var common = {
 			}, 150).addClass('collapsed');
 		}
 	},
-	menuExpand: function() {
-		$('#leftNav').css({
-			top: -350,
-			opacity: '.01'
-		});
-		$('#leftNav').delay(500).animate({
-			top: 32,
-			opacity: '1'
-		}, {
-			duration: 500,
-			easing: 'easeOutExpo'
-		});
-	},
 	menuCollapse: function() {
 		$('#leftNav').animate({
 			top:-350,
@@ -87,7 +74,18 @@ var common = {
 		}, {
 			duration: 500,
 			easing: 'easeOutExpo'
-		})
+		});
+		$('#leftNav').siblings('#title').removeClass('expanded');
+	},
+	menuExpand: function() {
+		$('#leftNav').animate({
+			top: 32,
+			opacity: '1'
+		}, {
+			duration: 500,
+			easing: 'easeOutExpo'
+		});
+		$('#leftNav').siblings('#title').addClass('expanded');
 	},
 	bu: function(obj) {
 		var $this = obj;
@@ -326,16 +324,32 @@ var pulse = {
 
 // When document is scriptable
 $(document).ready(function() {
+	var url = location.href.substring(location.href);
+	var str = url.charAt(url.length-1);
 
 	draw_viewport();
-	common.menuExpand();
 
+	if (str == '/' || str == '#') {
+		
+		common.menuExpand();
+	} else {
+		common.menuCollapse();
+	}
 
 	// Left Menu
 
+	$('#topBar #title a').click(function() {
+		if (str == '/' || str == '#') {
+			return;
+		} else if ($('#topBar #title').is('.expanded')) {
+			common.menuCollapse();
+		} else {
+			common.menuExpand();
+		}
+	});
+
 	$('#leftNav li a').click(function() {
 		var ref = $(this).attr('href');
-
 		common.menuCollapse();
 	});
 
