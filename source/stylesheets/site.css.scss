@@ -502,8 +502,19 @@ a {
     width:181px;
     // z-index:10;
 
+    &.expanded {
+      
+      span {
+        background:none;
+      }
+    }
+
     a {
       color:#fff;
+
+      span {
+        background:transparent url(../images/ui/bg_menuCarat.png) no-repeat 162px 15px;
+      }
     }
 
     span {
@@ -1019,11 +1030,12 @@ a {
 #leftNav {
   background:transparent url(../images/appHover.png) no-repeat 0 0; 
   position:fixed;
-  top: 32px;
+  top: -350px;
   margin:0 0 0 -1px;
   font-family:arial;
   font-size:8pt;
   color:#999999;
+  @include opacity(.01);
   padding:10px 0 0 0;
   width:182px;
   z-index:-1;

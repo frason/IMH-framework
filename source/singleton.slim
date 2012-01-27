@@ -1,0 +1,19 @@
+doctype html
+head
+//pulls in title from individual page
+== yield_content :title
+
+meta http-equiv='Content-Type' content='text/html' charset='utf-8'
+
+== javascript_include_tag 'jquery-1.7.1.min'
+script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.js" type="text/javascript"
+== javascript_include_tag 'jquery.easing.1.3'
+== javascript_include_tag 'growshrink'
+== javascript_include_tag 'pageFunctions'
+== stylesheet_link_tag 'site'
+
+body
+
+== partial 'header'
+
+== yield
