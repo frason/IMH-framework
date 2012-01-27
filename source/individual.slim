@@ -1,6 +1,6 @@
 doctype html
 head
-//pulls in title from individual page
+/!pulls in title from individual page
 == yield_content :title
 meta http-equiv='Content-Type' content='text/html' charset='utf-8'
 script type="text/javascript" src="javascripts/jquery-1.7.1.min.js"
@@ -10,48 +10,31 @@ script type="text/javascript" src="javascripts/growshrink.js"
 script type="text/javascript" src="javascripts/pageFunctions.js"
 link rel="stylesheet" href="/stylesheets/indv.css"
 link rel="stylesheet" href="/stylesheets/site.css"
+link rel="stylesheet" href="/stylesheets/screen.css"
 
 
 body
-//TODO: Include Susy Grids here
-div id='indv-container'
-// Header - pulls in header from individual object page (ex. Prototype | Calendar)
-== yield_content :header
+div id='wrapper'
+	div class='container' 
+		== yield_content :header
+		div role="main"
 
-// Options - Checks for optsions, IF Options, then display options functionality
-== if content_for?(:options)
-	== yield_content :options
-	
+	== if content_for?(:options)
+		== yield_content :options
+		
+	== if content_for?(:noOptions)
+		== yield_content :noOptions
 
-// No Options - Checks if noOptions has content and will display that message
-== if content_for?(:noOptions)
-	== yield_content :noOptions
+	div class='indv-container'
+		== yield
 
-// Container for individual object
-div class='indv-container'
-	== yield
+	== if content_for?(:documentation)
+		== yield_content :documentation
 
-// Documentation for individual object
-== if content_for?(:documentation)
-	== yield_content :documentation
+	div id='indv-footer'
+		hr class='embossed'
+		img src='images/designmap.png'
+		p ExactTarget - Prototype:title
 
-div id='indv-footer'
-	hr class='embossed'
-	img src='images/designmap.png'
-	p ExactTarget - Prototype:title
-
-
-ul class='switcher collapsed'
-	li class='label'
-		span Options
-	li 
-		a href='/index.html' < Prototype
-	li
-		a href='/calendar.html' Calendar
-	li
-		a href='/pulse.html' Pulse
-	li
-		a href='/campaigns.html' Campaigns
-	
-	li class='control'
-		a 
+	== if content_for?(:switcher)
+		== yield_content :switcher
