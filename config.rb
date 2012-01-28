@@ -68,6 +68,9 @@
 # Change the images directory
 # set :images_dir, "alternative_image_directory"
 
+# Pretty output please
+Slim::Engine.set_default_options :pretty => true
+
 # Build-specific configuration
 configure :build do
 

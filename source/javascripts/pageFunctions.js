@@ -202,8 +202,10 @@ var calendar = {
 					}, 400);
 			}
 		} else {
+			var myTemplate = $( "#eventTemplate" ).template();
+
 			$.get('templates.htm', function(template) {
-				$view = $.tmpl(template, events[$item]);
+				$view = $.tmpl(myTemplate, events[$item]);
 			
 				if ($cwidth - $parPos.left < 265) {
 					$this.parents('#calendar.ribbon').before($view);
@@ -329,8 +331,7 @@ $(document).ready(function() {
 
 	draw_viewport();
 
-	if (str == '/' || str == '#') {
-		
+	if (str == '/' || str == '#' || ($('body').is('.main') == true)) {
 		common.menuExpand();
 	} else {
 		common.menuCollapse();
@@ -339,7 +340,7 @@ $(document).ready(function() {
 	// Left Menu
 
 	$('#topBar #title a').click(function() {
-		if (str == '/' || str == '#') {
+		if (str == '/' || str == '#' || ($('body').is('.main') == true)) {
 			return;
 		} else if ($('#topBar #title').is('.expanded')) {
 			common.menuCollapse();
