@@ -37,6 +37,10 @@
 # 
 # With alternative layout
 # page "/path/to/file.html", :layout => :otherlayout
+page "/calendar.html", :layout => "individual"
+page "/pulse.html", :layout => "individual"
+page "/campaigns.html", :layout => "individual"
+
 # 
 # A path which all have the same layout
 # with_layout :admin do
