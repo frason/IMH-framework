@@ -204,7 +204,7 @@ var calendar = {
 		} else {
 			var myTemplate = $( "#eventTemplate" ).template();
 
-			$.get('templates.htm', function(template) {
+			// $.get('templates.htm', function(template) {
 				$view = $.tmpl(myTemplate, events[$item]);
 			
 				if ($cwidth - $parPos.left < 265) {
@@ -235,7 +235,7 @@ var calendar = {
 						}, 400)
 						.attr('id','view_' + $this.attr('rel'));
 				}
-			});
+			// });
 		}
 	}
 }
