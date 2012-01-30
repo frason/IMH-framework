@@ -3,17 +3,17 @@
 
 @font-face {
 	font-family: universBold;
-	src: url('/fonts/UniversLTStd-Bold.otf'); 
+	src: url('../fonts/UniversLTStd-Bold.otf'); 
 }
 
 @font-face {
 	font-family: univers;
-	src: url('/fonts/UniversLTStd.otf'); 
+	src: url('../fonts/UniversLTStd.otf'); 
 }
 
 @font-face {
 	font-family: universCond;
-	src: url('/fonts/UniversLTStd-Cn.otf'); 
+	src: url('../fonts/UniversLTStd-Cn.otf'); 
 }
 
 // VARIABLES
@@ -28,8 +28,7 @@ $default-text-shadow-v-offset: 1px;
 p {font-size:11px; text-align:left; color: #525151; line-height:200%}
 
 body {
-	background-image:url('/images/indv-bg.png');
-	background-repeat:repeat;
+	background:transparent url('../images/indv-bg.png') repeat top left;
 }
 
 #indv-container {
@@ -102,7 +101,7 @@ body {
 	}
 
 	.leftArrow{
-		background-image:url('/images/arrowLeft.png');
+		background-image:url('../images/arrowLeft.png');
 		width:50px;
 		height:50px;
 		background-repeat:no-repeat;
@@ -112,7 +111,7 @@ body {
 	.rightArrow{
 		width:50px;
 		height:50px;
-		background-image:url('/images/arrowRight.png');
+		background-image:url('../images/arrowRight.png');
 		background-position: 20px 12px;
 		background-repeat:no-repeat;
 	}
