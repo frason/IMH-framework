@@ -129,10 +129,6 @@ var calendar = {
 			}, speed, 'swing');
 		}
 	},
-	removeEvent: function(obj) {
-		var $this = obj;
-		$this.next('.detail').remove();
-	},
 	getEvent: function(obj, i) {
 		var $this = obj;
 		var $item = i;
@@ -204,38 +200,36 @@ var calendar = {
 		} else {
 			var myTemplate = $( "#eventTemplate" ).template();
 
-			// $.get('templates.htm', function(template) {
-				$view = $.tmpl(myTemplate, events[$item]);
+			$view = $.tmpl(myTemplate, events[$item]);
 			
-				if ($cwidth - $parPos.left < 265) {
-					$this.parents('#calendar.ribbon').before($view);
-					$view
-						.stop()
-						.css({
-							'top' : $parPos.top + $pos.top + 10,
-							'right' : $dayPos.left + 157
-						})
-						.addClass('right')
-						.animate({
-							right: $dayPos.left + 148,
-							opacity: 1
-						}, 400)
-						.attr('id','view_' + $this.attr('rel'));
-				} else {
-					$this.parents('#calendar.ribbon').before($view);
-					$view
-						.stop()
-						.css({
-							'top' : $parPos.top + $pos.top + 10,
-							'left' : $parPos.left + $pos.left + $this.outerWidth(true) + 9
-						})
-						.animate({
-							left: $parPos.left + $pos.left + $this.outerWidth(true) + 2,
-							opacity: 1
-						}, 400)
-						.attr('id','view_' + $this.attr('rel'));
-				}
-			// });
+			if ($cwidth - $parPos.left < 265) {
+				$this.parents('#calendar.ribbon').before($view);
+				$view
+					.stop()
+					.css({
+						'top' : $parPos.top + $pos.top + 10,
+						'right' : $dayPos.left + 157
+					})
+					.addClass('right')
+					.animate({
+						right: $dayPos.left + 148,
+						opacity: 1
+					}, 400)
+					.attr('id','view_' + $this.attr('rel'));
+			} else {
+				$this.parents('#calendar.ribbon').before($view);
+				$view
+					.stop()
+					.css({
+						'top' : $parPos.top + $pos.top + 10,
+						'left' : $parPos.left + $pos.left + $this.outerWidth(true) + 9
+					})
+					.animate({
+						left: $parPos.left + $pos.left + $this.outerWidth(true) + 2,
+						opacity: 1
+					}, 400)
+					.attr('id','view_' + $this.attr('rel'));
+			}
 		}
 	}
 }
@@ -275,7 +269,6 @@ var pulse = {
 		var $this = obj;
 		var index = $('.mainContent .gadget').index($this);
 
-		// is it maxed?
 		if ($this.hasClass('max')) {
 			$this
 				.toggleClass('max flip', false)
@@ -294,14 +287,14 @@ var pulse = {
 			$this
 				.toggleClass('min', false)
 				.toggleClass('max flip');
-			$('.rail .count .gadget.max')
-				.not(':eq('+index+')')
-				.toggleClass('max', false)
-				.toggleClass('min');
 			$('.rail .count .gadget')
 				.eq(index)
 				.toggleClass('min', false)
 				.toggleClass('max');
+			$('.rail .count .gadget')
+				.not(':eq('+index+')')
+				.toggleClass('max', false)
+				.toggleClass('min');
 		}
 	},
 	runIndicator: function() {
@@ -317,10 +310,6 @@ var pulse = {
 		$('.rail .count').width(totalWidth + 9).addClass('show');
 	}
 }
-
-
-
-
 
 
 
@@ -439,7 +428,7 @@ $(document).ready(function() {
 
 	//Fullscreen
 
-	$('a[title*="Fullscreen"]').click(function(e) {
+	$('#topTools a[title*="Fullscreen"], .header a[title*="Fullscreen"], .alerts a[title*="Fullscreen"]').click(function(e) {
 		
 		var rel = $(this).attr('rel');
 		var views = $("#" + rel);
@@ -500,18 +489,17 @@ $(document).ready(function() {
 	// Event Hover
 
 	$('.eventList .event').each(function() {
+		var item = $(this).attr('rel');
 		$(this).on({
 			mouseenter: function() {
-				var item = $(this).attr('rel');
 				calendar.getEvent($(this),item);
 			},
 			mouseleave: function() {
-				var item = $(this).attr('rel');
 				calendar.getEvent($(this),item);
 
 				window.setTimeout(function() {
 					$('#view_'+ item).remove();
-				}, 1000);
+				}, 500);
 			}
 		});
 	});
@@ -575,3 +563,7 @@ $(document).ready(function() {
 $(window).load(function() {
 	pulse.runIndicator();
 })
+
+$(window).unload(function() {
+  // empty unload so dropdown menu will automaticlaly occur after browser's 'back' button
+});
