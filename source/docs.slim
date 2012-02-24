@@ -1,0 +1,111 @@
+doctype html
+head
+/!pulls in title from individual page
+== yield_content :title
+
+meta http-equiv='Content-Type' content='text/html' charset='utf-8'
+== stylesheet_link_tag 'docs'
+== stylesheet_link_tag 'site'
+== javascript_include_tag 'jquery-1.7.1.min'
+== javascript_include_tag 'jquery.easing.1.3'
+== javascript_include_tag 'jquery.tmpl.min'
+== javascript_include_tag 'growshrink'
+== javascript_include_tag 'pageFunctions'
+== javascript_include_tag 'docsFunctions'
+
+script id='eventTemplate' type='text/x-jquery-tmpl'
+	div class='eventDetail'
+		div
+			header class='${eventColor}'
+				span class='eventAssoc' ${eventAssoc}
+				h3 ${eventType}
+			section
+				img align='left' src='${eventImage}'
+				h4
+					a href='#' ${eventTitle}
+				p ${eventDescrip}
+		span class='pointer'
+
+body class='docs'
+
+	== if content_for?(:docsMenu)
+		== yield_content :docsMenu
+	
+	div id='wrapper'
+
+		div class='subContent' 
+			div role="main"
+				div id="cal"
+					header
+						ul class='tools'
+							li
+								a title="close" href="#"
+							li
+								form class='search'
+									input type="text" class="search-input" value="Search" onfocus="if(this.value == 'Search') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search';}"
+							li class='toggleView'
+								ul class='clearfix'
+									li
+										a title='Next' href='#'
+											span
+									li class='month'
+										a title='Month View' href='#' class='selected' Month
+									li class='week'
+										a title='Week View' href='#' Week
+									li
+										a title='Previous' href='#'
+											span
+							li class='squib'
+								span Today 
+						span class='label' Week starting
+						h2 December 26, 2011
+					section
+						div class='rightCol'
+							div class='grid'
+								header
+									== image_tag 'placeholders/calendar_weekHeader.png'
+								div
+									== image_tag 'placeholders/calendar_week.png'
+							div class='panel'
+								div class='toggle'
+									span
+								div class='min'
+									== image_tag 'placeholders/calendar_dayPanel.png'
+						== image_tag 'placeholders/calendar_leftCol.png'
+
+				div id="plse"
+					header
+						ul class="tools"
+							li
+								a title="close" href="#"
+							li class='settings'
+								a title='settings' href='#' Settings
+						h2 Pulse
+					== image_tag 'placeholders/pulse_full.png'
+				
+				div id='scrty'
+					header
+						ul class="tools"
+							li
+								a title="close" href="#"
+							li class='settings'
+								a title='settings' href='#' Security Settings
+						h2 Account Activity
+					== image_tag 'placeholders/alerts_full.png'
+
+				== if content_for?(:options)
+					== yield_content :options
+		
+				== if content_for?(:noOptions)
+					== yield_content :noOptions
+
+				== if content_for?(:partials)
+					div class='indv-container'
+						== yield_content :partials
+
+			== if content_for?(:documentation)
+				== yield_content :documentation
+	
+		== partial 'docsFooter'
+
+	div id='overlay'

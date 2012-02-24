@@ -3,43 +3,12 @@
 
 == partial 'header'
 
-  
+-content_for :docsMenu do
+  == partial 'docsMenu'
+
 div id='container'
 
-  div id='security'
-
-      ul class='collapsed'
-        li class='alerts'
-          ul
-            li class='label control'
-              span Alerts
-            li class='content' 2
-
-        li class='users'
-          ul
-            li class='label'  Users
-            li class='content' 2,999
-
-        li class='watchdog'
-          ul
-            li class='label' Watchdog
-            li class='content' High
-    
-      ul class='expanded'
-        li class='activity'
-          h2
-            a href='#' Account Activity
-          ul
-            li class='alerts'
-              span <em>2</em> Unread Alerts
-              a title='Fullscreen' rel='scrty' href='#' View All Alerts
-            li class='users'
-              span <em>2,999</em> Active Users
-              a href='#' View All Users
-            li class='watchdog'
-              span class='title' Watchdog Settings
-              span <em>High</em>
-              a href='#' View Settings
+  == partial 'security'
 
   div id="innerContent"
 
@@ -76,7 +45,19 @@ div id='container'
               
       span class='label' Week starting
       h2 December 26, 2011
-    img src="images/placeholders/calendar_week.png"
+    section
+      div class='rightCol'
+        div class='grid'
+          header
+            img src='images/placeholders/calendar_weekHeader.png'
+          div
+            img src='images/placeholders/calendar_week.png'
+        div class='panel'
+          div class='toggle'
+            span
+          div class='min'
+            img src='images/placeholders/calendar_dayPanel.png'
+      img src='images/placeholders/calendar_leftCol.png'
   
   div id="plse"
     header
@@ -98,4 +79,3 @@ div id='container'
       h2 Account Activity
     img src="images/placeholders/alerts_full.png"
 
-div id='overlay'

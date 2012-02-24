@@ -1,3 +1,4 @@
+@import "compass/css3";
 @import "animations.css";
 
 // Pulse
@@ -95,6 +96,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         -moz-transition: opacity 100ms ease-in 100ms;
         -ms-transition: opacity 100ms ease-in 100ms;
         transition: opacity 100ms ease-in 100ms;
+        @include border-radius(4px);
 
 
         &:hover {
@@ -128,6 +130,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         -moz-transition: opacity 100ms ease-in 100ms;
         -ms-transition: opacity 100ms ease-in 100ms;
         transition: opacity 100ms ease-in 100ms;
+        @include border-radius(4px);
 
         &:hover {
           background:transparent url(../images/ui/bg_pulseArrows.png) no-repeat -19px -19px;
@@ -203,7 +206,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           }
 
           &:nth-of-type(5n+5) {
-            margin:0 2px 0 4px;
+            margin:0 2px 0 1px;
           }
         }
 
@@ -415,7 +418,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
               color-stop(1, rgb(250,252,252))
             );
 
-            -webkit-animation: shrinkIn 200ms ease-out 1 alternate forwards;
+            -webkit-animation: stepBackward 200ms ease-out 1 alternate forwards;
             -webkit-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
             -moz-animation: stepBackward 200ms ease-out 1 backwards;
             -moz-transition: all 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
@@ -468,10 +471,10 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
           &:hover {
 
             > div {
-              -webkit-animation: growOut 200ms ease-out 1 forwards;
-              -moz-animation: growOut 200ms ease-out 1 forwards;
-              -ms-animation: growOut 200ms ease-out 1 forwards;
-              animation: growOut 200ms ease-out 1 forwards;
+              -webkit-animation:growOut 250ms ease forwards;
+              -moz-animation:growOut 250ms ease forwards;
+              -ms-animation:growOut 250ms ease forwards;
+              animation:growOut 250ms ease forwards;
             }
 
             &.pulse {

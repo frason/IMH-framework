@@ -1,0 +1,149 @@
+---
+
+layout: docs
+
+---
+
+-content_for :title do
+ title Pulse
+
+-content_for :options do
+	h2 class='indv-options' 
+		'Pulse |
+		span
+
+// Main Content
+-content_for :partials do
+	== partial 'pulse'
+
+// Documentation on Current Option
+-content_for :documentation do
+	section class='indv-documentation'
+	 		
+		article class='ribbon_scrolling'
+			div class='action'
+				a href='#' onClick='pulseDocs.doRibbonScroll(); return false;' class='btn' Run Animation
+			section class='content'
+				p 
+					' Clicking on the arrows in the pulse container would animate the set of gadgets, moving out the current set to show the next in line.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Orientation
+					li
+						span class='label' Type
+						span Slide
+					li
+						span class='label' Duration
+						span 250ms
+					li
+						span class='label' Benefit
+						span A directional transition to show the arrangement of objects.
+			figure class='documentation-wire'	
+				== image_tag 'ix/ribbonScroll.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+		
+		article class='pagination_scrolling'
+			div class='action'
+				a href='#' onClick='pulseDocs.doPaginationScroll(); return false;' class='btn' Run Animation
+			section class='content'
+				p 
+					' As the gadgets in Pulse scroll, the pagination indicator should reflect the same movement.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Feedback
+					li
+						span class='label' Type
+						span Page Indicator
+					li
+						span class='label' Duration
+						span 250ms
+					li
+						span class='label' Benefit
+						span A transition to visualize the amount of pages while indicating the current pages.
+			figure class='documentation-wire'
+				== image_tag 'ix/pageScroll.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+
+		article class='gadget_hover'
+			div class='action'
+				a href='#' onClick='pulseDocs.doGadgetHover(); return false;' class='btn' Run Animation
+			section class='content'
+				p 
+					' Gadgets should animate subtly to give affordance to the user that they are expandable.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Feedback
+					li
+						span class='label' Type
+						span Affordance
+					li
+						span class='label' Duration
+						span 200ms
+					li
+						span class='label' Benefit
+						span A transition to present a possible interaction.
+			figure class='documentation-wire'	
+				== image_tag 'ix/pulseGadgetHover.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+		
+		article class='gadget_expand'
+			div class='action'
+				a href='#' onClick='pulseDocs.doGadgetExpand(); return false;' class='btn' Run Animation
+			section class='content'
+				p 
+					' Gadgets should have an animation when they expand to the larger size. The same is true when they minimize.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Spatial Extension
+					li
+						span class='label' Type
+						span Zoom
+					li
+						span class='label' Duration
+						span 103ms
+					li
+						span class='label' Benefit
+						span A transition to show a direct connection between the object of interest and further information.
+			figure class='documentation-wire'
+				== image_tag 'ix/pulseGadgetExpand.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+		
+		article class='full_screen'
+			div class='action'
+				a href='#' onClick='pulseDocs.doFullScreen(); return false;' class='btn' Run Animation
+			section class='content'
+				p 
+					' A modal enlarging animation should occur once the Full screen button is selected.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Spatial Extension
+					li
+						span class='label' Type
+						span Pop-up
+					li
+						span class='label' Duration
+						span 250ms
+					li
+						span class='label' Benefit
+						span A transition to explain which specific object scales to full screen view.
+			figure class='documentation-wire'
+				== image_tag 'ix/pulseFullScreen.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+
+-content_for :docsMenu do
+  == partial 'docsMenu'

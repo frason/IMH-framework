@@ -1,0 +1,75 @@
+---
+
+layout: docs
+
+---
+
+-content_for :title do
+ title Security
+
+-content_for :options do
+	h2 class='indv-options' 
+		'Security |
+		span
+
+
+// Main Content
+-content_for :partials do
+	== partial 'security'
+
+// Documentation on Current Option
+-content_for :documentation do
+	section class='indv-documentation' 
+		
+		article class='animations'
+			div class='action'
+				a title='Run this interaction' href='#' onClick='securityDocs.doNotifier(); return false;' class='btn' Run Animation
+			section class='content'
+				p 
+					' The Security Notifications should also have quick animations upon expand and collapse.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Spatial Extension
+					li
+						span class='label' Type
+						span Mask-Expand
+					li
+						span class='label' Duration
+						span 200ms
+					li
+						span class='label' Benefit
+						span A transition to show that by scaling the mask of an object reveals the hidden content.
+			figure class='documentation-wire'
+				== image_tag 'ix/securityNotifier.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+		
+		article class='full_screen'
+			div class='action'
+				a title='Run this interaction' href='#' onClick='securityDocs.doFullScreen(); return false;' class='btn' Run Animation
+			section class='content'
+				p 
+					' The Security Modal window should have an expanding animation.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Spatial Extension
+					li
+						span class='label' Type
+						span Pop-up
+					li
+						span class='label' Duration
+						span 250ms
+					li
+						span class='label' Benefit
+						span A transition to explain which specific object scales to full screen view.
+			figure class='documentation-wire'
+				== image_tag 'ix/securityFullScreen.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+
+-content_for :docsMenu do
+	== partial 'docsMenu'

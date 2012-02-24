@@ -53,7 +53,7 @@ $sansSerif: Arial, Helvetica, Sans-serif;
 // GLOBALS
 
 body {
-  // background:#fff url(/images/ui/bg_topBar.png) repeat-x top center;
+  background:#fff;
   font-family:$sansSerif;
 }
 
@@ -102,6 +102,10 @@ a {
   position:absolute;
   top:0;
   width:100%;
+}
+
+.noDisplay {
+  display:none !important;
 }
 
 .switcher {
@@ -203,11 +207,26 @@ a {
   }  
 }
 
-#container {
+#wrapper {
+  // width:100%;
+  // margin:0;
+}
+
+#container, #wrapper div[role="main"] {
 
   #cal, #plse {
-    left:0;
+    left:25px;
     width:1211px;
+  }
+
+  #plse, #scrty {
+    
+    img {
+      clear:both;
+      display:block;
+      height:auto;
+      width:100%;
+    }
   }
   
   #cal, #plse, #scrty {
@@ -219,13 +238,6 @@ a {
     position:absolute;
     top:0;
     z-index:200;
-
-    img {
-      clear:both;
-      display:block;
-      height:auto;
-      width:100%;
-    }
 
     header {
       border-bottom:1px solid #adb6bf;
@@ -395,7 +407,7 @@ a {
 
   #scrty {
     background:#e9eef1;
-    left:115px;
+    left:145px;
     width:980px;
 
     header {
@@ -429,6 +441,120 @@ a {
     }
   }
 
+  section {
+    background:#f5f5f5;
+    padding:6px;
+    @include border-radius(0 0 6px 6px);
+
+    .rightCol {
+      background:#fff;
+      display:inline;
+      float:right;
+      height:100%;
+      width:962px;
+      @include border-radius(4px, 4px);
+      @include box-shadow(#bcbcbc 0 2px 2px);
+
+      .grid {
+          
+        header {
+          border-bottom: 1px solid #e3e8e8;
+          padding:0 !important;
+        }
+
+        > div {
+          height:454px;
+          overflow-x:hidden;
+          overflow-y:auto;
+        }
+      }
+
+      .panel {
+          
+        z-index:3;
+
+        .toggle {
+          background-image: linear-gradient(bottom, rgb(227,232,235) 25%, rgb(255,255,255) 72%);
+          background-image: -o-linear-gradient(bottom, rgb(227,232,235) 25%, rgb(255,255,255) 72%);
+          background-image: -moz-linear-gradient(bottom, rgb(227,232,235) 25%, rgb(255,255,255) 72%);
+          background-image: -webkit-linear-gradient(bottom, rgb(227,232,235) 25%, rgb(255,255,255) 72%);
+          background-image: -ms-linear-gradient(bottom, rgb(227,232,235) 25%, rgb(255,255,255) 72%);
+          background-image: -webkit-gradient(
+            linear,
+            left bottom,
+            left top,
+            color-stop(0.25, rgb(227,232,235)),
+            color-stop(0.72, rgb(255,255,255))
+          );
+          border: 1px solid #e3e8e8;
+          height: 7px;
+          left: 0;
+          padding:2px 0 0 0;
+          position: relative;
+          top: 0;
+          z-index:10;
+          @include box-shadow(#bcbcbc 0 1px 1px);
+
+          span {
+            background:transparent url(/images/ui/bg_panelArrows.png) no-repeat -20px -20px;
+            display:block;
+            height:5px;
+            margin:0 auto;
+            width:9px;
+          }
+
+          &:hover {
+            background-image: linear-gradient(bottom, rgb(196,218,231) 24%, rgb(251,253,254) 100%);
+            background-image: -o-linear-gradient(bottom, rgb(196,218,231) 24%, rgb(251,253,254) 100%);
+            background-image: -moz-linear-gradient(bottom, rgb(196,218,231) 24%, rgb(251,253,254) 100%);
+            background-image: -webkit-linear-gradient(bottom, rgb(196,218,231) 24%, rgb(251,253,254) 100%);
+            background-image: -ms-linear-gradient(bottom, rgb(196,218,231) 24%, rgb(251,253,254) 100%);
+            background-image: -webkit-gradient(
+              linear,
+              left bottom,
+              left top,
+              color-stop(0.24, rgb(196,218,231)),
+              color-stop(1, rgb(251,253,254))
+            );
+            border-bottom: 1px solid #98b7d2;
+            cursor:default;
+            cursor:pointer;
+
+            span {
+              background:transparent url(/images/ui/bg_panelArrows.png) no-repeat -20px -70px;
+            }
+          }
+
+          &.open {
+              
+            border:1px solid #d2d6d9;
+            @include box-shadow(#ddd 0 -1px 6px);
+
+            span {
+              background:transparent url(/images/ui/bg_panelArrows.png) no-repeat -20px -45px;
+            }
+
+            &:hover {
+                
+              span {
+                background:transparent url(/images/ui/bg_panelArrows.png) no-repeat -20px -95px;
+              }
+            }
+          }
+        }
+
+        .min {
+          bottom:0;
+          height:163px;
+          left:0;
+          overflow-x:hidden;
+          overflow-y:auto;
+          position:relative;
+          @include border-radius(0 0 4px 4px);
+        }
+      }
+    }
+  }
 }
 
 // LAYOUT
@@ -863,6 +989,9 @@ a {
       border:1px solid #b5c6d2;
       font-size:12px;
       font-weight:normal;
+      left:0;
+      position:relative;
+      top:0;
       @include border-radius(3px 3px 0 0);
 
       a {
@@ -1028,7 +1157,7 @@ a {
 
 #leftNav {
   background:transparent url(../images/appHover.png) no-repeat 0 0; 
-  position:fixed;
+  position:absolute;
   top: -350px;
   margin:0 0 0 -1px;
   font-family:arial;

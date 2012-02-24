@@ -3,13 +3,13 @@ head
 == yield_content :title
 
 meta http-equiv='Content-Type' content='text/html' charset='utf-8'
-
+== stylesheet_link_tag 'docs'
+== stylesheet_link_tag 'site'
 == javascript_include_tag 'jquery-1.7.1.min'
 == javascript_include_tag 'jquery.easing.1.3'
 == javascript_include_tag 'jquery.tmpl.min'
 == javascript_include_tag 'growshrink'
 == javascript_include_tag 'pageFunctions'
-== stylesheet_link_tag 'site'
 
 script id='eventTemplate' type='text/x-jquery-tmpl'
 	div class='eventDetail'
@@ -26,16 +26,11 @@ script id='eventTemplate' type='text/x-jquery-tmpl'
 
 body class='main'
 
-== yield
+	== if content_for?(:docsMenu)
+		== yield_content :docsMenu
 
-ul class='switcher collapsed'
-	li class='label'
-		span Documentation
-	li
-		a href='calendar.html' Calendar
-	li
-		a href='pulse.html' Pulse
-	li
-		a href='campaigns.html' Campaigns
-	li class='control'
-		a 
+		div id='wrapper'
+
+			== yield
+
+		div id='overlay'

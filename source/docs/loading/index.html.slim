@@ -1,0 +1,63 @@
+---
+
+layout: docs
+
+---
+
+-content_for :title do
+ title Loading
+
+-content_for :options do
+	h2 class='indv-options' 
+		'Loading |
+		span
+
+// Main Content
+
+// Documentation on Current Option
+-content_for :documentation do
+	section class='indv-documentation' 
+		
+		article class='animations'
+			section class='content'
+				p Different animations should be used, depending on the content and the required load times.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Feedback
+						span Feedback
+					li
+						span class='label' Type
+						span Progress Bar
+						span Refresh Indicator
+					li
+						span class='label' Benefit
+						span A transition to show the progress of the download.
+						span A transition to indicates that the system is loading. It explains that the user needs to wait for a system‘s operation.
+			figure class='documentation-wire'
+				== image_tag 'ix/loadingAnimations.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+		
+		article class='business_unit'
+			section class='content'
+				p Switching Business Units should be handled gracefully. Certain sections should be maintained to preserve recognition, but others should change to influence the switch.
+				h4 Animation Details
+				ul class='animDetails clearfix'
+					li
+						span class='label' Category
+						span Feedback
+					li
+						span class='label' Type
+						span Content Swap
+					li
+						span class='label' Benefit
+						span A transition to explain which areas are changing and which are swap
+			figure class='documentation-wire'
+				== image_tag 'ix/loadingBusinessUnit.png'
+				figcaption
+					a title='Download the documentation PDF' href='https://designmapinc.basecamphq.com/projects/5129157/file/109050519/ET_DataBackground_Modes_2012-01-23.pdf' class='file_pdf' target='_blank' Download the documentation PDF
+		
+-content_for :docsMenu do
+	== partial 'docsMenu'
