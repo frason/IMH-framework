@@ -9,7 +9,7 @@ div class='docsMenu expand'
 	
 		ul class='menu'
 			li class='primary'
-				a href='/' IMH Clickable Mock-Up
+				== link_to 'IMH Clickable Mock-Up', '/'
 			li class='primary'
 				a href='javascript:void(0)' IMH Documentation
 				ul
@@ -17,35 +17,35 @@ div class='docsMenu expand'
 						a href='javascript:void(0)' calendar
 						ul
 							li
-								a href='/docs/calendar/' rel='ribbon_scrolling' Ribbon Scrolling
+								== link_to 'Ribbon Scrolling', '/docs/calendar/', :rel => 'ribbon_scrolling'
 							li
-								a href='/docs/calendar/' rel='full_screen' Full Screen
+								== link_to 'Full Screen', '/docs/calendar/', :rel => 'full_screen'
 							li
-								a href='/docs/calendar/' rel='day_panel' Day Panel Expanding
+								== link_to 'Day Panel Expanding', '/docs/calendar/', :rel => 'day_panel'
 					li class='secondary pulse collapse'
 						a href='javascript:void(0)' pulse
 						ul
 							li
-								a href='/docs/pulse/' rel='ribbon_scrolling' Ribbon Scrolling
+								== link_to 'Ribbon Scrolling', '/docs/pulse/', :rel => 'ribbon_scrolling'
 							li
-								a href='/docs/pulse/' rel='pagination_scrolling' Pagination Scrolling
+								== link_to 'Pagination Scrolling', '/docs/pulse/', :rel => 'pagination_scrolling'
 							li
-								a href='/docs/pulse/' rel='gadget_hover' Hover Gadget Expanding Affordance
+								== link_to 'Hover Gadget Expanding Affordance', '/docs/pulse/', :rel => 'gadget_hover'
 							li
-								a href='/docs/pulse/' rel='gadget_expand' Gadget Expanding Minimizing
+								== link_to 'Gadget Expanding Minimizing Affordance', '/docs/pulse/', :rel => 'gadget_expand'
 							li
-								a href='/docs/pulse/' rel='full_screen' Full Screen
+								== link_to 'Full Screen', '/docs/pulse/', :rel => 'full_screen'
 					li class='secondary loading collapse'
 						a href='javascript:void(0)' loading
 						ul
 							li
-								a href='/docs/loading/' rel='animations' Loading Animations
+								== link_to 'Loading Animations', '/docs/loading/', :rel => 'animations'
 							li
-								a href='/docs/loading/' rel='business_unit' Business Unit Switching
+								== link_to 'Business Unit Switching', '/docs/loading/', :rel => 'business_unit'
 					li class='secondary security collapse'
 						a href='javascript:void(0)' security
 						ul
 							li
-								a href='/docs/security/' rel='animations' Security Notifier Animations
+								== link_to 'Security Notifier Animations', '/docs/security/', :rel => 'animations'
 							li
-								a href='/docs/security/' rel='full_screen' Full Screen
+								== link_to 'Full Screen', '/docs/security/', :rel => 'full_screen'

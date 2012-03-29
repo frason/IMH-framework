@@ -17,8 +17,10 @@ script id='eventTemplate' type='text/x-jquery-tmpl'
 			header class='${eventColor}'
 				span class='eventAssoc' ${eventAssoc}
 				h3 ${eventType}
-			section
-				img align='left' src='${eventImage}'
+			section class='clearfix'
+				' {{if eventImage}}
+				== image_tag '${eventImage}'
+				' {{/if}}
 				h4
 					a href='#' ${eventTitle}
 				p ${eventDescrip}

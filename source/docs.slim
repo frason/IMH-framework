@@ -19,8 +19,10 @@ script id='eventTemplate' type='text/x-jquery-tmpl'
 			header class='${eventColor}'
 				span class='eventAssoc' ${eventAssoc}
 				h3 ${eventType}
-			section
-				img align='left' src='${eventImage}'
+			section class='clearfix'
+				' {{if eventImage}}
+				== image_tag '${eventImage}'
+				' {{/if}}
 				h4
 					a href='#' ${eventTitle}
 				p ${eventDescrip}
@@ -73,7 +75,7 @@ body class='docs'
 									== image_tag 'placeholders/calendar_dayPanel.png'
 						== image_tag 'placeholders/calendar_leftCol.png'
 
-				div id="plse"
+				div id="plseFull"
 					header
 						ul class="tools"
 							li
@@ -83,6 +85,15 @@ body class='docs'
 						h2 Pulse
 					== image_tag 'placeholders/pulse_full.png'
 				
+				div id="plseGadgetFull"
+					header
+						ul class="tools"
+							li
+								a title="close" href="#"
+							li class='settings'
+								a title='settings' href='#' Settings
+						h2 Pulse
+					== image_tag "placeholders/pulseGadget_full.png"
 				div id='scrty'
 					header
 						ul class="tools"

@@ -66,6 +66,14 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
     padding:0 0 0 14px;
     height:48px;
     width:113px;
+
+    .help {
+      margin:0 0 0 20px;
+
+      img {
+        vertical-align:middle;
+      }
+    }
   }
 
   .rail {
@@ -586,7 +594,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
     
     li {
       display:inline;
-      float:left;
+      float:right;
       margin:0 0 0 10px;
 
       a {

@@ -94,7 +94,7 @@ var address = {
 
 // Global - hide modal
 $(document).click(function() {
-	var view = $('#cal:visible, #plse:visible, #scrty:visible');
+	var view = $('#cal:visible, #plseFull:visible, #plseGadgetFull:visible, #scrty:visible');
 
 	$(document).delay(300, 'fullScreenQueue');
 	$(document).queue('fullScreenQueue', function(next) {
@@ -259,7 +259,10 @@ var calendar = {
 		if (curWeekPos.left < ribbonWidth) {
 			$this.parent().find('.table').delay(150).animate({
 				left: ("-"+ribbonWidth)
-			}, speed, 'swing');	
+			}, speed, 'swing');
+			$this.addClass('noDisplay'); // not a real solution
+			$('.ribbon .navLeft').removeClass('noDisplay'); // not a real solution
+			$this.parents('.container').find('header .squib').addClass('active');
 		}
 	},
 	scrollLeft: function(obj) {
@@ -270,6 +273,9 @@ var calendar = {
 			$this.parent().find('.table').delay(150).animate({
 					left: 0
 			}, speed, 'swing');
+			$this.addClass('noDisplay'); // not a real solution
+			$('.ribbon .navRight').removeClass('noDisplay'); // not a real solution
+			$this.parents('.container').find('header .squib').removeClass('active');
 		}
 	},
 	findEvent: function(obj, i) {
@@ -292,7 +298,7 @@ var calendar = {
 				eventColor: 'red',
 				eventAssoc: 'Best Buy Channel Program',
 				eventType: 'Twitter',
-				eventImage: '/images/placeholders/eventTwitterThumbnail.png',
+				eventImage: 'placeholders/eventTwitterThumbnail.png',
 				eventTitle: 'Where you at, ATL?',
 				eventDescrip: '9:00 AM'
 			},
@@ -300,7 +306,7 @@ var calendar = {
 				eventColor: 'red',
 				eventAssoc: 'Best Buy Channel Program',
 				eventType: 'Facebook',
-				eventImage: '/images/placeholders/eventFacebooklThumbnail.png',
+				eventImage: 'placeholders/eventFacebooklThumbnail.png',
 				eventTitle: 'You want to roll VIP with Soulja Boy?',
 				eventDescrip: '9:00 AM'
 			},
@@ -308,7 +314,7 @@ var calendar = {
 				eventColor: 'red',
 				eventAssoc: 'Best Buy Channel Program',
 				eventType: 'Email',
-				eventImage: '/images/placeholders/eventEmailThumbnail.png',
+				eventImage: 'placeholders/eventEmailThumbnail.png',
 				eventTitle: 'Release Party Announcement',
 				eventDescrip: '9:00 AM'
 			},
@@ -316,10 +322,44 @@ var calendar = {
 				eventColor: 'green',
 				eventAssoc: 'Globetrotting Release Party',
 				eventType: 'Twitter',
-				eventImage: '/images/placeholders/eventTwitterThumbnail.png',
+				eventImage: 'placeholders/eventTwitterThumbnail.png',
 				eventTitle: 'Where you at, ATL?',
 				eventDescrip: '9:00 AM'
-			}
+			},
+			// Start email only
+			{
+				eventColor: 'purple',
+				eventAssoc: 'iTunes Download Program',
+				eventType: 'Email',
+				eventImage: 'placeholders/eventEmailThumbnail.png',
+				eventTitle: 'Release Party Email',
+				eventDescrip: '8:00 AM'
+			},
+			{
+				eventColor: 'red',
+				eventAssoc: 'Best Buy Channel Program',
+				eventType: 'Email',
+				eventImage: 'placeholders/eventEmailThumbnail_02.png',
+				eventTitle: '25% Off Coupon',
+				eventDescrip: '9:00 AM'
+			},
+			{
+				eventColor: 'red',
+				eventAssoc: 'Best Buy Channel Program',
+				eventType: 'Email',
+				eventImage: 'placeholders/eventEmailThumbnail_03.png',
+				eventTitle: 'You want to roll VIP with Soulja Boy?',
+				eventDescrip: '9:00 AM'
+			},
+			{
+				eventColor: 'green',
+				eventAssoc: 'Globetrotting Release Party',
+				eventType: 'Email',
+				eventImage: '',
+				eventTitle: 'Where you at, ATL?',
+				eventDescrip: '9:00 AM'
+			},
+
 		];
 
 		var myTemplate = $( "#eventTemplate" ).template();
@@ -461,8 +501,16 @@ var pulse = {
 	gadgetry: function(obj) {
 		var $this = obj;
 		var index = $('.mainContent .gadget').index($this);
+		var maxSrc = $('img.emails').attr('src').replace('_minMarketingEmails.png','_maxMarketingEmails.png');
+		var minSrc = $('img.emails').attr('src').replace('_maxMarketingEmails.png','_minMarketingEmails.png');
 
 		if ($this.hasClass('max')) {
+			if ($this.is('.imageEmails')) {
+					$this.find('img').attr('src', minSrc);
+			} else if ($this.is('.imageFollowers')) {
+					$this.find('img').addClass('noDisplay');
+					$this.find('dl').removeClass('noDisplay');
+			}
 			$this
 				.toggleClass('max flip', false)
 				.toggleClass('min');
@@ -470,13 +518,34 @@ var pulse = {
 				.eq(index)
 				.toggleClass('max', false)
 				.toggleClass('min');
-		}	else {
+		} else {
+			if ($this.is('.imageEmails')) {
+					$this.find('img').attr('src', maxSrc);
+			} else if ($this.is('.imageFollowers')) {
+					$this.find('img').removeClass('noDisplay');
+					$this.find('dl').addClass('noDisplay');
+			}
 			$this
 				.parents('.mainContent')
 				.find('.max')
 				.not($this)
 				.toggleClass('max flip', false)
 				.toggleClass('min');
+			$this
+				.parents('.mainContent')
+				.find('.imageEmails')
+				.not($this)
+				.find('.emails').attr('src',minSrc);
+			$this
+				.parents('.mainContent')
+				.find('.imageFollowers')
+				.not($this)
+				.find('img').addClass('noDisplay');
+			$this
+				.parents('.mainContent')
+				.find('.imageFollowers')
+				.not($this)
+				.find('dl').removeClass('noDisplay');
 			$this
 				.toggleClass('min', false)
 				.toggleClass('max flip');
@@ -511,7 +580,7 @@ $(document).ready(function() {
 	var url = location.href.substring(location.href);
 	var str = url.charAt(url.length-1);
 
-	if (str == '/' || str == '#' || ($('body').is('.main') == true)) {
+	if (str == '/' || str == '#' || ($('body').is('.main') == true) || ($('body').is('.ftux') == true)) {
 		common.menuExpand();
 	} else {
 		common.menuCollapse();
@@ -532,10 +601,10 @@ $(document).ready(function() {
 		}
 	});
 
-	$('#leftNav li a').click(function() {
-		var ref = $(this).attr('href');
-		common.menuCollapse();
-	});
+	// $('#leftNav li a').click(function() {
+	// 	var ref = $(this).attr('href');
+	// 	common.menuCollapse();
+	// });
 
 	$('ul#leftNav li.categoryClosed').hover(function() {
 		if (inprog == 0) {
@@ -639,28 +708,29 @@ $(document).ready(function() {
 
 	//Fullscreen
 
-	$('#topTools a[title*="Fullscreen"], .header a[title*="Fullscreen"], .alerts a[title*="Fullscreen"]').click(function(e) {
-		
-		var rel = $(this).attr('rel');
-		var views = $("#" + rel);
-		var $this = $(this);
+	$('#topTools a[title*="Fullscreen"], .header a[title*="Fullscreen"], .alerts a[title*="Fullscreen"]').on({
+		click: function(e) {
+			var rel = $(this).attr('rel');
+			var views = $("#" + rel);
+			var $this = $(this);
 
-		$(document).delay(300, 'fullScreenQueue');
-		$(document).queue('fullScreenQueue', function(next) {
-			views.data("source", $this).growFrom($this, {
-				duration: 400
+			$(document).delay(300, 'fullScreenQueue');
+			$(document).queue('fullScreenQueue', function(next) {
+				views.data("source", $this).growFrom($this, {
+					duration: 400
+				});
+				next();
 			});
-			next();
-		});
-		$(document).queue('fullScreenQueue', function(next) {
-			$('#overlay').fadeIn(400);
-			next();
-		});
-		$(document).dequeue('fullScreenQueue');
-		e.stopPropagation();
+			$(document).queue('fullScreenQueue', function(next) {
+				$('#overlay').fadeIn(400);
+				next();
+			});
+			$(document).dequeue('fullScreenQueue');
+			e.stopPropagation();
+		}
 	});
 
-	$('#cal a[title*="close"], #plse a[title*="close"], #scrty a[title*="close"]').click(function() {
+	$('#cal a[title="close"], #plseFull a[title="close"], #plseGadgetFull a[title="close"], #scrty a[title="close"]').click(function() {
 		var views = $(this).closest("div");
 
 		$(document).delay(300, 'fullScreenQueue');
@@ -680,7 +750,7 @@ $(document).ready(function() {
 		return false;
 	});
 
-	$('#cal, #plse, #scrty').click(function(e){
+	$('#cal, #plseFull, #plseGadgetFull, #scrty, #explore').click(function(e){
 		e.stopPropagation();
 		return false;
 	});
@@ -702,18 +772,18 @@ $(document).ready(function() {
 	// Left/Right scrolling
 
 	$('.ribbon .navRight').click(function() {
-		$(this).addClass('noDisplay'); // not a real solution
-		$('.ribbon .navLeft').removeClass('noDisplay'); // not a real solution
 		calendar.scrollRight($(this));
 		return false;
-	})
+	});
 
 	$('.ribbon .navLeft').click(function() {
-		$(this).addClass('noDisplay'); // not a real solution
-		$('.ribbon .navRight').removeClass('noDisplay'); // not a real solution
 		calendar.scrollLeft($(this));
 		return false;
-	})
+	});
+
+	$('#view_calendar').on('click', '.squib.active', function() {
+		calendar.scrollLeft($('.ribbon .navLeft'));
+	});
 
 	// Event Hover
 
@@ -745,9 +815,25 @@ $(document).ready(function() {
 
 	// Switch Views
 
-	$('.toggleView .month a, .toggleView .week a').click(function() {
+	$('.toggleView .month a').click(function() {
 		$(this).parents('li').find('.selected').removeClass('selected');
 		$(this).addClass('selected');
+
+		//yuck!
+		$(this).parents('header').siblings('.month').removeClass('noDisplay');
+		$(this).parents('header').siblings('.week').addClass('noDisplay');
+
+		return false;
+	});
+
+	$('.toggleView .week a').click(function() {
+		$(this).parents('li').find('.selected').removeClass('selected');
+		$(this).addClass('selected');
+
+		//yuck!
+		$(this).parents('header').siblings('.month').addClass('noDisplay');
+		$(this).parents('header').siblings('.week').removeClass('noDisplay');
+
 		return false;
 	});
 
@@ -773,6 +859,29 @@ $(document).ready(function() {
 		});
 
 	}
+
+	//Fullscreen gadget
+	$('.gadget .tools a[title*="Fullscreen"]').on({
+		click: function(e) {
+			var rel = $(this).attr('rel');
+			var views = $("#" + rel);
+			var $this = $(this);
+
+			$(document).delay(300, 'fullScreenQueue');
+			$(document).queue('fullScreenQueue', function(next) {
+				views.data("source", $this).growFrom($this, {
+					duration: 400
+				});
+				next();
+			});
+			$(document).queue('fullScreenQueue', function(next) {
+				$('#overlay').fadeIn(400);
+				next();
+			});
+			$(document).dequeue('fullScreenQueue');
+			e.stopPropagation();
+		}
+	});
 
 
 	// Left/Right hover scrolling Events

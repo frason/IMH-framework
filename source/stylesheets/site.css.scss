@@ -49,6 +49,21 @@ $sansSerif: Arial, Helvetica, Sans-serif;
   border-top-right-radius: 3px;
 }
 
+@mixin standard-button-gradient {
+  background-image: linear-gradient(bottom, rgb(78,138,190) 30%, rgb(127,185,236) 72%);
+  background-image: -o-linear-gradient(bottom, rgb(78,138,190) 30%, rgb(127,185,236) 72%);
+  background-image: -moz-linear-gradient(bottom, rgb(78,138,190) 30%, rgb(127,185,236) 72%);
+  background-image: -webkit-linear-gradient(bottom, rgb(78,138,190) 30%, rgb(127,185,236) 72%);
+  background-image: -ms-linear-gradient(bottom, rgb(78,138,190) 30%, rgb(127,185,236) 72%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0.3, rgb(78,138,190)),
+    color-stop(0.72, rgb(127,185,236))
+  );
+}
+
 
 // GLOBALS
 
@@ -90,6 +105,19 @@ a {
   color:#999
 }
 
+.btn_standard_med {
+  border:0 !important;
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  padding:4px 10px;
+  -moz-box-shadow:0 2px 2px -2px #555;
+  -webkit-box-shadow:0 2px 2px -2px #555;
+  box-shadow:0 2px 2px -2px #555;
+  @include standard-button-gradient;
+  @include border-radius(4px, 4px);
+}
+
 #overlay {
   height:100;
   background:#000;
@@ -106,6 +134,20 @@ a {
 
 .noDisplay {
   display:none !important;
+}
+
+.help {
+  height:12px;
+  line-height:inherit;
+  margin:0 5px;
+
+  img {
+    vertical-align:middle;
+  }
+}
+
+.socialPage {
+  padding:47px 0 0 0;
 }
 
 .switcher {
@@ -214,12 +256,12 @@ a {
 
 #container, #wrapper div[role="main"] {
 
-  #cal, #plse {
+  #cal, #plseFull, #plseGadgetFull {
     left:25px;
     width:1211px;
   }
 
-  #plse, #scrty {
+  #plseFull, #plseGadgetFull, #scrty {
     
     img {
       clear:both;
@@ -229,7 +271,7 @@ a {
     }
   }
   
-  #cal, #plse, #scrty {
+  #cal, #plseFull, #plseGadgetFull, #scrty {
     display:none;
     background:#fff;
     @include border-radius(6px, 6px);
@@ -741,14 +783,75 @@ a {
       }
 
       .menu.userInfo {
-        background:url(../images/placeholders/menuUser.png) no-repeat top center;
+        // background:url(../images/placeholders/menuUser.png) no-repeat top center;
+        background:transparent url(../images/ui/bg_buHead.png) no-repeat center top;
         display:none;
-        height:161px;
-        left:-52px;
+        // height:141px;
+        left:-43px;
+        padding:5px 0 0 0;
         position:absolute;
         top:27px;
-        width:198px;
+        width:180px;
         z-index:20;
+
+        ul {
+          background:#f6f6f6;
+          padding:0 0 7px 0;
+          @include box-shadow(0 4px 8px #555);
+          @include border-radius(0 0 6px 6px);
+
+          li {
+            display:block;
+            float:none;
+            padding:0 4px;
+
+            &.head {
+              background:transparent url(../images/ui/bg_buHead.png) no-repeat center -5px;
+              height:33px;
+              margin:0 0 7px 0;
+              padding:8px 10px 0 10px;
+              @include box-shadow(0 1px 2px #999);
+
+              span {
+                color:#ccc;
+                display:block;
+              }
+
+              a {
+                color:#9fdffc;
+                font-size:13px;
+                padding:0;
+
+                &:hover {
+                  background:none;
+                }
+              }
+            }
+
+            &:nth-child(4) {
+              border-bottom:1px solid #e8e8e8;
+              padding:0 4px 4px 4px;
+            }
+
+            &:nth-child(5) {
+              border-top:1px solid #fff;
+              padding:4px 4px 0 4px;
+            }
+
+            a {
+              border-right:none;
+              color:#2168a7;
+              display:block;
+              line-height:1.4em;
+              padding:0px 5px;
+              @include border-radius(3px);
+
+              &:hover {
+                background:#b9dff1;
+              }
+            }
+          }
+        }
       }
 
       .menu.businessSwitch {
@@ -1187,10 +1290,12 @@ a {
       } 
 
       a {
+        display:block;
         position:relative;
         left:28px;
         top:3px;
-        width:183px; height:30px;
+        width:146px;
+        height:30px;
         word-wrap: normal;
      }
 
@@ -1200,6 +1305,11 @@ a {
         background-position:-24px 0px;
         position:relative;
         left:7px; top:3px;
+      }
+
+      &#ReturnToHub-nav {
+        font-size:12px !important;
+        line-height:1.44em;
       }
     }
 
@@ -1213,7 +1323,10 @@ a {
       }    
     }
 
-    // icons
+    // App Icons
+
+    &#ReturnToHub-nav .appImage {background:transparent url(../images/apps/imh_hover.png) no-repeat -24px 0}
+    &#ReturnToHub-nav:hover .appImage {background:transparent url(../images/apps/imh_hover.png) no-repeat 0 0}
 
     &#EmailStudio-nav .appImage {background:transparent url(../images/apps/email_hover.png) no-repeat -24px 0}
     &#EmailStudio-nav:hover .appImage {background:transparent url(../images/apps/email_hover.png) no-repeat 0 0}
@@ -1284,9 +1397,11 @@ a {
 
       a {
         position:relative;
+        display:block;
         left:28px;
         top:3px;
-        width:auto; height:30px;
+        // width:auto;
+        height:30px;
       }
 
       li {

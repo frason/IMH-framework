@@ -6,12 +6,15 @@ div id='view_pulse'
 
 		header class='header'
 			ul class='tools clearfix'
+				li class='fullscreen'
+					a rel='plseFull' title='Fullscreen' href='#' Full Screen
 				li class='settings'
 					a title='Settings' href='#' Settings
-				li class='fullscreen'
-					a rel='plse' title='Fullscreen' href='#' Full Screen
 
-			h2 Pulse
+			h2 
+				' Pulse
+				a title='Pulse Help' class='help' href='#'
+					== image_tag 'icons/helpPulse.png'
 
 		div class='rail'
 
@@ -25,161 +28,140 @@ div id='view_pulse'
 
 				div
 
-					div class='gadget max'
+					div class='gadget max imageEmails'
 
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
 							h3 class='title' Marketing Emails
 
 						div class='content'
-							/!dl
-								/!dt List Name
-								/!dd
-									/!span class='value' +79
-									/!span class='desc' Change Today
-									/!span 19,405 total
-
-							== image_tag 'placeholders/gadget_maxMarketingEmails.png'
+							== image_tag('placeholders/gadget_maxMarketingEmails.png', :class => 'emails')
 			
-					div class='gadget min'
+					div class='gadget min imageFollowers'
 
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
-							h3 class='title' Subscribers
+							h3 class='title' Followers
 
 						div class='content'
+							== image_tag('placeholders/gadget_maxTwitterFollowers.png', :class => 'followers noDisplay')
+
 							dl
-								dt List Name
+								dt Scott McCorkle
 								dd
 									span class='value' +56
 									span class='desc' Change Today
-									span 19,405 total
+									span 189,405 total
 					
 					div class='gadget min'
 					
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
 							h3 class='title' Fans
 
 						div class='content'
 							dl
-								dt Page Name
+								dt ExactTarget Facebook
 								dd
 									span class='value' +79
 									span class='desc' Change Today
-									span 19,405 total
+									span 189,405 total
 			
 					div class='gadget min'
 
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
 							h3 class='title' Followers
 
 						div class='content'
 							dl
-								dt Account Name
+								dt Exact Target
 								dd
 									span class='value' +56
 									span class='desc' Change Today
-									span 19,405 total
-				
+									span 189,405 total
+
 				div
-				
+
 					div class='gadget min'
 
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
-							h3 class='title' Subscribers
+							h3 class='title' Followers
 
 						div class='content'
 							dl
-								dt List Name
+								dt Northern Trails Outfitters
 								dd
 									span class='value' +56
 									span class='desc' Change Today
-									span 19,405 total
+									span 189,405 total
 					
 					div class='gadget min'
 					
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
 							h3 class='title' Fans
 
 						div class='content'
 							dl
-								dt Page Name
+								dt Northern Trails Facebook
 								dd
 									span class='value' +79
 									span class='desc' Change Today
-									span 19,405 total
+									span 189,405 total
 			
 					div class='gadget min'
 
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
 							h3 class='title' Followers
 
 						div class='content'
 							dl
-								dt Account Name
+								dt Northern Trail Runners
 								dd
 									span class='value' +56
 									span class='desc' Change Today
-									span 19,405 total
-					
+									span 189,405 total
+
 					div class='gadget min'
 
 						header
 							ul class='tools clearfix'
-								li class='settings'
-									a title='Settings' href='#'
 								li class='fullscreen'
-									a title='Fullscreen' href='#'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
 
-							h3 class='title' Followers
+							h3 class='title' Fans
 
 						div class='content'
 							dl
-								dt Account Name
+								dt Northern Trail Runners
 								dd
-									span class='value' +56
+									span class='value' +79
 									span class='desc' Change Today
-									span 19,405 total
+									span 189,405 total
 				
 			footer
 				div class='count'

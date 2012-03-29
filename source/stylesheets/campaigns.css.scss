@@ -31,6 +31,10 @@ p {font-size:11px; text-align:left;}
   font-size: 14px;
   font-weight: normal;
   line-height:1.5em;
+
+  .help {
+    margin:0 1px;
+  }
 }
 
 .search-box {
@@ -154,12 +158,21 @@ p {font-size:11px; text-align:left;}
   position: relative;
   padding:7px 1px 6px 12px; 
 }
+
 .grid-table-scroll{
   overflow-x: auto; 
   overflow-y: auto; 
   height: 297px; 
   background-color: #fff;
   border:1px solid #ececec;
+  position:relative;
+
+  .noData {
+    color:#999;
+    display:none;
+    margin:60px 0 0 0;
+    text-align:center;
+  }
 }
 
 .grid-table-data {
