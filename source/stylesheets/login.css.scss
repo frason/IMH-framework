@@ -1,0 +1,171 @@
+@import "susy";
+@import "compass/css3";
+
+@font-face {
+  font-family: universBold;
+  src: url('/fonts/UniversLTStd-Bold.otf'); 
+}
+
+@font-face {
+  font-family: univers;
+  src: url('/fonts/UniversLTStd.otf'); 
+}
+
+@font-face {
+  font-family: universCond;
+  src: url('/fonts/UniversLTStd-Cn.otf'); 
+}
+
+// MIXINS
+
+@mixin rounded-full { //duplicate!
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+@mixin rounded-top {
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -moz-border-radius-topright: 3px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+// VARIABLES
+
+$sansSerif: Arial, Helvetica, Sans-serif;
+$fontColor: #525151;
+$fontColorLight: #666;
+$default-text-shadow-color: #d1d1d1;
+$default-text-shadow-blur: 1px;
+$default-text-shadow-v-offset: 2px;
+
+body.ftux {
+  background:#455560;
+}
+
+.center {
+  margin:0 auto;
+  position:relative;
+  width:1000px;
+}
+
+.loginContent {
+  background:#DB7228;
+
+  header {
+    color:#fff;
+    padding:0 10px;
+
+    ul {
+      display:inline;
+      float:right;
+      font-size:12px;
+      margin:32px 0 0;
+
+      li {
+        display:inline;
+        float:right;
+        padding:0 4px;
+
+        &:first-child {
+          border-left:1px solid #fff;
+        }
+      }
+    }
+  }
+
+  fieldset {
+    background:#fff;
+    display:inline;
+    margin:0 0 -40px 0;
+    min-height: 497px;
+    width:100%;
+    @include border-radius(20px);
+
+    legend {
+      background:transparent url(../images/placeholders/loginIMHIcon.png) no-repeat left center;
+      height:56px;
+      padding:0 0 0 68px;
+
+      span {
+        color:#515151;
+        display:block;
+        font-size:22px;
+        font-weight:600;
+        line-height:1.1em;
+        padding:5px 0 0 0;
+        width:157px;
+      }
+    }
+
+    form {
+      margin:11% auto 0 auto;
+      padding: 0 20px;
+      width:407px;
+
+      input.textbox {
+        border: 1px solid #BBBBBB;
+        @include border-radius(5px);
+        color: #666666;
+        display:block;
+        margin:5px 5px 10px 67px;
+        padding: 3px;
+        width: 200px;
+      }
+
+      .rightCol {
+        float:right;
+        font-size:12px;
+        width:131px;
+
+        a {
+          color: #2168A7;
+          display: block;
+          height: 26px;
+          line-height: 2em;
+          margin: 3px 0 0 2px;
+          padding: 0 0 0 5px;
+          vertical-align: middle;
+        }
+
+        .remember {
+
+          height:26px;
+          line-height:1.6em;
+          padding:5px 0 0 5px;
+
+          #rememberMeChk, .remember-me  {
+            display:inline;
+            font-size:11px;
+            margin:0;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      .btn_standard_med {
+
+        display:inline;
+        float:right;
+        margin:0 135px 0 0;
+
+        &:hover {
+          cursor:default;
+          cursor:pointer;
+        }
+      }
+    }
+  }
+}
+
+.loginFooter {
+  padding:60px 0 0 0;
+
+  .center {
+    text-align:center;
+  }
+}
+

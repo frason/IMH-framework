@@ -1,0 +1,50 @@
+doctype html
+head
+== yield_content :title
+
+meta http-equiv='Content-Type' content='text/html' charset='utf-8'
+== stylesheet_link_tag 'site'
+== stylesheet_link_tag 'ftux'
+== javascript_include_tag 'jquery-1.7.1.min'
+== javascript_include_tag 'jquery.easing.1.3'
+== javascript_include_tag 'jquery.tmpl.min'
+== javascript_include_tag 'pageFunctions'
+== javascript_include_tag 'growshrink'
+== javascript_include_tag 'ftux'
+
+script id='eventTemplate' type='text/x-jquery-tmpl'
+	div class='eventDetail'
+		div
+			header class='${eventColor}'
+				span class='eventAssoc' ${eventAssoc}
+				h3 ${eventType}
+			section class='clearfix'
+				' {{if eventImage}}
+				== image_tag '${eventImage}'
+				' {{/if}}
+				h4
+					a href='#' ${eventTitle}
+				p ${eventDescrip}
+		span class='pointer'
+
+script id='sectionTemplate' type='text/x-jquery-tmpl'
+	div class='sectionDetail'
+		p ${description}
+		' {{if vidSource}}
+		a title='animate' id='playVid' class='btn_standard_med'href='#' Animate
+		video id='vidEmbed' preload="auto" poster='${vidPoster}'
+			' {{html vidSource}}
+			p Incompatible browser.
+		' {{/if}}
+
+		' {{if picSource}}
+		== image_tag '${picSource}'
+		' {{/if}}
+
+body class='ftux'
+
+		div id='wrapper'
+
+			== yield
+
+		div id='overlay'

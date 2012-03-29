@@ -1,0 +1,15 @@
+// Allows for the alternative layout called Singleton
+---
+
+layout: singleton
+page_name:
+  - SocialPages
+
+---
+
+//Page Title
+-content_for :title do
+ title Page - SocialPages
+
+-content_for :documentation do
+	== image_tag('placeholders/socialPages.png', :class => 'socialPage')

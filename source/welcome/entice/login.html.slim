@@ -1,0 +1,35 @@
+---
+
+layout: welcome
+
+---
+
+-content_for :title do
+ title IMH
+
+== stylesheet_link_tag 'login'
+
+div class='loginContent'
+	div class='center'
+		header
+			ul class='clearfix'
+				li Contact Us
+				li 866.362.4538
+			== image_tag 'placeholders/loginLogo.png'
+
+		fieldset
+			form
+				legend 
+					span Interactive Marketing Hub
+				div class='rightCol'
+					div class='remember clearfix'
+						input id="rememberMeChk" type="checkbox"
+						label class="remember-me" for="rememberMeChk" Remember Me
+					a href='#' Forgot your password?
+				input type="text" class='textbox' placeholder="Enter Username"
+				input type="password" class='textbox' placeholder="Enter Password"
+				a href='../entice?data=false' class='btn_standard_med' Login
+
+div class='loginFooter'
+	div class='center'
+		== image_tag 'placeholders/loginFooter.png'

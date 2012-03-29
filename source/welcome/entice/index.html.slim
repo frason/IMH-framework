@@ -1,0 +1,111 @@
+---
+
+layout: welcome
+
+---
+
+-content_for :title do
+ title IMH
+
+== partial 'header'
+
+div id='container'
+
+  == partial 'security'
+
+  div id="innerContent"
+
+    div id='mainContent'
+      
+      == partial 'calendar'
+
+      == partial 'pulse_ftux'
+
+      == partial 'campaigns'
+
+  div id='exit'
+    header
+      ul class="tools"
+        li
+          a title="Close Window" href="#"
+      h2 Exit Tour
+
+    section class='content clearfix'
+      == image_tag 'ftux/bu_switch.png'
+      p The tour has been dismissed. You can return by selecting the link in your settings menu. It will be available for 30 days, and then archived.
+
+    footer class='clearfix'
+      ul class='clearfix'
+        li
+          == link_to 'Close', '/', :title => 'Close Window', :class => 'btn_standard_med'
+
+  div id='explore'
+
+    header
+      ul class="tools"
+        li
+          a title="Close Window" href="#"
+      h2 Explore the Hub
+    section class='subHead'
+      ul class='tourNav clearfix'
+        li
+          a class='next' href='#'
+        li
+          a class='prev' href='#'
+      h3 
+        span class='sectionTitle' Hub Dashboard
+        ' :
+        span class='subsectionTitle' Settings
+    section class='content clearfix'
+
+      section class='main'
+
+      section class='rightCol'
+
+        h3 Contents
+        nav class='tourMenu'
+          ul
+            li 
+              span class='label' Hub Dashboard
+              ul title='Hub Dashboard' class='dashboard'
+                li
+                  a title='Hub Dashboard Welcome Menu' href='#' rel='0' Welcome Menu
+                li
+                  a title='Hub Dashboard Navigation' href='#' rel='1' Navigation
+                li
+                  a title='Hub Dashboard Resources' href='#' rel='2' Resources
+                li
+                  a title='Hub Dashboard Contextual Help' href='#' rel='3' Contextual Help
+            li
+              span class='label' Calendar
+              ul title='Calendar' class='calendar'
+                li 
+                  a title='Calendar Views' href='#' rel='4' Views
+                li 
+                  a title='Calendar Icons and Messages Types' href='#' rel='5' Icons and Messages Types
+            li
+              span class='label' Pulse
+              ul title='Pulse' class='pulse'
+                li 
+                  a title='Pulse Views' href='#' rel='6' Views
+                li 
+                  a title='Pulse Types' href='#' rel='7' Types
+                li 
+                  a title='Pulse Settings' href='#' rel='8' Settings
+            li
+              span class='label' Campaigns
+              ul title='Campaigns' class='campaigns'
+                li 
+                  a title='Campaigns Views' href='#' rel='9' Views
+                li 
+                  a title='Campaigns Activity' href='#' rel='10' Activity
+
+    footer class='clearfix'
+
+      ul class='clearfix'
+        li
+          a title='Close Window' class='btn_standard_med' href='#' Close Window
+        li
+          a rel='exit' href='#' title='Exit Tour' class='btn_exit'
+            == image_tag 'ui/btn_exitTour.png'
+

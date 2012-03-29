@@ -1,0 +1,107 @@
+---
+
+layout: welcome
+
+---
+
+-content_for :title do
+ title IMH
+
+== partial 'header'
+
+div id='container'
+
+  == partial 'security'
+
+  div id="innerContent"
+
+    div id='mainContent'
+      
+      == partial 'calendar'
+
+      == partial 'pulse_ftux'
+
+      == partial 'campaigns'
+  
+  div id="cal"
+    header
+      ul class='tools'
+        li
+          a title="close" href="#"
+        li
+          form class='search'
+            input type="text" class="search-input" value="Search" onfocus="if(this.value == 'Search') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search';}"
+        li class='toggleView'
+          ul class='clearfix'
+            li
+              a title='Next' href='#'
+                span
+            li class='month'
+              a title='Month View' href='#' class='selected' Month
+            li class='week'
+              a title='Week View' href='#' Week
+            li
+              a title='Previous' href='#'
+                span
+        li class='squib'
+          span Today
+              
+      span class='label' Week starting
+      h2 March 12, 2012
+    section class='month'
+      div class='rightCol'
+        div class='grid'
+          header
+            == image_tag 'placeholders/calModal_monthHeader.png'
+          div
+            == image_tag 'placeholders/calModal_month.png'
+        div class='panel'
+          div class='toggle'
+            span
+          div class='min'
+            == image_tag 'placeholders/calModal_dayPanel.png'
+      == image_tag 'placeholders/calendar_leftCol.png'
+
+    section class='week noDisplay'
+      div class='rightCol'
+        div class='grid'
+          header
+            == image_tag 'placeholders/calModal_weekHeader.png'
+          div
+            == image_tag 'placeholders/calModal_week.png'
+        div class='panel'
+          div class='toggle'
+            span
+          div class='min'
+            == image_tag 'placeholders/calModal_dayPanel.png'
+      == image_tag 'placeholders/calendar_leftCol.png'
+  
+  div id="plseFull"
+    header
+      ul class="tools"
+        li
+          a title="close" href="#"
+        li class='settings'
+          a title='settings' href='#' Settings
+      h2 Pulse
+    == image_tag 'placeholders/pulse_full3.png'
+
+  div id="plseGadgetFull"
+    header
+      ul class="tools"
+        li
+          a title="close" href="#"
+        li class='settings'
+          a title='settings' href='#' Settings
+      h2 Pulse
+    == image_tag 'placeholders/pulseGadget_full.png'
+  
+  div id='scrty'
+    header
+      ul class="tools"
+        li
+          a title="close" href="#"
+        li class='settings'
+          a title='settings' href='#' Security Settings
+      h2 Account Activity
+    == image_tag 'placeholders/alerts_full.png'
