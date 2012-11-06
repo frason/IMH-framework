@@ -3,6 +3,7 @@ head
 == yield_content :title
 
 meta http-equiv='Content-Type' content='text/html' charset='utf-8'
+== favicon_tag 'favicon.ico'
 == stylesheet_link_tag 'site'
 == stylesheet_link_tag 'ftux'
 == javascript_include_tag 'jquery-1.7.1.min'
@@ -31,7 +32,7 @@ script id='sectionTemplate' type='text/x-jquery-tmpl'
 	div class='sectionDetail'
 		p ${description}
 		' {{if vidSource}}
-		a title='animate' id='playVid' class='btn_standard_med'href='#' Animate
+		a title='animate' id='playVid' class='btn_standard_med' href='#' Animate
 		video id='vidEmbed' preload="auto" poster='${vidPoster}'
 			' {{html vidSource}}
 			p Incompatible browser.
@@ -41,10 +42,43 @@ script id='sectionTemplate' type='text/x-jquery-tmpl'
 		== image_tag '${picSource}'
 		' {{/if}}
 
-body class='ftux'
+script id='videoTemplate' type='text/x-jquery-tmpl'
+	div class='videoDetail'
+		span class='timer'
+		ul class='playback'
+			li class='again'
+				a title='Play Again' href='#' 
+					'
+					span Play again
+			li class='more'
+				a title='Learn more at Hub 101' href='#' 
+					'
+					span Learn more at Hub 101
+		video preload="auto" poster='${vidPoster}'
+			' {{html vidSource}}
+			p Incompatible browser.
+
+- if data.page.page_name.nil?
+	body class='ftux'
 
 		div id='wrapper'
 
 			== yield
+
+		div class='fuel-loader full'
+			span
+			strong Loading…
+
+		div id='overlay'
+- else
+	body class='static'
+
+		div id='wrapper'
+
+			== yield
+
+		div class='fuel-loader full'
+			span
+			strong Loading…
 
 		div id='overlay'

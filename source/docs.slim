@@ -58,22 +58,39 @@ body class='docs'
 										a title='Previous' href='#'
 											span
 							li class='squib'
-								span Today 
+								span Today
+
 						span class='label' Week starting
-						h2 December 26, 2011
-					section
-						div class='rightCol'
-							div class='grid'
-								header
-									== image_tag 'placeholders/calendar_weekHeader.png'
-								div
-									== image_tag 'placeholders/calendar_week.png'
-							div class='panel'
-								div class='toggle'
-									span
-								div class='min'
-									== image_tag 'placeholders/calendar_dayPanel.png'
-						== image_tag 'placeholders/calendar_leftCol.png'
+						h2 March 12, 2012
+					
+					section class='primary'
+						section class='month'
+							div class='rightCol'
+								div class='grid'
+									header
+										== image_tag 'placeholders/calModal_monthHeaderFtux.png'
+									div
+										== image_tag 'placeholders/calModal_monthFtux.png'
+								div class='panel'
+									div class='toggle'
+										span
+									div class='min'
+										== image_tag 'placeholders/calModal_dayPanelFtux.png'
+							== image_tag 'placeholders/calendar_leftColFtux.png'
+						section class='week noDisplay'
+							div class='rightCol'
+								div class='grid'
+									header
+										== image_tag 'placeholders/calModal_weekHeaderFtux.png'
+									div
+										== image_tag 'placeholders/calModal_weekFtux.png'
+								div class='panel'
+									div class='toggle'
+										span
+									div class='min'
+										== image_tag 'placeholders/calModal_dayPanelFtux.png'
+
+							== image_tag 'placeholders/calendar_leftColFtux.png'
 
 				div id="plseFull"
 					header
@@ -83,7 +100,9 @@ body class='docs'
 							li class='settings'
 								a title='settings' href='#' Settings
 						h2 Pulse
-					== image_tag 'placeholders/pulse_full.png'
+
+					section class='primary'
+						== image_tag 'placeholders/pulse_full3.png'
 				
 				div id="plseGadgetFull"
 					header
@@ -93,7 +112,10 @@ body class='docs'
 							li class='settings'
 								a title='settings' href='#' Settings
 						h2 Pulse
-					== image_tag "placeholders/pulseGadget_full.png"
+
+					section class='primary'
+						== image_tag 'placeholders/pulseGadget_fullFtux.png'
+
 				div id='scrty'
 					header
 						ul class="tools"
@@ -102,7 +124,9 @@ body class='docs'
 							li class='settings'
 								a title='settings' href='#' Security Settings
 						h2 Account Activity
-					== image_tag 'placeholders/alerts_full.png'
+
+					section class='primary'
+						== image_tag 'placeholders/alerts_full.png'
 
 				== if content_for?(:options)
 					== yield_content :options

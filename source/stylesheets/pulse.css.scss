@@ -343,6 +343,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
             box-shadow:0 0 3px #c0c9cd;
             height:122px;
             margin:0 auto;
+            overflow:hidden;
             padding:20px 13px;
             width:254px;
             @include rounded-full;

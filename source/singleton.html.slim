@@ -12,13 +12,13 @@ meta http-equiv='Content-Type' content='text/html' charset='utf-8'
 == javascript_include_tag 'growshrink'
 == javascript_include_tag 'pageFunctions'
 
-body
+body class='singleton'
 
-== partial 'header'
+	== partial 'header'
 
-div id='container'
+	div id='container'
 
-  div id="innerContent"
+		div id="innerContent"
 
-  	== if content_for?(:documentation)
-    	== yield_content :documentation
+			== if content_for?(:documentation)
+				== yield_content :documentation

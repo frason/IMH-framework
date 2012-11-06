@@ -4,7 +4,7 @@
 
 # Susy grids in Compass
 # First: gem install compass-susy-plugin
-# require 'susy'
+require 'susy'
 
 # Change Compass configuration
 # compass_config do |config|
@@ -40,11 +40,14 @@
 page "/calendar.html", :layout => "individual"
 page "/pulse.html", :layout => "individual"
 page "/campaigns.html", :layout => "individual"
+page "/docs/*", :layout => "docs"
+page "/welcome/*", :layout => "welcome"
+page "/editor/*", :layout => "editor"
 
 # 
 # A path which all have the same layout
-# with_layout :admin do
-#   page "/admin/*"
+# with_layout :docs do
+#   page "/docs/*", :layout => "docs"
 # end
 
 # Proxy (fake) files

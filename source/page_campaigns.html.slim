@@ -2,6 +2,7 @@
 ---
 
 layout: singleton
+css: "single"
 page_name:
   - Campaigns
 
@@ -9,4 +10,7 @@ page_name:
 
 //Page Title
 -content_for :title do
- title Page - Campaigns
+ title Hub Tools - Campaigns
+
+-content_for :documentation do
+	== image_tag('placeholders/campaigns.png', :class => 'staticImage')

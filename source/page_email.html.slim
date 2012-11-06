@@ -1,0 +1,16 @@
+// Allows for the alternative layout called Singleton
+---
+
+layout: singleton
+css: "single"
+page_name:
+  - Email
+
+---
+
+//Page Title
+-content_for :title do
+ title Channels - Email
+
+-content_for :documentation do
+	== image_tag('placeholders/emailApp.png', :class => 'staticImage email')

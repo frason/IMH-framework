@@ -515,7 +515,7 @@ var pulseDocs = {
 		$(document).queue('pulseQueue', function(next) {
 			$('header a[title*="close"]').toggleClass('sim');
 
-			var $this = $('#plse a[title*="close"]');
+			var $this = $('#plseFull a[title*="close"]');
 			var views = $this.closest("div");
 
 			$('#overlay').fadeOut(400);

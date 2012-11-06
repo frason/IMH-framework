@@ -8,7 +8,7 @@ div id='view_campaigns'
         ' Campaigns
       div class="search-box"
         div class="search-icon"
-        input type="text" class="search-input" value="Search..." onfocus="if(this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search...';}"
+        input type="text" class='search-input' value="Search..." onfocus="if(this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search...';}"
     table class="grid-table"
       thead
         tr class="table-header-row"
@@ -207,8 +207,13 @@ div id='view_campaigns'
                         div class="twitter" 
                         a href="#" Sit amet commodo lorem pharetra id. 
                         p class="data-text" 25 April at 9:00 am
-              p class='noData' No campaigns created.
+              div class='noData clearfix'
+                == image_tag('icons/campaignSetup.png')
+                p 
+                  ' Campaigns groups emails, pages, mobile messages and social media posts for easy tracking and metrics
+                  ==link_to 'Go to Campaigns application', 'page_campaigns.html'
               div class='entice noDisplay'
                 h2
                 p View Campaigns that you or another user on your account have created. Campaigns are easily created and allow you to associate emails, events, and other marketing actions to keep your cross-­channel campaign organized.
-  
+              div class='fuel-loader campaigns'
+                span

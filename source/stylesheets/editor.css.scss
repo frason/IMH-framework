@@ -1,0 +1,634 @@
+@import "susy";
+@import "compass/css3";
+
+
+/* @group MIXINS */
+
+@mixin standard-button-gradient {
+  @include background(linear-gradient(bottom, rgb(78,138,190) 0%, rgb(127,185,236) 100%));
+}
+
+@mixin standard-button-gradient-hover {
+  @include background(linear-gradient(bottom, rgb(102,158,207) 0%, rgb(154,204,247) 100%));
+}
+
+@mixin standard-button-gradient-disabled {
+  @include background(linear-gradient(bottom, rgb(166,195,219) 0%, rgb(190,218,243) 100%));
+}
+
+/* @end MIXINS */
+
+
+/* @group VARIABLES */
+
+$base-font-size:10px;
+$base-line-height:2em;
+$sans:arial,'Helvetica Neue',helvetica,sans-serif;
+$serif:'Times New Roman',times,georgia,serif;
+
+/* @end VARIABLES */
+
+/* @group GLOBAL */
+
+a {
+	color:#2168a7;
+}
+
+button {
+	border:1px solid #bbb;
+	color:#333;
+	display:block;
+	cursor:default;
+	cursor:pointer;
+	font-size:11px;
+	font-family:$sans;
+	margin:0 5px 0 0;
+	padding:2px 4px;
+	@include background(linear-gradient(bottom, rgb(226,226,226) 0%, rgb(253,253,253) 100%));
+	@include border-radius(4px);
+	@include box-shadow(0 1px 1px 0 #e4e4e4);
+
+	strong {
+		display:inline;
+		float:left;
+		height:16px;
+		width:16px;
+	}
+
+	&.dropdown {
+
+		span {
+			display:block;
+			float:right;
+			margin:5px 0 0 5px;
+			height:3px;
+			width:5px;
+			@include background(transparent url(../images/ui/bg_dropDownCarat.png) no-repeat right center);
+		}
+	}
+
+	&.disable {
+		cursor:default;
+		@include opacity(0.5);
+	}
+}
+
+.btn_et {
+  border:0 !important;
+  color:#fff !important;
+  font-size:11px;
+  font-weight:600;
+  padding:4px 10px;
+  @include box-shadow(0 2px 2px -2px #555);
+  @include border-radius(4px);
+  @include standard-button-gradient;
+
+  &:hover {
+    @include standard-button-gradient-hover;
+  }
+
+  &.disabled {
+    @include standard-button-gradient-disabled;
+  }
+
+  &.dropdown {
+  	display:block;
+  	padding:0;
+
+  	span {
+  		border-left:1px solid #8ec0eb;
+  		display:inline;
+  		float:right;
+  		height:17px;
+  		padding:4px 0;
+  		width:19px;
+  		@include background(transparent url(../images/ui/bg_btnDropdownCarat.png) no-repeat center center);
+  	}
+
+  	strong {
+  		padding:4px 7px 4px 10px;
+  	 	border-right:1px solid #639dce;
+  	}
+  }
+
+  &.lrg {
+  	font-size:12px;
+  	padding:6px 10px 5px;
+  }
+}
+
+.btn_et_sec {
+	border:1px solid #b5c6d2;
+	color:#4e8abe;
+	font-size:11px;
+	padding:3px 8px;
+	@include background(linear-gradient(bottom, rgb(221,231,238) 0%, rgb(255,255,255) 100%));
+	@include border-radius(4px);
+	@include box-shadow(0 1px 1px #d8d8d8);
+
+	&.selected {
+		@include background(linear-gradient(bottom, rgb(222,233,241) 0%, rgb(213,227,233) 100%));
+		@include box-shadow(0 1px 5px 1px #bdccd3 inset);
+	}
+}
+
+.floatRight {
+	display:inline;
+	float:right;
+}
+
+/* @end GLOBAL */
+
+
+/* @group STRUCTURE */
+
+#container {
+	font-size:10px;
+	top:32px;
+}
+
+/* @end STRUCTURE */
+
+
+
+.subhead {
+	font-size:11px;
+	margin:0 0 0 19px;
+	padding:10px 0 5px;
+
+	.overview {
+		padding:0 0 0 29px;
+		line-height:1.8em;
+		@include background(transparent url(../images/icons/overview.png) no-repeat left center);
+	}
+}
+
+.wiz {
+	border-bottom:1px solid #d1d1d1;
+	border-top:1px solid #d1d1d1;
+	padding:0 20px 0 0;
+	@include background(linear-gradient(bottom, rgb(238,239,241) 0%, rgb(250,250,250) 100%));
+
+	.confirm {
+		font-size:12px;
+		margin:10px 0 0 0;
+		@include clearfix;
+
+		li {
+			display:inline;
+			float:right;
+			line-height:2.4em;
+			height:28px;
+			margin:0 0 0 15px;
+		}
+	}
+
+	menu {
+		border-bottom:1px solid #fff;
+		border-top:1px solid #fff;
+
+		ul {
+			@include clearfix;
+
+			li {
+				display:inline;
+				float:left;
+				margin:-1px 0 -2px 0;
+
+				&.curr {
+
+					a {
+						color:#2168a7;
+						@include background(#f3f4f5 url(../images/ui/bg_wizStepCurrent.png) no-repeat right center);
+
+						span {
+							@include background(transparent url(../images/ui/sprite_wizCircles.png) no-repeat 0px -80px);
+						}
+					}
+				}
+
+				&.complete {
+
+					a {
+						color:#5fb21c;
+
+						span {
+							padding:2px 10px;
+							@include background(transparent url(../images/ui/sprite_wizCircles.png) no-repeat 0px 0px);
+						}
+					}
+				}
+
+				a {
+					color:#999;
+					display:block;
+					font-size:14px;
+					line-height:3.4em;
+					height:48px;
+					padding:0 22px 0 10px;
+					@include background(#f3f4f5 url(../images/ui/bg_wizStepDefault.png) no-repeat right center);
+					@include clearfix;
+
+					span {
+						color:#fff;
+						// display:block;
+						// float:left;
+						line-height:inherit;
+						font-weight:600;
+						padding:2px 7px 2px 6px;
+						height:17px;
+						margin:0 7px 0 0;
+						width:14px;
+						@include background(transparent url(../images/ui/sprite_wizCircles.png) no-repeat 0px -160px);
+					}
+				}
+
+				&:last-child {
+
+					a {
+						@include background(transparent url(../images/ui/bg_wizStepDefault.png) no-repeat right center);
+					}
+				}
+
+				&:first-child {
+					margin:-1px 0 -2px 10px;
+
+					a {
+						@include background(transparent url(../images/ui/bg_wizStepComplete.png) no-repeat right center);
+					}
+				}
+			}
+		}
+	}
+}
+
+.editor {
+	color:#333;
+	left:0;
+	position:relative;
+	top:0;
+
+	.toolbar {
+		border-bottom:1px solid #ccc;
+		font-size:11px;
+		padding:7px 20px;
+		@include background(#f3f3f3);
+
+		ul {
+			margin:3px 0;
+			@include clearfix;
+
+			&.confirm {
+				margin:0 0 0 10px;
+				padding:0 0 0 11px;
+				@include background(transparent url(../images/ui/bg_vertSeperator.png) repeat-y left top);
+
+				.btn_et {
+					margin:0 0 0 15px;
+				}
+			}
+
+			li {
+				display:inline;
+				line-height:2.3em;
+				float:left;
+
+				&.label {
+					line-height:2em;
+					margin:0 10px 0 0;
+				}
+			}
+
+			&.floatRight {
+				li {
+					display:inline;
+					float:right;
+				}
+			}
+		}
+
+		button {
+
+			&.version {
+				height:21px;
+				padding:0px 4px 0 0;
+				width:37px;
+
+				span {
+					margin:6px 0 0 0;
+				}
+
+				strong {
+					@include background(transparent url(../images/icons/sprite_editorIcons.png) no-repeat 0 -209px);
+				}	
+
+			}
+
+			&.redo {
+				height:21px;
+				padding:0;
+				width:22px;
+
+				strong {
+					@include background(transparent url(../images/icons/sprite_editorIcons.png) no-repeat 0 -225px);
+				}
+			}
+
+			&.chk_spelling {
+				height:21px;
+				padding:0;
+				width:22px;
+
+				strong {
+					@include background(transparent url(../images/icons/sprite_editorIcons.png) no-repeat 0 -192px);
+				}
+			}
+
+			&.validate {
+				// height:21px;
+				padding:2px 0 0 4px;
+				// width:22px;
+
+				strong {
+					margin:-1px 0 0 3px;
+					@include background(transparent url(../images/icons/sprite_editorIcons.png) no-repeat 0 -1360px);
+				}
+			}
+		}
+
+	}
+
+	.sidebar {
+		font-size:11px;
+		left:0;
+		position:absolute;
+		top:42px;
+		width:280px;
+		z-index:2;
+
+		.tabs {
+			font-size:10px;
+			position:absolute;
+			width:40px;
+			right:0;
+			top:9px;
+			z-index:1;
+
+			li {
+				margin:0 0 3px 0;
+
+				a {
+					border-top:1px solid #ccc;
+					border-right:1px solid #ccc;
+					border-bottom:1px solid #ccc;
+					color:#333;
+					display:block;
+					padding:9px 0 5px;
+					text-align:center;
+					@include background(#eee);
+					@include border-radius(0 4px 4px 0);
+
+					span {
+						display:block;
+						height:24px;
+						margin:0 0 0 4px;
+						width:30px;
+					}
+				}
+
+				&.main {
+
+					span {
+						@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -397px);
+					}
+				}
+
+				&.gears {
+
+					span {
+						@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -442px);
+					}
+				}
+
+				&.status {
+
+					span {
+						@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -487px);
+					}
+				}
+
+				&.active {
+
+					a {
+						margin: 0 0 0 -2px;
+						padding:9px 0 5px 2px;
+						// @include background(#F3F3F3);
+
+						span {
+							margin:0 0 0 4px;
+						}
+					}
+
+					&:hover {
+
+						&.main {
+
+							span {
+								@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -265px);
+							}
+						}
+
+						&.gears {
+
+							span {
+								@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -310px);
+							}
+						}
+
+						&.status {
+
+							span {
+								@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -355px);
+							}
+						}
+
+					}
+
+					// &.main, &.gears, &.status {
+
+					// 	a {
+					// 		background-position:-55px;
+					// 	}
+					// }
+				}
+			}
+		}
+
+		aside {
+			border-right:1px solid #ccc;
+			padding:9px 9px 11px 9px;
+			width:220px;
+			@include background(#f3f3f3);
+			@include box-shadow(1px 0 2px 0 #cecece);
+
+			> div {
+				border:1px solid #ccc;
+				height:100%;
+				@include background(#fff);
+				@include border-radius(4px);
+			}
+
+			section {
+				margin:-1px;
+
+				> section {
+					padding:0 2px;
+				}
+
+				header {
+					border:1px solid #ccc;
+					padding:10px;
+					@include background(#f3f3f3);
+					@include border-radius(4px 4px 0 0);
+					@include box-shadow(0 1px 2px 0 #e2e2e2);
+
+					h2 {
+						color:#333;
+						font-size:15px
+					}
+				}
+
+				.gearsList {
+					font-size:12px;
+
+					li {
+						@include background(transparent url(../images/ui/bg_dottedCCC.png) repeat-x bottom left);
+
+						a {
+							color:#333;
+							display:block;
+							padding:17px 0 15px 43px;
+						}
+
+						&:hover {
+							border-bottom:1px solid #c6c6c6;
+							border-top:1px solid #c6c6c6;
+							margin:-1px 0;
+							@include background(linear-gradient(bottom, rgb(226,239,245) 0%, rgb(247,253,255) 100%));
+							@include box-shadow(0 1px 0 0 #ebebeb);
+
+							a {
+								cursor:hand;
+								cursor:grab;
+								cursor:-moz-grab;
+								cursor:-webkit-grab;
+							}
+						}
+
+						&:first-child {
+
+							&:hover {
+								margin:-2px 0 -1px 0;
+							}
+						}
+
+						&.image {
+
+							a {
+								@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -10px);
+							}
+						}
+
+						&.text {
+
+							a {
+								@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -53px);
+							}
+						}
+
+						&.textImage {
+
+							a {
+								@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -97px);
+							}
+						}
+					}
+				}
+			}
+
+			.ua {
+				color:#666;
+				line-height:1.14em;
+				padding:9px 11px;
+			}
+		}
+	}
+
+	.workspace {
+		overflow:auto;
+		@include background(#e6e6e6);
+		@include box-shadow(0 1px 2px #cecece inset);
+	}
+
+	footer {
+		border-top:1px solid #ccc;
+		clear:both;
+		padding:3px 0 9px;
+		width:100%;
+		@include box-shadow(0 -1px 2px 0 #cecece, 0 1px 0 0 #fdfcfc inset);
+		@include background(#f3f3f3);
+
+		.modes {
+			font-size:11px;
+			height:23px;
+			margin:0 auto;
+			width:203px;
+
+			ul {
+				@include clearfix;
+
+				li {
+					display:inline;
+					float:left;
+					line-height:2.5em;
+
+					&.label {
+						margin:0 10px 0 0;
+					}
+
+					a {
+						@include border-radius(0px);
+					}
+
+					&:nth-child(2) {
+						a {
+							border-right:none;
+							text-transform:uppercase;
+							@include border-radius(4px 0 0 4px);
+						}
+					}
+					&:last-child {
+						a {
+							border-left:none;
+							text-transform:uppercase;
+							@include border-radius(0 4px 4px 0);
+						}
+					}
+				}
+			}
+		}
+	}
+
+}
+
+#canvas {
+	border:1px solid #ccc;
+	height:776px;
+	margin:20px auto 20px auto;
+	width:600px;
+	@include background(#fff);
+	@include box-shadow(0 3px 6px #cecece);
+}
+
+
+

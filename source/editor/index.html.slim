@@ -1,0 +1,142 @@
+---
+
+layout: editor
+
+---
+
+-content_for :title do
+ title ExactTarget Editor
+
+== partial 'header'
+
+div id='container'
+
+	section class='subhead'
+
+		a href='#' class='overview' Back to Campaign Overview 
+
+	section class='wiz'
+
+		ul class='confirm floatRight'
+			li
+				a href='#' class='btn_et lrg' Next
+			li
+				a href='#' Back
+
+		menu class='steps'
+			ul
+				li class='step_1 complete'
+					a href='#' 
+						span 
+						' Select Template
+				li class='step_2 curr'
+					a href='#' 
+						span 2
+						' Define Content
+				li class='step_3'
+					a href='#' 
+						span 3
+						' Select Audience
+				li class='step_4'
+					a href='#' 
+						span 4
+						' Schedule/Activate
+
+	section class='editor'
+
+		menu class='toolbar'
+			ul class='confirm floatRight'
+				li
+					a href='#' class='btn_et dropdown'
+						span
+						strong Save
+				li
+					a href='#' Cancel
+
+			ul class='floatRight'
+				li
+					button class='preview' Preview
+				li
+					button class='browser dropdown'
+						span 
+						'Browser
+				li class='label' Views
+
+			ul
+				li
+					button class='version dropdown'
+						span
+						strong
+				li
+					button class='redo disable'
+						strong
+				li
+					button class='chk_spelling'
+						strong
+				li
+					button class='chk_spam' Spam Check
+				li
+					button class='validate'
+						strong class='floatRight'
+						' Validate
+				li
+					button class='test' Send Test
+
+		section class='sidebar'
+
+			menu class='tabs'
+				ul
+					li class='main'
+						a href='#' 
+							span
+							' Main
+					li class='gears active'
+						a href='#'
+							span
+							' Gears
+					li class='status'
+						a href='#'
+							span
+							' Status
+
+			aside
+				div
+					section class='content expanded'
+
+						header
+							h2 Content Gears
+
+						section
+							ul class='gearsList'
+								li class='gear image'
+									a href='#' Image
+								li class='gear text'
+									a href='#' Text
+								li class='gear textImage'
+									a href='#' Text + Image
+							p class='ua'
+								' Drag and drop any content gear to the canvas to build your email.
+
+					section class='saved collapsed'
+
+						header
+							h2 Saved Gears
+
+						section
+
+
+
+		section class='workspace'
+
+			article id='canvas'
+
+		footer
+			menu class='modes'
+				ul
+					li class='label' Modes
+					li class='wys'
+						a href='#' class='btn_et_sec selected' wysiwyg
+					li class='text'
+						a href='#' class='btn_et_sec' Text
+					li class='html'
+						a href='#' class='btn_et_sec' html

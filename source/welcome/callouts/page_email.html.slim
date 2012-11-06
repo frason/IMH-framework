@@ -1,0 +1,22 @@
+// Allows for the alternative layout called Singleton
+---
+
+layout: welcome
+version: Callouts
+css: static
+page_name:
+  - Email
+
+---
+
+//Page Title
+-content_for :title do
+ title Channels - Email
+
+== partial 'header'
+
+div id='container'
+
+  div id="innerContent"
+
+  	== image_tag('placeholders/emailApp.png', :class => 'staticImage email')

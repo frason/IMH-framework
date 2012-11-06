@@ -42,9 +42,39 @@ $default-text-shadow-color: #d1d1d1;
 $default-text-shadow-blur: 1px;
 $default-text-shadow-v-offset: 2px;
 
+.point_top {
+  background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -20px -150px;
+  left:47.5%;
+  display:block;
+  height:6px;
+  position:absolute;
+  top:34px;
+  width:11px;
+}
+
+.point_left {
+  background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -76px -145px;
+  left:37px;
+  display:block;
+  height:11px;
+  position:absolute;
+  top:42px;
+  width:6px;
+}
 
 body.entice {
   .grid-table-data, .seven > ul {
+    display:none;
+  }
+
+  .gadget {
+    display:none;
+  }
+}
+
+body.billboard {
+
+  .gadget {
     display:none;
   }
 }
@@ -116,9 +146,9 @@ video#vidEmbed {
 
 .callout {
   position:absolute;
-  background:cyan;
   cursor:default;
   cursor:pointer;
+  display:none;
   height:154px;
   width:274px;
   z-index:20;
@@ -126,7 +156,7 @@ video#vidEmbed {
   -moz-border-radius:6px;
   border-radius:6px;
 
-  div {
+  > div {
     border:2px solid #aaaaaa;
     background-image: linear-gradient(bottom, rgb(254,243,230) 27%, rgb(255,255,255) 82%);
     background-image: -o-linear-gradient(bottom, rgb(254,243,230) 27%, rgb(255,255,255) 82%);
@@ -247,6 +277,7 @@ video#vidEmbed {
 
 #view_pulse .billboard {
   background:url(../images/ui/bg_billboardShadow.png) no-repeat bottom center;
+  display:none;
   height:215px;
   margin:0 auto !important;
   padding:0 13px 11px;
@@ -698,7 +729,7 @@ video#vidEmbed {
 
 .tools, .tourNav {
   display:inline;
-  float:right;
+  float:left;
 
   li {
     display:inline;
@@ -735,3 +766,984 @@ video#vidEmbed {
     }
   }
 }
+
+// Round 2 Additional Styles
+
+body.callouts {
+
+  .eventList {
+    display:none;
+  }
+
+  figure {
+    display:none;
+    position:absolute;
+    z-index:1;
+
+    &.header_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat 0 -198px;
+      height:79px;
+      right: 272px;
+      top: 28px;
+      width:203px;
+    }
+    &.header_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -223px -197px;
+      height:104px;
+      right: 164px;
+      top: 19px;
+      width:90px;
+    }
+    &.header_03 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -333px -197px;
+      height:140px;
+      right: 15px;
+      top: 23px;
+      width:97px;
+    }
+    &.appMenu_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -450px -198px;
+      height: 141px;
+      left: 42px;
+      top: 85px;
+      width: 105px;
+    }
+    &.appMenu_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -574px -198px;
+      height: 179px;
+      left: 207px;
+      top: -1px;
+      width: 252px;
+    }
+    &.calendar_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -846px -198px;
+      height: 199px;
+      left: 129px;
+      top: -1px;
+      width: 172px;
+    }
+    &.calendar_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat 0 -298px;
+      height: 72px;
+      left: 156px;
+      top: 93px;
+      width: 159px;
+    }
+    &.calendar_03 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1039px -198px;
+      height: 114px;
+      right: 12px;
+      top: 78px;
+      width: 226px;
+    }
+    &.calendarHeader_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -577px -527px;
+      height: 59px;
+      right: 249px;
+      top: -10px;
+      width: 350px;
+    }
+    &.calendarHeader_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -510px -396px;
+      height: 60px;
+      right: 288px;
+      top: -34px;
+      width: 244px;
+      z-index: 2;
+    }
+    &.calendarHeader_03 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat 0 -389px;
+      height: 70px;
+      left: 79px;
+      top: 569px;
+      width: 157px;
+    }
+    &.calendarPanel_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1009px -454px;
+      height: 50px;
+      right: 16px;
+      top: 3px;
+      width: 239px;
+    }
+    &.calendarPanel_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat 0 -479px;
+      height: 109px;
+      right: 44px;
+      top: 30px;
+      width: 557px;
+    }
+    &.calendarPanel_03 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -774px -416px;
+      height: 91px;
+      left: 50px;
+      top: 496px;
+      width: 216px;
+      z-index: 4;
+    }
+    &.calendarSidebar_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1268px -504px;
+      height: 100px;
+      left: 12px;
+      top: 176px;
+      width: 176px;
+    }
+    &.calendarSidebar_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -949px -527px;
+      height: 125px;
+      left: 26px;
+      top: 458px;
+      width: 176px;
+    }
+    &.calendarSidebar_03 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat 0 -608px;
+      height: 98px;
+      left: 3px;
+      top: 611px;
+      width: 187px;
+    }
+    &.pulse_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1285px -198px;
+      height: 180px;
+      left: 253px;
+      top: -1px;
+      width: 166px;
+    }
+    &.pulse_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1039px -332px;
+      height: 103px;
+      right: 21px;
+      top: 175px;
+      width: 204px;
+    }
+    &.pulse_03 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -179px -359px;
+      height: 100px;
+      right: 297px;
+      top: 278px;
+      width: 310px;
+    }
+    &.pulse_04 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1472px -198px;
+      height: 87px;
+      right: 164px;
+      top: 475px;
+      width: 117px;
+    }
+    &.pulseFullscreen_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -448px -608px;
+      height: 42px;
+      right: 19px;
+      top: 1px;
+      width: 279px;
+    }
+    &.pulseFullscreen_02 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -207px -608px;
+      height: 144px;
+      left: 324px;
+      top: 96px;
+      width: 221px;
+    }
+    &.campaignsGrid_01 {
+      background:transparent url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1269px -398px;
+      height: 87px;
+      left: 20px;
+      top: 55px;
+      width: 173px;
+    }
+
+  }
+
+  .callout {
+    background:url(../images/icons/quickGuide_med.png) no-repeat center center;
+    position:absolute;
+    cursor:default;
+    cursor:pointer;
+    display:none;
+    height:52px;
+    width:52px;
+    z-index:1;
+
+    &.header {
+      left: 566px;
+      top: -6px;
+      z-index:2;
+
+      > div {
+        left: -94px;
+        padding: 39px 0 0;
+        top: 9px;
+
+        section {
+          height:185px
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -869px -21px;
+        height:21px;
+        width:110px;
+      }
+    }
+
+    &.appMenu {
+      left: 140px;
+      top: 182px;
+      z-index:2;
+
+      > div {
+        left: -94px;
+        padding: 39px 0 0;
+        top: 9px;
+
+        section {
+          height:220px
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -869px -62px; 
+        height:56px;  
+        width:162px;  
+      }
+    }
+
+    &.cal {
+      left: 82px;
+      top: 164px;
+
+      > div {
+        left: -94px;
+        padding: 39px 0 0;
+        top: 9px;
+
+        section {
+          height:171px;
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -869px -138px; 
+        height:21px;  
+        width:79px;  
+      }
+    }
+
+    &.plse {
+      left: 26px;
+      top: 440px;
+
+      > div {
+        left: -94px;
+        padding: 39px 0 0;
+        top: 9px;
+
+        section {
+          height:210px;
+
+          .action {
+            height:auto;
+          }
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -999px -20px; 
+        height:18px;  
+        width:45px;  
+      }
+    }
+
+    &.cmpgns {
+      left: 535px;
+      top: 534px;
+
+      > div {
+        left: 9px;
+        padding: 0 0 0 42px;
+        top: -23px;
+
+        section {
+          height:180px;
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -968px -138px; 
+        height:30px;  
+        width:144px;  
+      }
+    }
+
+    &.calHeader {
+      left:449px;
+      top:-3px;
+      z-index:3;
+
+      > div {
+        left: -94px;
+        padding: 39px 0 0;
+        top: 9px;
+
+        section {
+          height:100px;
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1053px -73px;
+        height:22px;
+        width:51px;
+      }
+    }
+
+    &.calPanel {
+      left: 390px;
+      top: 139px;
+      z-index:3;
+
+      > div {
+        left: 9px;
+        padding: 0 0 0 42px;
+        top: -23px;
+
+        section {
+          height:141px;
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1122px -72px;
+        height:19px;
+        width:95px;
+      }
+    }
+
+    &.calSidebar {
+      left:187px;
+      top:289px;
+      z-index:3;
+
+      > div {
+        left: 9px;
+        padding: 0 0 0 42px;
+        top: -23px;
+
+        section {
+          height:111px;
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1064px -20px;
+        height:32px;
+        width:140px;
+      }
+    }
+
+    &.pulseFullscreen {
+      left: 636px;
+      top: 182px;
+      z-index:2;
+
+      > div {
+        left: 9px;
+        padding: 0 0 0 42px;
+        top: -23px;
+
+        section {
+          height:99px
+        }
+      }
+
+      h2 {
+        background:url(../images/ui/bg_ftuxCalloutSprite.png) no-repeat -1132px -138px; 
+        height:20px;  
+        width:162px;  
+      }
+    }
+
+    > div {
+      border:none;
+      background:none;
+      cursor:default;
+      height:auto;
+      padding:0;
+      position:relative;
+      @include border-radius(0px);
+      @include box-shadow(none);
+      width:242px;
+
+      section {
+        border:1px solid #aaa;
+        background-image: linear-gradient(bottom, rgb(254,243,230) 27%, rgb(255,255,255) 82%);
+        background-image: -o-linear-gradient(bottom, rgb(254,243,230) 27%, rgb(255,255,255) 82%);
+        background-image: -moz-linear-gradient(bottom, rgb(254,243,230) 27%, rgb(255,255,255) 82%);
+        background-image: -webkit-linear-gradient(bottom, rgb(254,243,230) 27%, rgb(255,255,255) 82%);
+        background-image: -ms-linear-gradient(bottom, rgb(254,243,230) 27%, rgb(255,255,255) 82%);
+        background-image: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0.27, rgb(254,243,230)),
+          color-stop(0.82, rgb(255,255,255))
+        );
+        @include border-radius(6px);
+        @include box-shadow(0 1px 5px #b0b0b0);
+        color:#333;
+        padding:15px 15px 10px 15px;
+        height:120px;
+        width:210px;
+
+        h2 {
+          margin:0 0 10px 0;
+        }
+
+        p {
+          color:#333;
+          font-size:12px;
+          margin:0 0 7px 0;
+        }
+
+        .action {
+          border-bottom:1px dotted #a9a9a9;
+          border-top:1px dotted #a9a9a9;
+          color:#666;
+          font-size:11px;
+          line-height:1.3em;
+          padding:10px 0;
+
+          .playVid {
+            color:#fff;
+            display: block;
+            float: left;
+            margin: 0 10px 0 0;
+
+            + span {
+              line-height:2em;
+            }
+          }
+        }
+
+        .more {
+          color:#2168a7;
+          font-size:11px;
+          line-height:2.8em;
+        }       
+      }
+    }
+  }
+
+  #view_pulse {
+
+    .rail .mainContent > div {
+      margin:-152px 0 0;
+      padding: 0 120px;
+      width: 752px;
+    }
+
+    .gadget {
+      display:none;
+
+      &.max {
+        bottom:-23px !important;
+      }
+
+      &.min {
+        -webkit-transition: -webkit-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+        -moz-transition: -moz-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+        -ms-transition: -ms-transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+        transition: transform 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), height 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), width 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220), bottom 103ms cubic-bezier(0.895, 0.030, 0.685, 0.220);
+        bottom:-69px !important;
+
+        dl {
+          padding:14px 0 0 0;
+
+          .desc {
+            color:#41687f;
+          }
+        }
+
+        &:hover {
+
+          .tools {
+            opacity: 0 !important;
+            -webkit-transform:none !important;
+            -webkit-transform-origin:none !important;
+            -webkit-transition:none !important;
+            -moz-transform:none !important;
+            -moz-transform-origin:none !important;
+            -moz-transition:none !important;
+            -ms-transform:none !important;
+            -ms-transform-origin:none !important;
+            -ms-transition:none !important;
+            transform:none !important;
+            transform-origin:none !important;
+            transition:none !important;
+          }
+
+          > div {
+            // -webkit-animation:none;
+            // -moz-animation:none !important;
+            // -ms-animation:none;
+            // animation:none;
+          }
+        }
+
+      }
+
+      img {
+        height:auto !important;
+        width:auto !important;
+      }
+    }
+  }
+
+  #cal, #plseFull {
+
+    .banner {
+      height:auto;
+      left:0px;
+      margin:10px 0 0 10px;
+      position:relative;
+      top:0px !important;
+      width:1169px;
+      @include opacity(1);
+
+      .tools {
+        float:left !important;
+        padding:0;
+        width:auto;
+      }
+    }
+
+    section.month, section.week {
+      @include box-shadow(none);
+    }
+
+    .callout {
+
+      a.more {
+        line-height:normal;
+      }
+    }
+  }
+
+  #plseFull, #plseGadgetFull {
+
+    .swap {
+
+      > header {
+        background:#e1e6eb !important;
+        border-bottom:none !important;
+        border-top:1px solid #fff;
+        padding:5px 20px 6px 15px !important;
+        width: 1176px !important;
+        @include border-radius(0px !important);
+
+        h3 {
+          display:inline;
+          font-size:16px;
+          font-weight:normal;
+          line-height:1.4em;
+        }
+
+        .tools {
+          font-size:11px;
+
+          a {
+            color:#2168a7;
+            line-height:1.9em;
+            margin:0 0 0 10px;
+          }
+        }
+      }
+    }
+  }
+
+  #plseConfig {
+
+    .primary {
+
+      > header {
+        background:#e1e6eb !important;
+        border-bottom:none !important;
+        border-top:1px solid #fff;
+        padding:5px 20px 6px 15px !important;
+        width: 1176px !important;
+        @include border-radius(0px !important);
+
+        h3 {
+          display:inline;
+          font-size:16px;
+          font-weight:normal;
+          line-height:1.4em;
+        }
+
+        .tools {
+          font-size:11px;
+
+          a {
+            color:#2168a7;
+            line-height:1.9em;
+            margin:0 0 0 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pulseConfigure {
+  color:#50606c;
+  display:none;
+  font-size:12px;
+  left:0;
+  top:220px;
+  position:absolute;
+  text-align:center;
+  width:992px;
+
+  a {
+    color:#2168a7;
+  }
+}
+
+.banner {
+  background:#fce9d4;
+  border:1px solid #fcd2a4;
+  color:#eb7900;
+  height:0px;
+  margin:0 0 10px 0;
+  padding:4px 10px 5px;
+  position: absolute;
+  top:-50px;
+  width: 972px;
+  @include border-radius(16px);
+  @include box-shadow(0px 1px 2px -1px #999);
+  @include opacity(0);
+
+  &.welcome {
+
+  	.label {
+			background:transparent url(../images/icons/quickGuide_label.png) no-repeat center center;
+			display:inline;
+			float:left;
+			height:30px;
+			margin:-5px 5px 0 -11px;
+  		width:30px;
+  	}
+
+    h2 {
+      display:inline;
+      float:left;
+      font-size:12px;
+      font-weight:600;
+      margin:5px 0 0 0;
+    }
+
+    p {
+      display:inline;
+      float:right;
+      font-size:11px;
+      line-height:1.3em;
+      margin:0 0 0 10px;
+
+      a {
+        color:#2168a7;
+      }
+
+      .counter {
+        background:transparent url(../images/ui/bg_ftuxCounter.png) no-repeat center center;
+        display:inline-block;
+        height:17px;
+        margin:1px 5px 0 3px;
+        width:29px;
+
+        strong {
+          color:#bd6100;
+          display: block;
+          font-size: 15px;
+          font-weight: 600;
+          letter-spacing: 0.44em;
+          line-height: 1.2em;
+          padding: 0 0 0 3px;
+        }
+      }
+    }
+
+    .tools {
+      
+      li {
+        font-size:11px;
+        line-height:normal !important;
+
+        &.label {
+          padding:4px 0 0 0;
+        }
+
+        .icon.guide {
+          background:transparent url(../images/icons/quickGuide_mark.png) no-repeat center center;
+          float:left;
+          height:20px;
+          margin:-5px 5px 0 0;
+          width:20px;
+        }
+      }
+    }
+
+    .btn_toggle {
+      margin:3px 0 0 10px;
+
+      a:first-child {
+
+        &.on {
+
+          + a {
+            border-left:none;
+          }
+        }
+      }
+
+      a:last-child {
+
+        &.on {
+          border-left:none;
+        }
+      }
+    }
+  }
+}
+
+body.static {
+  .banner {
+    height:auto;
+    left:auto;
+    margin:0 0 10px 1px;
+    padding:4px 10px 0;
+    position:relative;
+    top:48px;
+    width:1187px;
+    @include opacity(1);
+  }
+
+  .callout {
+    background:url(../images/icons/quickGuide_med.png) no-repeat center center;
+    position:absolute;
+    cursor:default;
+    cursor:pointer;
+    display:none;
+    height:52px;
+    width:52px;
+    z-index:1;
+
+    &.pages_01 {
+      right:144px;
+      top:81px;
+    }
+    &.pages_02 {
+      left:139px;
+      top:131px;
+    }
+    &.pages_03 {
+      right:242px;
+      top:284px;
+    }
+    &.campaigns_01 {
+      right:152px;
+      top:81px;
+    }
+    &.campaigns_02 {
+      left: 271px;
+      top: 129px;
+    }
+    &.campaigns_03 {
+      right: 232px;
+      top: 129px;
+    }
+  }
+}
+
+#vidContent {
+  display:none;
+  background:#fff;
+  @include border-radius(6px, 6px);
+  @include box-shadow(#444 0 2px 14px);
+  left:163px;
+  margin:20px;
+  position:absolute;
+  top:60px;
+  width:894px;
+  z-index:200;
+
+  header {
+    background:#e9eef1;
+    border-bottom:1px solid #adb6bf;
+    color:#333;
+    padding:9px 10px 7px 10px;
+    @include border-radius(6px 6px 0 0);
+
+    h2 {
+      color:#666;
+      font-size:11px;
+
+      strong {
+        color:#333;
+        font-size:15px;
+        margin:0 10px 0 0;
+      }
+    }
+  }
+
+  .content {
+    border-bottom:1px solid #d0d0d0;
+    border-top:1px solid #d0d0d0;
+    display:inherit;
+    min-height:483px;
+    padding:20px 20px 25px 20px;
+    @include box-shadow(0 3px 7px -5px #ccc inset);
+
+    .videoDetail {
+      position:relative;
+      z-index:20;
+
+      .playback {
+        display:none;
+        left: 34%;
+        margin: 186px auto 0;
+        position: absolute;
+        width:250px;
+        z-index:2;
+
+        li {
+          margin:0 0 10px 0;
+
+          &.again {
+            span {
+              background:url(../images/icons/videoPlayAgain.png) no-repeat left center;
+            }
+          }
+
+          &.more {
+            span {
+              background:url(../images/icons/learnHub101.png) no-repeat left center;
+            }
+          }
+
+          a {
+            background-image: linear-gradient(bottom, rgb(78,138,190) 0%, rgb(127,185,236) 100%);
+            background-image: -o-linear-gradient(bottom, rgb(78,138,190) 0%, rgb(127,185,236) 100%);
+            background-image: -moz-linear-gradient(bottom, rgb(78,138,190) 0%, rgb(127,185,236) 100%);
+            background-image: -webkit-linear-gradient(bottom, rgb(78,138,190) 0%, rgb(127,185,236) 100%);
+            background-image: -ms-linear-gradient(bottom, rgb(78,138,190) 0%, rgb(127,185,236) 100%);
+            background-image: -webkit-gradient(
+              linear,
+              left bottom,
+              left top,
+              color-stop(0, rgb(78,138,190)),
+              color-stop(1, rgb(127,185,236))
+            );
+            color:#fff;
+            display: block;
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 1.5em;
+            padding:0 10px;
+            @include border-radius(3px 3px);
+            @include box-shadow(0 2px 4px -3px #333);
+
+            &:hover {
+              background-image: linear-gradient(bottom, rgb(102,158,207) 0%, rgb(154,204,247) 100%);
+              background-image: -o-linear-gradient(bottom, rgb(102,158,207) 0%, rgb(154,204,247) 100%);
+              background-image: -moz-linear-gradient(bottom, rgb(102,158,207) 0%, rgb(154,204,247) 100%);
+              background-image: -webkit-linear-gradient(bottom, rgb(102,158,207) 0%, rgb(154,204,247) 100%);
+              background-image: -ms-linear-gradient(bottom, rgb(102,158,207) 0%, rgb(154,204,247) 100%);
+              background-image: -webkit-gradient(
+                linear,
+                left bottom,
+                left top,
+                color-stop(0, rgb(102,158,207)),
+                color-stop(1, rgb(154,204,247))
+              );
+            }
+
+            span {
+              display:block;
+              line-height: 1.5em;
+              padding:10px 0 10px 33px;
+            }
+          }
+
+          &:last-child {
+            margin:0;
+          }
+        }
+      }
+
+      .timer {
+        background:#000;
+        bottom:0;
+        color:#fff;
+        display:none;
+        font-size:11px;
+        font-weight:600;
+        padding:3px 4px;
+        position:absolute;
+        right:0;
+
+        // &:before {
+        //   content:":";
+        // }
+      }
+      
+      video {
+        border:none;
+        cursor:default;
+        cursor:pointer;
+        height:480px;
+        outline: none;
+        width:855px;
+        @include box-shadow(0 1px 4px 0px #999);
+      }
+    }
+  }
+
+  footer {
+    background-image: linear-gradient(bottom, rgb(255,255,255) 0%, rgb(239,241,245) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(239,241,245) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(239,241,245) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(239,241,245) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(255,255,255) 0%, rgb(239,241,245) 100%);
+    background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      left top,
+      color-stop(0, rgb(255,255,255)),
+      color-stop(1, rgb(239,241,245))
+    );
+    border-top:1px solid #f6f8f9;
+    clear:both;
+    padding:8px 20px 8px 20px;
+    width:854px;
+    @include border-radius(0 0 6px 6px);
+
+    ul {
+      display:inline;
+      float:right;
+
+      li {
+        display:inline;
+        float:right;
+        height:21px;
+        margin:-1px 0 0 0;
+
+        &:first-child {
+          margin:0 0 0 15px;
+        }
+      }
+    }
+  }
+}
+
+
+
+

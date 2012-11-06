@@ -81,51 +81,72 @@ body.ftux {
     background:#fff;
     display:inline;
     margin:0 0 -40px 0;
-    min-height: 497px;
-    width:100%;
+    min-height: 468px;
+    padding: 30px 0 0 30px;
+    width: 970px;
     @include border-radius(20px);
 
-    legend {
-      background:transparent url(../images/placeholders/loginIMHIcon.png) no-repeat left center;
-      height:56px;
-      padding:0 0 0 68px;
+    h2 {
+      color:#333;
+      font-size:24px;
+      line-height:.9em;
+      margin:0 0 24px 0;
+
+      strong {
+        color:#dc741f;
+        font-weight:600;
+      }
 
       span {
-        color:#515151;
-        display:block;
-        font-size:22px;
-        font-weight:600;
-        line-height:1.1em;
-        padding:5px 0 0 0;
-        width:157px;
+        font-size:14px;
+        margin:0 0 0 10px;
       }
     }
 
+    img.context {
+      float:left;
+      margin:0 0 0 20px;
+    }
+
+    legend {
+      color:#515151;
+      display:block;
+      font-size:14px;
+      font-weight:600;
+      line-height:1.1em;
+      margin:0 0 10px 0;
+      padding:5px 0 0 20px;
+    }
+
     form {
-      margin:11% auto 0 auto;
-      padding: 0 20px;
-      width:407px;
+      border-left:1px dotted #989898;
+      margin:12px 0 0 560px;
+      padding: 55px 0 0 20px;
+      height:297px;
+      width:386px;
 
       input.textbox {
         border: 1px solid #BBBBBB;
         @include border-radius(5px);
         color: #666666;
+        font-family:arial;
         display:block;
-        margin:5px 5px 10px 67px;
+        margin:5px 5px 10px 20px;
         padding: 3px;
-        width: 200px;
+        width: 198px;
       }
 
       .rightCol {
         float:right;
         font-size:12px;
+        margin:0 23px 0 0;
         width:131px;
 
         a {
           color: #2168A7;
           display: block;
           height: 26px;
-          line-height: 2em;
+          line-height:1.5em;
           margin: 3px 0 0 2px;
           padding: 0 0 0 5px;
           vertical-align: middle;
@@ -134,7 +155,7 @@ body.ftux {
         .remember {
 
           height:26px;
-          line-height:1.6em;
+          // line-height:1.6em;
           padding:5px 0 0 5px;
 
           #rememberMeChk, .remember-me  {
@@ -150,11 +171,32 @@ body.ftux {
 
         display:inline;
         float:right;
-        margin:0 135px 0 0;
+        margin:0 164px 25px 0;
+        padding:6px 10px;
 
         &:hover {
           cursor:default;
           cursor:pointer;
+        }
+      }
+
+      ul.quickLinks {
+        border-top:1px solid #bababa;
+        clear:right;
+        color:#333;
+        font-size:12px;
+        margin:0 auto;
+        padding:12px;
+        width:320px;
+
+        li {
+          display:block;
+          margin:0 0 10px 0;
+          text-align:center;
+        }
+
+        a {
+          color:#2168a7;
         }
       }
     }

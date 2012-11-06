@@ -1,0 +1,43 @@
+// Allows for the alternative layout called Singleton
+---
+
+layout: welcome
+version: Callouts
+css: static
+page_name:
+  - SocialPages
+
+---
+
+//Page Title
+-content_for :title do
+ title Hub Apps - SocialPages
+
+== partial 'header'
+
+div id='container'
+
+  div id="innerContent"
+
+  	div class='callout pages_01'
+  	div class='callout pages_02'
+  	div class='callout pages_03'
+
+  	div id='socialPages' class='banner welcome clearfix'
+  		ul class='tools'
+  			li
+  				div class='btn_toggle'
+  					a title='show' href='#' class='on' Show Tips
+  					a title='hide' href='#' Hide Tips
+  			li class='label'
+  				'
+  				span class='icon guide'
+  				' Context Tips
+  		h2 Welcome to the SocialPages QuickGuide!
+  		p
+  			' Available for
+  			span class='counter'
+  				strong 30
+  			' days.
+
+  	== image_tag('placeholders/socialPages.png', :class => 'staticImage')

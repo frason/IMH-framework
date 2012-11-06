@@ -1,12 +1,114 @@
 div id='topBar'
   div
-    h1 id='title'
-      a href='#'
-        - if data.page.page_name.nil?
-          span Interactive Marketing Hub
-        - else
-          - data.page.page_name.each do |f|
-              span class='single' = f
+    ul class='mainNav'
+      li
+        h1 id='title'
+          a href='#'
+            - if data.page.page_name.nil?
+              span Interactive Marketing Hub
+            - else
+              - data.page.page_name.each do |f|
+                span class='single' = f
+      li
+        ul id='leftNav'
+          - if "static" == data.page.css
+            li id='ReturnToHub-nav' class='app'
+              div class='appImage'
+                ==link_to 'Interactive Marketing Hub', '/welcome/callouts?data=false'
+
+          - if "single" == data.page.css
+            li id='ReturnToHub-nav' class='app'
+              div class='appImage'
+                ==link_to 'Interactive Marketing Hub', '/'
+
+          - if data.page.version('Callouts')
+            li id='Channels' class='category' 
+              ==link_to 'Channels', '#'
+
+            li id='EmailStudio-nav' class='app'
+              div class='appImage'
+                ==link_to 'Email', 'callouts/page_email.html'
+
+            li id='HubTools' class='category' 
+              ==link_to 'Hub Tools', '#'
+
+            li id='Campaigns-nav' class='app'
+              div class='appImage'
+                ==link_to 'Campaigns', 'callouts/page_campaigns.html'
+
+            li id='Channels' class='category' 
+              ==link_to 'Hub Apps', '#'
+
+            li id='PageDesigner-nav' class='app'
+              div class='appImage'
+                ==link_to 'SocialPages', 'callouts/page_socialPages.html'
+
+          - else
+            li id='Channels' class='category' 
+              ==link_to 'Channels', '#'
+
+            li id='EmailStudio-nav' class='app'
+              div class='appImage'
+                ==link_to 'Email', 'page_email.html'
+
+            li id='MobileConnect-nav' class='app' 
+              div class='appImage'
+                ==link_to 'Mobile', '#'
+
+            li id='HubTools' class='category' 
+              ==link_to 'Hub Tools', '#'
+
+            li id='Campaigns-nav' class='app'
+              div class='appImage'
+                ==link_to 'Campaigns', 'page_campaigns.html'
+  
+            li id='Reports-nav' class='app'
+              div class='appImage'
+                ==link_to 'Reports', '#'
+
+            li id='Assets-nav' class='app'
+              div class='appImage'
+                ==link_to 'Assets', '#'
+ 
+            li id='Contacts-nav' class='app'
+              div class='appImage'
+                ==link_to 'Contacts', '#'
+ 
+            li id='HubApps' class='categoryClosed'
+              ==link_to 'Hub Apps (3)', '#'
+  
+              ul class='flyout'
+      
+                li id='Audience-nav' class='app'
+                  div class='appImage'
+                    ==link_to 'Audience Builder', '#'
+  
+                li id='Automations-nav' class='app'
+                  div class='appImage'
+                    ==link_to 'Automations', '#'
+
+                li id='PageDesigner-nav' class='app'
+                  div class='appImage'
+                    ==link_to 'SocialPages', 'page_socialPages.html'
+ 
+            li id='Partner' class='categoryClosed' 
+              ==link_to 'Partner Apps (3)', '#'
+
+              ul class='flyout'
+ 
+                li id='Marketo-nav' class='app'
+                  div class='appImage'
+                    ==link_to 'Marketo', '#'
+
+                li id='Klout-nav' class='app'
+                  div class='appImage'
+                    ==link_to 'Klout', '#'
+ 
+                li id='Netbase-nav' class='app'
+                  div class='appImage' 
+                    ==link_to 'Netbase', '#'
+
+          li id='bottom-nav'
   
     ul id='taskbar'
       li class='logout' 
@@ -33,9 +135,105 @@ div id='topBar'
               a title='Help' href='#' Help
 
       li class='buDropDown'
+        div class='mid'
+          span MID: 121163
         a href='#'
           strong Northern Trails
         div class='menu businessSwitch'
+          ul
+            li class='head'
+              span Business Unit
+              span class='id' MID: 192401
+              a href='#' Northern Trails
+            li class='filter clearfix'
+              a title='View All' href='#' rel='list_all' class='allView active'
+              a title='View Most Recent' href='#' rel='list_recent' class='recentView'
+            li class='content'
+              ul class='list_all'
+                li 
+                  a href='#' 
+                    span NTO Town
+                li
+                  a href='#' 
+                    span NTO Soccer
+                li
+                  a href='#' 
+                    span NTO ID
+                li 
+                  a href='#' 
+                    span Running
+                li
+                  a href='#' 
+                    span NTO Hiking
+                li
+                  a href='#' 
+                    span Internal Operations
+                li
+                  a href='#' 
+                    span NTO Runners
+                li
+                  a href='#' 
+                    span Internal Operations 2
+                li
+                  a href='#' 
+                    span Burns &amp; Wilcox Ltd. dba H.W. Kaufman Financial Gr
+                li
+                  a href='#' 
+                    span Camping
+                li
+                  a href='#' 
+                    span NTO Runners
+                li
+                  a href='#' 
+                    span Internal Operations 2
+                li
+                  a href='#' 
+                    span Burns &amp; Wilcox Ltd. dba H.W. Kaufman Financial Gr
+                li
+                  a href='#' 
+                    span Camping
+
+              ul class='list_recent'
+                li
+                  a href='#' 
+                    span NTO Soccer
+                li
+                  a href='#' 
+                    span Internal Operations
+                li
+                  a href='#' 
+                    span Long Name Business Unit
+                li
+                  a href='#' 
+                    span NTO ID
+                li 
+                  a href='#' 
+                    span NTO Town
+                li
+                  a href='#' 
+                    span Internal Operations 2
+                li 
+                  a href='#' 
+                    span Running
+                li
+                  a href='#' 
+                    span Burns &amp; Wilcox Ltd. dba H.W. Kaufman Financial Gr
+                li
+                  a href='#' 
+                    span NTO Runners
+                li
+                  a href='#' 
+                    span NTO Hiking
+                li
+                  a href='#' 
+                    span Camping
+                li
+                  a href='#' 
+                    span NTO Runners
+
+            li class='search'
+              input type="text" value="Search by name or MID" onfocus="if(this.value == 'Search by name or MID') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search by name or MID';}"
+
 
     ul id='topTools' class="clearfix"
       li class='calendar'
@@ -46,81 +244,3 @@ div id='topBar'
 
       li class='security'
         a href='#' rel='scrty' title='Fullscreen' Security
-      
-    ul id='leftNav'
-      - if data.page.page_name.nil?
-        return
-      - else
-        li id='ReturnToHub-nav' class='app'
-          div class='appImage'
-            ==link_to 'Interactive Marketing Hub', '/'
-
-      li id='Channels' class='category' 
-        ==link_to 'Channels', '#'
-
-      li id='EmailStudio-nav' class='app'
-        div class='appImage'
-          ==link_to 'Email', 'page_campaigns.html'
-
-      li id='SocialEngage-nav' class='app'
-        div class='appImage'
-          ==link_to 'Social', 'page_campaigns.html'
-
-      li id='MobileConnect-nav' class='app' 
-        div class='appImage'
-          ==link_to 'Mobile', 'page_campaigns.html'
-
-      li id='HubTools' class='category' 
-        ==link_to 'Hub Tools', '#'
-
-      li id='Campaigns-nav' class='app'
-        div class='appImage'
-          ==link_to 'Campaigns', 'page_campaigns.html'
-  
-      li id='Reports-nav' class='app'
-        div class='appImage'
-          ==link_to 'Reports', 'page_campaigns.html'
-
-      li id='Assets-nav' class='app'
-        div class='appImage'
-          ==link_to 'Assets', 'page_campaigns.html'
- 
-      li id='Contacts-nav' class='app'
-        div class='appImage'
-          ==link_to 'Contacts', 'page_campaigns.html'
- 
-      li id='HubApps' class='categoryClosed'
-        ==link_to 'Hub Apps (3)', '#'
-  
-        ul class='flyout'
-    
-          li id='Audience-nav' class='app'
-            div class='appImage'
-              ==link_to 'Audience Builder', 'page_campaigns.html'
-  
-          li id='Automations-nav' class='app'
-            div class='appImage'
-              ==link_to 'Automations', 'page_campaigns.html'
-
-          li id='PageDesigner-nav' class='app'
-            div class='appImage'
-              ==link_to 'SocialPages', 'page_socialPages.html'
- 
-      li id='Partner' class='categoryClosed' 
-        ==link_to 'Partner Apps (3)', '#'
-
-        ul class='flyout'
- 
-          li id='Marketo-nav' class='app'
-            div class='appImage'
-              ==link_to 'Marketo', 'page_campaigns.html'
-
-          li id='Klout-nav' class='app'
-            div class='appImage'
-              ==link_to 'Klout', 'page_campaigns.html'
- 
-          li id='Netbase-nav' class='app'
-            div class='appImage' 
-              ==link_to 'Netbase', 'page_campaigns.html'
-            
-      li id='bottom-nav'

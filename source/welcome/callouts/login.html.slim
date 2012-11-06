@@ -1,0 +1,47 @@
+---
+
+layout: welcome
+
+---
+
+-content_for :title do
+ title IMH
+
+== stylesheet_link_tag 'login'
+
+div class='loginContent'
+	div class='center'
+		header
+			ul class='clearfix'
+				li Contact Us
+				li 866.362.4538
+			== image_tag 'placeholders/loginLogo.png'
+
+		fieldset class='clearfix'
+			h2 
+				' Welcome to the 
+				strong Interactive Marketing Hub!
+				span A new way to manage marketing.
+			section class='clearfix'
+				== image_tag 'placeholders/loginIMH.png', :class => 'context'
+				form
+					legend Login
+					div class='rightCol'
+						div class='remember clearfix'
+							input id="rememberMeChk" type="checkbox"
+							label class="remember-me" for="rememberMeChk" Remember Me
+						a href='#' Forgot your password?
+					input type="text" class='textbox' placeholder="Enter Username"
+					input type="password" class='textbox' placeholder="Enter Password"
+					== link_to 'Login', '/welcome/callouts?data=false', :title => 'Login', :class => 'btn_standard_med'
+					ul class='quickLinks'
+						li 
+							' Want to log in directly to email?
+							a href='#' Click Here.
+						li
+							' To learn more about the IMH,
+							a href='#' visit 3sixty.
+
+div class='loginFooter'
+	div class='center'
+		== image_tag 'placeholders/loginFooter.png'

@@ -8,8 +8,6 @@ div id='view_pulse'
 			ul class='tools clearfix'
 				li class='fullscreen'
 					a rel='plseFull' title='Fullscreen' href='#' Full Screen
-				li class='settings'
-					a title='Settings' href='https://projects.invisionapp.com/share/JZ2ANXBY' target='_blank' Settings
 
 			h2 
 				' Pulse
@@ -27,6 +25,50 @@ div id='view_pulse'
 			div class='mainContent'
 
 				div
+
+					div class='gadget max imageEmails'
+
+						header
+							ul class='tools clearfix'
+								li class='fullscreen'
+									a rel='plseGadgetFull' title='Fullscreen' href='#'
+
+							h3 class='title' Emails
+
+						div class='content'
+							== image_tag('placeholders/gadget_maxMonthlyNewsletter.png', :class => 'emails')
+			
+					div class='gadget min toConfig'
+
+						header
+							ul class='tools clearfix'
+								li class='fullscreen'
+									a title="Fullscreen" rel="plseConfig" href="#"
+
+							h3 class='title' &nbsp;
+
+						div class='content'
+							dl
+								dt
+									== image_tag('icons/facebookGadget.png')
+								dd
+									span class='desc' Add Fans
+
+					div class='gadget min toConfig'
+					
+						header
+							ul class='tools clearfix'
+								li class='fullscreen'
+									a title="Fullscreen" rel="plseConfig" href="#"
+
+							h3 class='title' &nbsp;
+
+						div class='content'
+							dl
+								dt
+									== image_tag('icons/twitterGadget.png')
+								dd
+									span class='desc' Add Followers
 
 					div class='billboard'
 
@@ -63,3 +105,10 @@ div id='view_pulse'
 							span No Pulse Gadgets have been configured
 							' you can
 							a href='https://projects.invisionapp.com/share/JZ2ANXBY' target='_blank' add new gadgets
+
+			p class='pulseConfigure'
+				' Pulse tracks what’s happening in your email and social media accounts. 
+				a rel='plseConfig' title='Fullscreen' href='#' Configure Now
+
+		div class='fuel-loader pulse'
+			span

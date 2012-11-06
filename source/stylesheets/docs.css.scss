@@ -246,7 +246,7 @@ body.docs {
     }
   }
 
-  #cal, #plse, #scrty  {
+  #cal, #plseFull, #scrty  {
     margin:20px auto !important;
   }
 }
@@ -273,12 +273,12 @@ div[role="main"] {
   position:relative;
   margin:0 0 15px 0;
 
-  #cal, #plse {
-    left:-95px !important;
+  #cal, #plseFull {
+    left:-107px !important;
   }
 
   #scrty {
-    left:18px !important;
+    left:7px !important;
   }
 }
 
@@ -297,7 +297,7 @@ div[role="main"] {
 #view_calendar .container header .tools li.fullscreen a.sim,
 #view_pulse .container header .tools li.fullscreen a.sim,
 #cal .tools li a.sim[title*="close"],
-#plse .tools li a.sim[title*="close"],
+#plseFull .tools li a.sim[title*="close"],
 #scrty .tools li a.sim[title*="close"],
 #security .expanded h2 a.sim,
 #security .expanded li li a.sim {

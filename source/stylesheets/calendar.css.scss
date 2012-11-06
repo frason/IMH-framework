@@ -164,6 +164,18 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
         font-size:10px;
         padding:4px 10px;
         text-transform:uppercase;
+        background-image: linear-gradient(bottom, rgb(153,153,153) 2%, rgb(186,186,186) 53%);
+        background-image: -o-linear-gradient(bottom, rgb(153,153,153) 2%, rgb(186,186,186) 53%);
+        background-image: -moz-linear-gradient(bottom, rgb(153,153,153) 2%, rgb(186,186,186) 53%);
+        background-image: -webkit-linear-gradient(bottom, rgb(153,153,153) 2%, rgb(186,186,186) 53%);
+        background-image: -ms-linear-gradient(bottom, rgb(153,153,153) 2%, rgb(186,186,186) 53%);
+        background-image: -webkit-gradient(
+          linear,
+          left bottom,
+          left top,
+          color-stop(0.02, rgb(153,153,153)),
+          color-stop(0.53, rgb(186,186,186))
+        );
 
         .eventAssoc {
           display:inline;
@@ -220,7 +232,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
       section {
         font-size:12px;
         height:100%;
-        padding:8px 10px 15px;
+        padding:8px 10px 0;
 
         h4 {
           float:left;
@@ -269,7 +281,7 @@ $sansSerif: Arial, Helvetica, Sans-serif; //duplicate!
       .eventList {
         
         li {
-          background-color:#fff;
+          // background-color:#fff;
           border-left:none !important;
           border-right:none !important;
           clear:left;

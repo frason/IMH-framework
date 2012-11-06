@@ -1,0 +1,326 @@
+---
+
+layout: welcome
+version:
+  - Callouts
+
+---
+
+-content_for :title do
+ title IMH
+
+== partial 'header'
+
+div id='container'
+
+  == partial 'security'
+
+  div class='callout header'
+    div
+      span class='point_top'
+      section
+        h2
+        p No matter where you go, the Hub is there with you.
+        p Access Business Unit (hover for MID) and Account Settings (including Help & 3Sixty) anytime.
+        div class='action'
+          a title='Watch Video' rel='0' class='btn_standard_med playVid' href='#' Watch Video
+          span Running time 0:10
+        a class='more' href='#' Want more? Check out Hub 101
+
+  div class='callout appMenu'
+    div
+      span class='point_top'
+      section
+        h2
+        p Switch easily between tools and applications. Unfurls in the hub; tucks away in applications.
+        p Cross-application tools available any time.
+        div class='action'
+          a title='Watch Video' rel='1' class='btn_standard_med playVid' href='#' Watch Video
+          span Running time 0:13
+        a class='more' href='#' Want more? Check out Hub 101
+
+  div id="innerContent"
+
+    div id="cal"
+
+      div class='callout calHeader'
+        div
+          span class='point_top'
+          section
+            h2
+            p Toggle the main view from month to week and back again. Inspect a day in detail in the bottom panel. 
+            a class='more' href='#' Want more? Check out Hub 101
+
+      div class='callout calPanel'
+        div
+          span class='point_left'
+          section
+            h2
+            p Select any day to see its details in the details panel below.
+            p Hover and click to add anevent.
+            p Search for a message or event within the viewed time period.
+            a class='more' href='#' Want more? Check out Hub 101
+
+      div class='callout calSidebar'
+        div
+          span class='point_left'
+          section
+            h2
+            p Filter the view by campaign or message type. Print view and take it with you.
+            a class='more' href='#' Want more? Check out Hub 101
+
+      header
+        ul class='tools'
+          li
+            a title="close" href="#"
+          li
+            form class='search'
+              input type="text" class="search-input" value="Search" onfocus="if(this.value == 'Search') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search';}"
+          li class='toggleView'
+            ul class='clearfix'
+              li
+                a title='Next' href='#'
+                  span
+              li class='month'
+                a title='Month View' href='#' class='selected' Month
+              li class='week'
+                a title='Week View' href='#' Week
+              li
+                a title='Previous' href='#'
+                  span
+          li class='squib'
+            span Today
+
+        span class='label'
+        h2 class='single' May 2012
+
+      div id='hub' class='banner welcome clearfix'
+        p class='limit'
+          ' Available for 
+          span class='counter'
+            strong 30
+          ' days.
+
+        span class='label'
+
+        h2 Info Tips for Interactive Marketing Hub
+
+        ul class='tools'
+          li
+            div class='btn_toggle'
+              a title='show' href='#' class='on' Show Tips
+              a title='hide' href='#' Hide Tips
+
+      section class='primary'
+        section class='month'
+          div class='rightCol'
+            div class='grid'
+              header
+                == image_tag 'placeholders/calModal_monthHeaderFtux.png'
+              div
+                == image_tag 'placeholders/calModal_monthFtux.png'
+            div class='panel'
+              div class='toggle'
+                span
+              div class='min'
+                == image_tag 'placeholders/calModal_dayPanelFtux.png'
+          == image_tag 'placeholders/calendar_leftColFtux.png'
+
+        section class='week noDisplay'
+          div class='rightCol'
+            div class='grid'
+              header
+                == image_tag 'placeholders/calModal_weekHeaderFtux.png'
+              div
+                == image_tag 'placeholders/calModal_weekFtux.png'
+            div class='panel'
+              div class='toggle'
+                span
+              div class='min'
+                == image_tag 'placeholders/calModal_dayPanelFtux.png'
+          == image_tag 'placeholders/calendar_leftColFtux.png'
+
+    div id="plseFull"
+
+      div class='callout pulseFullscreen'
+        div
+          span class='point_left'
+          section
+            h2
+            p See all your gadgets together. Add another by clicking settings. Dive deeper by selecting gadget fullscreen. 
+            a class='more' href='#' Want more? Check out Hub 101
+
+      header
+        ul class="tools"
+          li
+            a title="close" href="#"
+          li class='settings'
+            a title='settings' href='#' Settings
+        h2 Pulse
+
+      div id='hub' class='banner welcome clearfix'
+        p class='limit'
+          ' Available for 
+          span class='counter'
+            strong 30
+          ' days.
+
+        span class='label'
+
+        h2 Info Tips for Interactive Marketing Hub
+
+        ul class='tools'
+          li
+            div class='btn_toggle'
+              a title='show' href='#' class='on' Show Tips
+              a title='hide' href='#' Hide Tips
+
+      section class='primary'
+        == image_tag 'placeholders/pulse_full4.png'
+
+      section class='swap'
+        header class='clearfix'
+          h3 Settings
+          ul class='tools'
+            li
+              a title='Done' class='btn_standard_med disabled' Done
+            li
+              a title='Cancel' href='#' Cancel
+
+        == image_tag 'placeholders/pulseGadget_configureFtux.png'
+
+    div id="plseGadgetFull"
+      header
+        ul class="tools"
+          li
+            a title="close" href="#"
+          li class='settings'
+            a title='settings' href='#' Settings
+        h2 Pulse
+      
+      section class='primary'
+        == image_tag 'placeholders/pulseGadget_fullFtux.png'
+      section class='swap'
+        header class='clearfix'
+          h3 Settings
+          ul class='tools'
+            li
+              a title='Done' class='btn_standard_med disabled' Done
+            li
+              a title='Cancel' href='#' Cancel
+
+        == image_tag 'placeholders/pulseGadget_configureFtux.png'
+  
+    div id="plseConfig"
+      header
+        ul class="tools"
+          li
+            a title="close" href="#"
+        h2 Pulse
+      
+      section class='primary'
+        header class='clearfix'
+          h3 Settings
+          ul class='tools'
+            li
+              a title='Done' class='btn_standard_med disabled' Done
+            li
+              a title='Cancel' href='#' Cancel
+
+        == image_tag 'placeholders/pulseGadget_configureFtux.png'
+
+    div id='scrty'
+      header
+        ul class="tools"
+          li
+            a title="close" href="#"
+          li class='settings'
+            a title='settings' href='#' Security Settings
+        h2 Account Activity
+      
+      section class='primary'
+        == image_tag 'placeholders/alerts_full.png'
+
+    div id='mainContent'
+
+      div class='callout cal'
+        div
+          span class='point_top'
+          section
+            h2
+            p Stay on top of messages and events. Combine with Campaigns for extra organizational powers.
+            p Click “Fullscreen” for full functionality.
+            div class='action'
+              a title='Watch Video' rel='2' class='btn_standard_med playVid' href='#' Watch Video
+              span Running time 0:10
+            a class='more' href='#' Want more? Check out Hub 101
+
+      div class='callout plse'
+        div
+          span class='point_top'
+          section
+            h2
+            p Real-time gadgets with data from your email, Facebook and Twitter accounts keep the heartbeat of your organization under your fingertips.
+            p Click “Fullscreen” to see all Pulse gadgets at once or “Configure” to add your own.
+            div class='action'
+              a title='Watch Video' rel='3' class='btn_standard_med playVid' href='#' Watch Video
+              span Running time 0:10
+            a class='more' href='#' Want more? Check out Hub 101
+
+      div class='callout cmpgns'
+        div
+          span class='point_left'
+          section
+            h2
+            p Keep track of recent and upcoming Campaigns activity.
+            p Campaigns can be created and edited in the application itself.
+            div class='action'
+              a title='Watch Video' rel='4' class='btn_standard_med playVid' href='#' Watch Video
+              span Running time 0:10
+            a class='more' href='#' Want more? Check out Hub 101
+
+      div id='hub' class='banner welcome clearfix'
+        p class='limit'
+          ' Available for 
+          span class='counter'
+            strong 30
+          ' days.
+
+        span class='label'
+
+        h2 Info Tips for Interactive Marketing Hub
+
+        ul class='tools'
+          li
+            div class='btn_toggle'
+              a title='show' href='#' class='on' Show Tips
+              a title='hide' href='#' Hide Tips
+
+      == partial 'calendar'
+
+      == partial 'pulse_ftux'
+
+      == partial 'campaigns'
+
+  div id='vidContent'
+
+    header
+      ul class="tools"
+        li
+          a title="Close Window" href="#"
+      h2 
+        '
+        strong Video
+        ' (Running Time:
+        span
+        ' )
+    
+    section class='primary'
+
+      section class='content'
+
+    footer class='clearfix'
+
+      ul class='clearfix'
+        li
+          a title='Close Window' class='btn_standard_med' href='#' Close

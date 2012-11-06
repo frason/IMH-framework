@@ -1,0 +1,43 @@
+// Allows for the alternative layout called Singleton
+---
+
+layout: welcome
+version: Callouts
+css: static
+page_name:
+  - Campaigns
+
+---
+
+//Page Title
+-content_for :title do
+ title Hub Tools - Campaigns
+
+== partial 'header'
+
+div id='container'
+
+  div id="innerContent"
+
+  	div class='callout campaigns_01'
+  	div class='callout campaigns_02'
+  	div class='callout campaigns_03'
+
+  	div id='campaigns' class='banner welcome clearfix'
+  		ul class='tools'
+  			li
+  				div class='btn_toggle'
+  					a title='show' href='#' class='on' Show Tips
+  					a title='hide' href='#' Hide Tips
+  			li class='label'
+  				'
+  				span class='icon guide'
+  				' Context Tips
+  		h2 Welcome to the Campaigns QuickGuide!
+  		p
+  			' Available for
+  			span class='counter'
+  				strong 30
+  			' days.
+
+  	== image_tag('placeholders/campaigns.png', :class => 'staticImage')
