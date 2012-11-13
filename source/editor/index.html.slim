@@ -81,7 +81,6 @@ div id='container'
 						' Validate
 				li
 					button class='test' Send Test
-
 		section class='sidebar'
 
 			menu class='tabs'
@@ -94,16 +93,16 @@ div id='container'
 						a href='#'
 							span
 							' Gears
-					li class='status'
-						a href='#'
-							span
-							' Status
+					/ li class='status'
+					/	a href='#'
+					/		span
+					/		' Status
 
 			aside
-				div
-					section class='content expanded'
+				div id='accordion'
+					section class='content current'
 
-						header
+						header class='heading'
 							h2 Content Gears
 
 						section
@@ -117,12 +116,54 @@ div id='container'
 							p class='ua'
 								' Drag and drop any content gear to the canvas to build your email.
 
-					section class='saved collapsed'
+					section class='saved savedLoaded'
 
-						header
+						header class='heading clickable'
 							h2 Saved Gears
+						section class='hidden'
+							ul class='search-filter'
+								li
+									div class="search-box"
+	        							div class="search-icon"
+								        input type="text" class='search-input' value="Search..." onfocus="if(this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search...';}"
+								li
+									button class="treePicker dropdown noFloat"
+										span 
+										' Shared Content
+										
 
-						section
+							ul class='gearsList'
+								li class='gear savedGear image'
+									a href='#' 
+										' Rs342.jpg 
+										span class='saved-Gear-imgSize'(105k) 
+										br
+										span class='saved-Gear-Date' Saved 8/12/12 - 8:50PM
+								li class='gear savedGear text'
+									a href='#' 
+										' Earn more money this mon... 
+										span class='saved-Gear-Date' Saved 8/12/12 - 8:50PM
+								li class='gear savedGear textImage'
+									a href='#' 
+										'Rs342.jpg + Earn more sav... 
+										span class='saved-Gear-Date' Saved 8/12/12 - 8:50PM
+								li class='gear savedGear image'
+									a href='#' 
+										' Rs342.jpg 
+										span class='saved-Gear-imgSize'(105k) 
+										br
+										span class='saved-Gear-Date' Saved 8/12/12 - 8:50PM
+								li class='gear savedGear text'
+									a href='#' 
+										' Earn more money this mon... 
+										span class='saved-Gear-Date' Saved 8/12/12 - 8:50PM
+								li class='gear savedGear textImage'
+										'Rs342.jpg + Earn more sav... 
+										span class='saved-Gear-Date' Saved 8/12/12 - 8:50PM
+							p class='ua'
+								' Drag and drop any content gear to the canvas to build your email.
+
+						
 
 
 
