@@ -1,3 +1,4 @@
+
 @import "susy";
 @import "compass/css3";
 
@@ -153,8 +154,7 @@ button {
 
 .subhead {
 	font-size:11px;
-	margin:0 0 0 19px;
-	padding:10px 0 5px;
+	padding:10px 0 5px 2px;
 
 	.overview {
 		padding:0 0 0 29px;
@@ -422,6 +422,7 @@ button {
 					a {
 						margin: 0 0 0 -2px;
 						padding:9px 0 5px 2px;
+						background-color:#f3f3f3;
 						// @include background(#F3F3F3);
 
 						span {
@@ -525,6 +526,16 @@ button {
 							}
 						}
 
+						&.ui-draggable-dragging {
+							border:1px solid #82bbd6;
+							cursor:move;
+							padding-right:20px;
+							z-index:2;
+							@include background(linear-gradient(bottom, rgb(206,234,245) 0%, rgb(240,249,253) 100%));
+							@include opacity(0.7);
+							@include box-shadow(0 1px 2px 0 #bbb);
+						}
+
 						&:first-child {
 
 							&:hover {
@@ -618,7 +629,6 @@ button {
 			}
 		}
 	}
-
 }
 
 #canvas {
@@ -628,6 +638,66 @@ button {
 	width:600px;
 	@include background(#fff);
 	@include box-shadow(0 3px 6px #cecece);
+
+	&.activeCanvas {
+		border:1px solid #acbdc5;
+		@include box-shadow(0 0 3px #82bbd6);
+	}
+
+	.bound {
+		display:none;
+		left:0;
+		margin:20px;
+		position:relative;
+		top:0;
+
+		.controls {
+			display:none;
+			height:100%;
+			left:0;
+			// margin:-1px;
+			position:absolute;
+			top:0;
+			width:100%;
+			z-index:0;
+			@include background(url(../images/ui/bg_editorBoundTopLeft.png) no-repeat top left, url(../images/ui/bg_editorBoundBottomRight.png) no-repeat bottom right);
+		}
+
+		&:hover {
+
+			.controls {
+				display:block;
+			}
+			// @include opacity(0.5);
+		}
+
+		&.image {
+
+			img {
+				display:block;
+				z-index:2;
+			}
+		}
+
+		&.text {
+
+			.textarea {
+				border:none !important;
+				display:block;
+				font-family:$sans;
+				font-size:14px;
+				height:inherit;
+				line-height:1.26em;
+				// overflow:hidden;
+				outline:0 !important;
+				position:relative;
+				resize:none;
+				width:100%;
+				z-index:2;
+				@include background(transparent);
+			}
+		}
+	}
 }
 
 

@@ -3,6 +3,7 @@
 var inprog = 0;
 var speed = '250';
 
+
 //Session storage
 var storage = {
 	enableGuide: function() {
@@ -64,6 +65,57 @@ var storage = {
     }
 
 		sessionStorage.setItem('visited', JSON.stringify(sort_visits));
+	}
+}
+
+
+//Gear markup
+var doGear = {
+	i: function(obj) {
+		var $this = obj;
+		var $markup;
+		var no = common.random();
+
+		$markup = '<div class="bound image item_' + no + '">';
+		$markup += '<img src="../images/placeholders/editor_image560-230.png" />';
+		$markup += '<div class="controls"></div></div>';
+
+		$(document).queue('gearQueue', function(next) {
+			$this.append($markup);
+			next();
+		});
+		$(document).delay(100, 'gearQueue');
+		$(document).queue('gearQueue', function(next) {
+			$('.item_' + no + '').fadeIn(speed);
+			next();
+		});
+		$(document).dequeue('gearQueue');
+	},
+	t: function(obj) {
+		var $this = obj;
+		var $markup;
+		var no = common.random();
+
+		$markup = '<div class="bound text item_' + no + '">';
+		$markup += '<div class="textarea" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
+		$markup += '<div class="controls"></div></div>';
+
+		$(document).queue('gearQueue', function(next) {
+			$this.append($markup);
+			next();
+		});
+		$(document).delay(100, 'gearQueue');
+		$(document).queue('gearQueue', function(next) {
+			$('.item_' + no + '').fadeIn(speed);
+			next();
+		});
+		$(document).dequeue('gearQueue');
+	},
+	tI: function(obj) {
+		var $this = obj;
+		var no = common.random();
+
+		$this.append('<strong>Text + Image</strong>');
 	}
 }
 
@@ -150,7 +202,7 @@ var address = {
 }
 
 // Global - hide modal
-$(document).click(function() {
+/*$(document).click(function() {
 
 	$(document).delay(300, 'fullScreenQueue');
 	$(document).queue('fullScreenQueue', function(next) {
@@ -166,7 +218,7 @@ $(document).click(function() {
 		next();
 	});
 	$(document).dequeue('fullScreenQueue');
-});
+});*/
 
 
 // Common UI Functions
@@ -187,6 +239,10 @@ var common = {
 				$this.parent().find('a:first').removeClass('selected');
 			});
 		}
+	},
+	random: function() {
+		var rand = Math.floor((Math.random()*100)+1);
+		return rand;
 	}
 }
 
@@ -201,7 +257,6 @@ $(document).ready(function() {
 	if (($('body').is('.main') == true)) {
 		$('.fuel-loader.campaigns').addClass('noDisplay');
 	}
-
 
 	// Taskbar menus
 
@@ -248,6 +303,32 @@ $(document).ready(function() {
 			}
 			e.stopPropagation();
 		}
+	});
+
+	$('.gearsList li').draggable({
+		cursor:'move',
+		cursorAt: { bottom:0, right:0 },
+		helper:'clone'
+	});
+	$('#canvas').droppable({
+		activeClass:'activeCanvas',
+		drop: function(event, ui) {
+
+			if ( $(ui.draggable).hasClass('image') ) {
+				doGear.i( $(this) );
+			} else if ( $(ui.draggable).hasClass('text') ) {
+				doGear.t( $(this) );
+			} else if ( $(ui.draggable).hasClass('textImage') ) {
+				doGear.tI( $(this) );
+			}
+
+		}
+	});
+
+	$('.bound').live('mousedown', function() {
+		$(this).draggable({
+			cursor:'move'
+		})
 	});
 
 });
