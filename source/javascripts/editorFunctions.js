@@ -218,7 +218,7 @@ var address = {
 		next();
 	});
 	$(document).dequeue('fullScreenQueue');
-});*/
+}); */
 
 
 // Common UI Functions

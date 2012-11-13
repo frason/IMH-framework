@@ -55,7 +55,7 @@ button {
 		height:16px;
 		width:16px;
 	}
-
+ 
 	&.dropdown {
 
 		span {
@@ -481,10 +481,12 @@ button {
 
 			section {
 				margin:-1px;
+			
 
 				> section {
 					padding:0 2px;
 				}
+			
 
 				header {
 					border:1px solid #ccc;
