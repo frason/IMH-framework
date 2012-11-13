@@ -150,7 +150,7 @@ var address = {
 }
 
 // Global - hide modal
-$(document).click(function() {
+/*$(document).click(function() {
 
 	$(document).delay(300, 'fullScreenQueue');
 	$(document).queue('fullScreenQueue', function(next) {
@@ -166,7 +166,7 @@ $(document).click(function() {
 		next();
 	});
 	$(document).dequeue('fullScreenQueue');
-});
+}); */
 
 
 // Common UI Functions

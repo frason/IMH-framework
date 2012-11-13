@@ -72,11 +72,17 @@ $(document).ready(function() {
 		
 	});
 
-	$('ul li.collapsed a').click(function() {
-		alert("test");
-		//$('section.sidebar').animate({"left": 230}, 250);
-		//$('ul li').removeClass('collapsed');
-		//$(this).parent().addClass('active');
+
+
+	$('.tabs ul li.collapsed a').on({
+		click: function(e) {
+			console.log('hello');
+			//alert("test");
+			//$('section.sidebar').animate({"left": 0}, 250);
+			//$('ul li').removeClass('collapsed');
+			//$(this).parent().addClass('active');
+			e.stopPropagation();
+		}
 		
 	});
 

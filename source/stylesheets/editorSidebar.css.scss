@@ -26,6 +26,7 @@
 
 			}
 			&.collapsed {
+				//border:1px solid #000;
 				&:hover {
 
 					&.main {
@@ -162,6 +163,14 @@
 				}
 			}
 
+		}
+	}
+}
+
+.dropdown {
+	&.noFloat {
+		span {
+			float: none !important;
 		}
 	}
 }
