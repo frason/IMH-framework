@@ -64,7 +64,7 @@ $(document).ready(function() {
         return false; 
     });
 
-	$('ul li a').on({
+	$('.tabs ul li a').on({
 		
 		click: function(e) {
 			//alert("test");
