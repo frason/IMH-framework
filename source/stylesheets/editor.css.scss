@@ -505,7 +505,7 @@ button {
 			.gearsList {
 				font-size:12px;
 
-				li {
+				div {
 					@include background(transparent url(../images/ui/bg_dottedCCC.png) repeat-x bottom left);
 
 					a {
@@ -647,12 +647,73 @@ button {
 		@include box-shadow(0 0 3px #82bbd6);
 	}
 
+	.ui-state-highlight {
+
+	}
+
+	.ui-sortable-helper {
+		border:1px solid #82bbd6;
+		cursor:move;
+		height:46px !important;
+		padding-right:20px;
+		z-index:1;
+		@include background(linear-gradient(bottom, rgb(206,234,245) 0%, rgb(240,249,253) 100%));
+		@include opacity(0.7);
+		@include box-shadow(0 1px 2px 0 #bbb);
+
+		span {
+			display:block;
+			padding:17px 0 15px 43px;
+		}
+
+		&.image {
+			display:block !important;
+			width:75px !important;
+			span {
+				@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -10px);
+			}
+			span:after {
+				color:#333;
+				content: "Image";
+				font-size:12px;
+			}
+		}
+
+		&.text {
+			display:block !important;
+			width:65px !important;
+			span {
+				@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -53px);
+			}
+			span:after {
+				color:#333;
+				content: "Text";
+				font-size:12px;
+			}
+		}
+
+		&.textImage {
+			display:block !important;
+			width:112px !important;
+			span {
+				@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -97px);
+			}
+			span:after {
+				color:#333;
+				content: "Text + Image";
+				font-size:12px;
+			}
+		}
+
+
+	}
+
 	.bound {
-		display:none;
-		left:0;
+		// display:none;
+		// left:0;
 		margin:20px;
 		position:relative;
-		top:0;
+		// top:0;
 
 		.controls {
 			display:none;
@@ -662,8 +723,57 @@ button {
 			position:absolute;
 			top:0;
 			width:100%;
-			z-index:0;
+			z-index:1;
 			@include background(url(../images/ui/bg_editorBoundTopLeft.png) no-repeat top left, url(../images/ui/bg_editorBoundBottomRight.png) no-repeat bottom right);
+
+			ul {
+				border:1px solid #888;
+				left:44%;
+				padding:5px 8px 4px 8px;
+				position:absolute;
+				top:-22px;
+				width:48px;
+				@include background(linear-gradient(bottom, rgb(153,153,153) 21%, rgb(187,187,184) 100%));
+				@include border-radius(4px 4px 0 0);
+				@include clearfix;
+
+				li {
+					display:inline;
+					float:left;
+					margin:0 0 0 6px;
+
+					&:first-child {
+						margin:0;
+					}
+
+					&.save {
+
+						a {
+							@include background(url(../images/icons/sprite_gearControls.png) no-repeat 0px 0px);
+						}
+					}
+
+					&.copy {
+
+						a {
+							@include background(url(../images/icons/sprite_gearControls.png) no-repeat 0px -32px);
+						}
+					}
+
+					&.remove {
+
+						a {
+							@include background(url(../images/icons/sprite_gearControls.png) no-repeat 0px -64px);
+						}
+					}
+
+					a {
+						display:block;
+						height:12px;
+						width:12px;
+					}
+				}
+			}
 		}
 
 		&:hover {
@@ -698,6 +808,29 @@ button {
 				width:100%;
 				z-index:2;
 				@include background(transparent);
+			}
+		}
+
+		&.textImage {
+
+			.imageArea {
+				display:inline;
+				float:left;
+				height:auto;
+				margin:0 10px 0 0;
+				width:auto;
+			}
+
+			p {
+				font-family:$sans;
+				font-size:14px;
+				line-height:1.26em;
+
+				&:after {
+					clear:both;
+					content:"";
+					display:block;
+				}
 			}
 		}
 	}

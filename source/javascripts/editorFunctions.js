@@ -71,51 +71,75 @@ var storage = {
 
 //Gear markup
 var doGear = {
-	i: function(obj) {
-		var $this = obj;
+	i: function() {
+		// var $this = obj;
 		var $markup;
 		var no = common.random();
 
-		$markup = '<div class="bound image item_' + no + '">';
-		$markup += '<img src="../images/placeholders/editor_image560-230.png" />';
-		$markup += '<div class="controls"></div></div>';
+		$markup = '<div id="item_' + no + '" class="bound image ui-draggable">';
+		$markup += '<img src="../images/placeholders/editor_image560-230.png" /><div class="controls">';
+		$markup += '<ul><li class="save"><a href="#" title="Save"></a></li><li class="copy"><a href="#" title="Copy"></a></li><li class="remove"><a href="#" title="Remove"></a></li></ul>';
+		$markup += '</div></div>';
 
-		$(document).queue('gearQueue', function(next) {
-			$this.append($markup);
-			next();
-		});
-		$(document).delay(100, 'gearQueue');
-		$(document).queue('gearQueue', function(next) {
-			$('.item_' + no + '').fadeIn(speed);
-			next();
-		});
-		$(document).dequeue('gearQueue');
+		return $markup;
+
+		// $(document).queue('gearQueue', function(next) {
+		// 	$($markup).appendTo($this);
+		// 	next();
+		// });
+		// $(document).delay(100, 'gearQueue');
+		// $(document).queue('gearQueue', function(next) {
+		// 	$('.item_' + no + '').fadeIn(speed);
+		// 	next();
+		// });
+		// $(document).dequeue('gearQueue');
 	},
-	t: function(obj) {
-		var $this = obj;
+	t: function() {
+		// var $this = obj;
 		var $markup;
 		var no = common.random();
 
-		$markup = '<div class="bound text item_' + no + '">';
-		$markup += '<div class="textarea" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>';
-		$markup += '<div class="controls"></div></div>';
+		$markup = '<div id="item_' + no + '" class="bound text ui-draggable">';
+		$markup += '<div class="textarea editMe" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><div class="controls">';
+		$markup += '<ul><li class="save"><a href="#" title="Save"></a></li><li class="copy"><a href="#" title="Copy"></a></li><li class="remove"><a href="#" title="Remove"></a></li></ul>';
+		$markup += '</div></div>';
 
-		$(document).queue('gearQueue', function(next) {
-			$this.append($markup);
-			next();
-		});
-		$(document).delay(100, 'gearQueue');
-		$(document).queue('gearQueue', function(next) {
-			$('.item_' + no + '').fadeIn(speed);
-			next();
-		});
-		$(document).dequeue('gearQueue');
+		return $markup;
+
+		// $(document).queue('gearQueue', function(next) {
+		// 	$($markup).appendTo($this);
+		// 	next();
+		// });
+		// $(document).delay(100, 'gearQueue');
+		// $(document).queue('gearQueue', function(next) {
+		// 	$('.item_' + no + '').fadeIn(speed);
+		// 	next();
+		// });
+		// $(document).dequeue('gearQueue');
 	},
-	tI: function(obj) {
-		var $this = obj;
+	tI: function() {
+		// var $this = obj;
+		var $markup;
 		var no = common.random();
 
-		$this.append('<strong>Text + Image</strong>');
+		$markup = '<div id="item_' + no + '" class="bound textImage ui-draggable">';
+		$markup += '<div class="imageArea"><img src="../images/placeholders/editor_image270-203.png" /></div>';
+		$markup += '<p class="editMe" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><div class="controls">';
+		$markup += '<ul><li class="save"><a href="#" title="Save"></a></li><li class="copy"><a href="#" title="Copy"></a></li><li class="remove"><a href="#" title="Remove"></a></li></ul>';
+		$markup += '</div></div>';
+
+		return $markup;
+
+		// $(document).queue('gearQueue', function(next) {
+		// 	$($markup).appendTo($this);
+		// 	next();
+		// });
+		// $(document).delay(100, 'gearQueue');
+		// $(document).queue('gearQueue', function(next) {
+		// 	$('.item_' + no + '').fadeIn(speed);
+		// 	next();
+		// });
+		// $(document).dequeue('gearQueue');
 	}
 }
 
@@ -305,31 +329,122 @@ $(document).ready(function() {
 		}
 	});
 
-	$('.gearsList li').draggable({
-		cursor:'move',
-		cursorAt: { bottom:0, right:0 },
-		helper:'clone'
-	});
-	$('#canvas').droppable({
-		activeClass:'activeCanvas',
-		drop: function(event, ui) {
+	$('#canvas').sortable({
+		change: function(event, ui) {
+		},
+		containment: '#canvas',
+		helper: function(event, ui) {
+			var $itemClass = $(ui).attr('class');
+			$helper = '<div class="' + $itemClass + '"><span></span></div>'
+			return $helper;
+		},
+		receive: function(event, ui) {
+			ui.item.addClass("dropped");
+		},
+		start: function(event, ui) {
+			getClass = $(ui.item).attr('class');
 
-			if ( $(ui.draggable).hasClass('image') ) {
-				doGear.i( $(this) );
-			} else if ( $(ui.draggable).hasClass('text') ) {
-				doGear.t( $(this) );
-			} else if ( $(ui.draggable).hasClass('textImage') ) {
-				doGear.tI( $(this) );
+			if ( $(ui.item).hasClass('gear image') ) {
+				$placed = doGear.i();
+				$(ui.item).html($placed);
+			} else if ( $(ui.item).hasClass('gear text') ) {
+				$placed = doGear.t();
+				$(ui.item).html($placed);
+			} else if ( $(ui.item).hasClass('gear textImage') ) {
+				$placed = doGear.tI();
+				$(ui.item).html($placed);
 			}
 
+			// $(ui.item).replaceWith('<div class="' + getClass + '">new</div>');
+			// $(ui.item).css('display', 'block').blur();
+		},
+		stop: function(event, ui) {
+			// if ( $(ui.item).is('.text') || $(ui.item).is('.textImage') ) {
+			// 	$(ui.item).find('.editMe').focus();
+			// }
+		},
+		tolerance: 'pointer',
+		update: function(event, ui) {
+
+			// if ( $(ui.item).hasClass('gear image') ) {
+			// 	$code = doGear.i();
+			// 	$(ui.item).append($code);
+			// } else if ( $(ui.item).hasClass('gear text') ) {
+			// 	doGear.t( $(this) );
+			// } else if ( $(ui.item).hasClass('gear textImage') ) {
+			// 	doGear.tI( $(this) );
+			// }
 		}
 	});
 
-	$('.bound').live('mousedown', function() {
-		$(this).draggable({
-			cursor:'move'
-		})
+	$('.gearsList li').draggable({
+		connectToSortable:'#canvas',
+		cursor:'move',
+		cursorAt: { bottom:0, right:0 },
+		helper:'clone',
+		revert: 'invalid'
 	});
+
+
+
+	// $('#canvas').droppable({
+	// 	activeClass:'activeCanvas',
+	// 	drop: function(event, ui) {
+
+	// 		if ( $(ui.draggable).hasClass('gear image') ) {
+	// 			doGear.i( $(this) );
+	// 		} else if ( $(ui.draggable).hasClass('gear text') ) {
+	// 			doGear.t( $(this) );
+	// 		} else if ( $(ui.draggable).hasClass('gear textImage') ) {
+	// 			doGear.tI( $(this) );
+	// 		}
+
+	// 	}
+	// });
+	// .sortable({
+	// 	containment: '#canvas',
+	// 	cursor: 'move',
+	// 	distance: 1,
+	// 	helper: function(event, ui) {
+	// 		var $itemClass = $(ui).attr('class');
+	// 		$helper = '<div class="' + $itemClass + '"><span></span></div>'
+	// 		return $helper;
+	// 	},
+	// 	start: function(event, ui) {
+	// 		$(ui.item).css('display', 'block');
+	// 	},
+	// 	stop: function() {
+	// 		$(this).sortable( "refreshPositions" );
+	// 	},
+	// 	tolerance: 'pointer'
+	// }).disableSelection();
+
+	// $(document).on('mousedown', '.bound', function(e) {
+	// 	$('#canvas').sortable().disableSelection();
+	// 	$('#canvas').disableSelection();
+	// 	e.stopPropagation();
+	// });
+
+	// $('.bound').live('mousedown', function() {
+	// 	$('#canvas').sortable({
+	// 		containment: '#canvas',
+	// 		helper: function(event, ui) {
+	// 			var $itemClass = $(ui).attr('class');
+	// 			$helper = '<div class="' + $itemClass + '"><span></span></div>'
+	// 			return $helper;
+	// 		},
+	// 		placeholder: "ui-state-highlight",
+	// 		start: function(event, ui) {
+	// 			$(ui.item).css('display', 'block').blur();
+	// 		},
+	// 		stop: function(event, ui) {
+	// 			if ( $(ui.item).is('.text') || $(ui.item).is('.textImage') ) {
+	// 				$(ui.item).find('.editMe').focus();
+	// 			} 
+	// 		},
+	// 		tolerance: 'pointer'
+	// 	});
+	// });
 
 });
 

@@ -20,7 +20,6 @@ $(window).load(function() {
 })
 
 
-
 $(document).ready(function() {
 
 	$('.tabs ul li a').on({
