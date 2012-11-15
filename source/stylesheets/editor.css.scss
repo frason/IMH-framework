@@ -500,73 +500,74 @@ button {
 						font-size:15px
 					}
 				}
+			}
 
-				.gearsList {
-					font-size:12px;
+			.gearsList {
+				font-size:12px;
 
-					li {
-						@include background(transparent url(../images/ui/bg_dottedCCC.png) repeat-x bottom left);
+				li {
+					@include background(transparent url(../images/ui/bg_dottedCCC.png) repeat-x bottom left);
+
+					a {
+						color:#333;
+						display:block;
+						padding:17px 0 15px 43px;
+					}
+
+					&:hover {
+						border-bottom:1px solid #c6c6c6;
+						border-top:1px solid #c6c6c6;
+						margin:-1px 0;
+						@include background(linear-gradient(bottom, rgb(226,239,245) 0%, rgb(247,253,255) 100%));
+						@include box-shadow(0 1px 0 0 #ebebeb);
 
 						a {
-							color:#333;
-							display:block;
-							padding:17px 0 15px 43px;
+							cursor:hand;
+							cursor:grab;
+							cursor:-moz-grab;
+							cursor:-webkit-grab;
 						}
+					}
+
+					&.ui-draggable-dragging {
+						border:1px solid #82bbd6;
+						cursor:move;
+						padding-right:20px;
+						z-index:2;
+						@include background(linear-gradient(bottom, rgb(206,234,245) 0%, rgb(240,249,253) 100%));
+						@include opacity(0.7);
+						@include box-shadow(0 1px 2px 0 #bbb);
+					}
+
+					&:first-child {
 
 						&:hover {
-							border-bottom:1px solid #c6c6c6;
-							border-top:1px solid #c6c6c6;
-							margin:-1px 0;
-							@include background(linear-gradient(bottom, rgb(226,239,245) 0%, rgb(247,253,255) 100%));
-							@include box-shadow(0 1px 0 0 #ebebeb);
-
-							a {
-								cursor:hand;
-								cursor:grab;
-								cursor:-moz-grab;
-								cursor:-webkit-grab;
-							}
+							margin:-2px 0 -1px 0;
 						}
+					}
 
-						&.ui-draggable-dragging {
-							border:1px solid #82bbd6;
-							cursor:move;
-							padding-right:20px;
-							z-index:2;
-							@include background(linear-gradient(bottom, rgb(206,234,245) 0%, rgb(240,249,253) 100%));
-							@include opacity(0.7);
-							@include box-shadow(0 1px 2px 0 #bbb);
+					&.image {
+
+						a {
+							@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -10px);
 						}
+					}
 
-						&:first-child {
+					&.text {
 
-							&:hover {
-								margin:-2px 0 -1px 0;
-							}
+						a {
+							@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -53px);
 						}
+					}
 
-						&.image {
+					&.textImage {
 
-							a {
-								@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -10px);
-							}
-						}
-
-						&.text {
-
-							a {
-								@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -53px);
-							}
-						}
-
-						&.textImage {
-
-							a {
-								@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -97px);
-							}
+						a {
+							@include background(transparent url(../images/icons/sprite_contentGears.png) no-repeat -10px -97px);
 						}
 					}
 				}
+				
 			}
 
 			.ua {
