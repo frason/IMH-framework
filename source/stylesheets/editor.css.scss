@@ -505,7 +505,7 @@ button {
 			.gearsList {
 				font-size:12px;
 
-				li {
+				div {
 					@include background(transparent url(../images/ui/bg_dottedCCC.png) repeat-x bottom left);
 
 					a {
