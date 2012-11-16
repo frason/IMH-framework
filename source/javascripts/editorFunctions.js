@@ -339,6 +339,8 @@ $(document).ready(function() {
 	});
 
 	$('#canvas').sortable({
+		activate: function(event, ui) {
+		},
 		beforeStop: function(event, ui) {
 			if ( sortableIn == 0 ) {
 				ui.item.remove();
@@ -360,6 +362,9 @@ $(document).ready(function() {
 			sortableIn = 0;
 		},
 		receive: function(event, ui) {
+			sortableIn = 1;
+		},
+		remove: function(event, ui) {
 			sortableIn = 1;
 		},
 		start: function(event, ui) {
@@ -424,6 +429,21 @@ $(document).ready(function() {
 			$('.palette.text, .palette.html').fadeOut(speed); /*gross!*/
 		}
 
+		if ( $(this).hasClass('image') ) {
+			var newHeight, newWidth;
+
+			$('> div', this).resizable({
+				handles: "e, s, w",
+				stop: function(event, ui) {
+					newHeight = ui.element.height();
+					newWidth = ui.element.width()
+
+					$(this).parent().height(newHeight).width(newWidth);
+				}
+			});
+
+		}
+
 		e.stopPropagation();
 	});
 
@@ -446,6 +466,17 @@ $(document).ready(function() {
 
 	$('.palette').draggable({
 		containment: "parent"
+	});
+
+
+
+	$('#canvas').on('mousedown', '.controls .handle', function(e) {
+
+		// if ( $(this).hasClass('left') ) {
+		// 	alert('down');
+
+		// }
+
 	});
 
 });
