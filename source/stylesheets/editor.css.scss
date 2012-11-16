@@ -531,7 +531,10 @@ button {
 
 					&.ui-draggable-dragging {
 						border:1px solid #82bbd6;
-						cursor:move;
+						cursor:hand;
+						cursor:grab;
+						cursor:-moz-grab;
+						cursor:-webkit-grab;
 						padding-right:20px;
 						z-index:2;
 						@include background(linear-gradient(bottom, rgb(206,234,245) 0%, rgb(240,249,253) 100%));
@@ -647,8 +650,12 @@ button {
 		@include box-shadow(0 0 3px #82bbd6);
 	}
 
-	.ui-state-highlight {
-
+	.ui-sortable-placeholder {
+		background:#bcd3ff;
+		border:1px solid #889bcc;
+		margin:20px;
+		@include border-radius(3px);
+		@include box-shadow(0 0 2px 0 #bbb);
 	}
 
 	.ui-sortable-helper {
@@ -659,7 +666,7 @@ button {
 		z-index:1;
 		@include background(linear-gradient(bottom, rgb(206,234,245) 0%, rgb(240,249,253) 100%));
 		@include opacity(0.7);
-		@include box-shadow(0 1px 2px 0 #bbb);
+		@include box-shadow(0 1px 2px 0 #666);
 
 		span {
 			display:block;
@@ -711,9 +718,17 @@ button {
 	.bound {
 		// display:none;
 		// left:0;
+		// float:left;
 		margin:20px;
 		position:relative;
 		// top:0;
+
+		&.dragging {
+			cursor:hand;
+			cursor:grab;
+			cursor:-moz-grab;
+			cursor:-webkit-grab;
+		}
 
 		.controls {
 			display:none;
@@ -723,7 +738,7 @@ button {
 			position:absolute;
 			top:0;
 			width:100%;
-			z-index:1;
+			z-index:0;
 			@include background(url(../images/ui/bg_editorBoundTopLeft.png) no-repeat top left, url(../images/ui/bg_editorBoundBottomRight.png) no-repeat bottom right);
 
 			ul {
@@ -776,7 +791,7 @@ button {
 			}
 		}
 
-		&:hover {
+		&:hover, &.active {
 
 			.controls {
 				display:block;
@@ -833,6 +848,42 @@ button {
 				}
 			}
 		}
+	}
+}
+
+.palette {
+	cursor:hand;
+	cursor:grab;
+	cursor:-moz-grab;
+	cursor:-webkit-grab;
+	display:none;
+	position:absolute;
+	z-index:9;
+
+	&.text {
+		height:212px;
+		left:20px;
+		top:30px;
+		width:220px;
+	}
+
+	&.image {
+		height:384px;
+		left:200px;
+		top:300px;
+		width:220px;
+	}
+
+	&.html {
+		height:280px;
+		left:240px;
+		top:300px;
+		width:340px;
+	}
+
+	img {
+		@include border-radius(4px);
+		@include box-shadow(0 2px 10px 0 #888);
 	}
 }
 
