@@ -4,72 +4,6 @@ var inprog = 0;
 var speed = '250';
 var sortableIn = 0;
 
-
-//Session storage
-// var storage = {
-// 	enableGuide: function() {
-// 		var $whichBanner = $('.banner').attr('id');
-// 		if (sessionStorage.getItem($whichBanner) == 'show' || sessionStorage.getItem($whichBanner) === null) {
-// 			$('.btn_toggle a[title="show"]').addClass('on').siblings().removeClass('on');
-// 			if ($('body').is('.callouts')) {
-// 				$('.banner').not('.modal').animate({
-// 					height: '19px',
-// 					top: '43px',
-// 					opacity: 1
-// 				}, 250, function() {
-// 					$('.callout').fadeIn(400);
-// 				});
-// 				$('#view_calendar').animate({
-// 					marginTop: '32px'
-// 				}, 250);
-// 			} else if ($('body').is('.static')) {
-// 					$('.callout').delay(2000).fadeIn(400);
-// 			}
-// 		} else if (sessionStorage.getItem($whichBanner) == 'hide') {
-// 			$('.btn_toggle a[title="hide"]').addClass('on').siblings().removeClass('on');
-// 			if ($('body').is('.callouts')) {
-// 				$('.banner').not('.modal').animate({
-// 					height: '19px',
-// 					top: '43px',
-// 					opacity: 1
-// 				}, 250);
-// 				$('.callout').css('display', 'none');
-// 				$('#view_calendar').animate({
-// 					marginTop: '32px'
-// 				}, 250);
-// 			}
-// 		}
-// 	},
-// 	checkIf: function() {
-// 		if(sessionStorage.getItem('visited') === null) {
-// 			return false;
-// 		} else {
-// 			var savedString = sessionStorage.getItem('visited');
-// 			var vList = $.parseJSON(savedString);
-		
-// 			$.each(vList, function(key, value) {
-// 				$('#explore nav a[title="'+value+'"]').addClass('complete');
-// 			});
-// 		}
-// 	},
-// 	sendTo: function() {
-// 		var sort_visits = removeDupes(visits);
-
-// 		function removeDupes(arr) {
-// 			var nonDupes = [];
-// 			arr.forEach(function(value) {
-// 				if (nonDupes.indexOf(value) == -1) {
-// 					nonDupes.push(value);
-// 				}
-// 			});
-// 			return nonDupes;
-//     }
-
-// 		sessionStorage.setItem('visited', JSON.stringify(sort_visits));
-// 	}
-// }
-
-
 //Gear markup
 var doGear = {
 	i: function() {
@@ -83,17 +17,6 @@ var doGear = {
 		$markup += '</div></div>';
 
 		return $markup;
-
-		// $(document).queue('gearQueue', function(next) {
-		// 	$($markup).appendTo($this);
-		// 	next();
-		// });
-		// $(document).delay(100, 'gearQueue');
-		// $(document).queue('gearQueue', function(next) {
-		// 	$('.item_' + no + '').fadeIn(speed);
-		// 	next();
-		// });
-		// $(document).dequeue('gearQueue');
 	},
 	t: function() {
 		// var $this = obj;
@@ -101,22 +24,11 @@ var doGear = {
 		var no = common.random();
 
 		$markup = '<div id="item_' + no + '">';
-		$markup += '<div class="textarea editMe" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><div class="controls">';
+		$markup += '<div class="textarea" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><div class="controls">';
 		$markup += '<ul><li class="save"><a href="#" title="Save"></a></li><li class="copy"><a href="#" title="Copy"></a></li><li class="remove"><a href="#" title="Remove"></a></li></ul>';
 		$markup += '</div></div>';
 
 		return $markup;
-
-		// $(document).queue('gearQueue', function(next) {
-		// 	$($markup).appendTo($this);
-		// 	next();
-		// });
-		// $(document).delay(100, 'gearQueue');
-		// $(document).queue('gearQueue', function(next) {
-		// 	$('.item_' + no + '').fadeIn(speed);
-		// 	next();
-		// });
-		// $(document).dequeue('gearQueue');
 	},
 	tI: function() {
 		// var $this = obj;
@@ -124,23 +36,12 @@ var doGear = {
 		var no = common.random();
 
 		$markup = '<div id="item_' + no + '">';
-		$markup += '<div class="imageArea"><img src="../images/placeholders/editor_image270-203.png" /></div>';
-		$markup += '<p class="editMe" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p><div class="controls">';
+		$markup += '<div class="imageArea"><img src="../images/placeholders/editor_image270-203.png" class="image" /></div>';
+		$markup += '<div class="editMe" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div><div class="controls">';
 		$markup += '<ul><li class="save"><a href="#" title="Save"></a></li><li class="copy"><a href="#" title="Copy"></a></li><li class="remove"><a href="#" title="Remove"></a></li></ul>';
 		$markup += '</div></div>';
 
 		return $markup;
-
-		// $(document).queue('gearQueue', function(next) {
-		// 	$($markup).appendTo($this);
-		// 	next();
-		// });
-		// $(document).delay(100, 'gearQueue');
-		// $(document).queue('gearQueue', function(next) {
-		// 	$('.item_' + no + '').fadeIn(speed);
-		// 	next();
-		// });
-		// $(document).dequeue('gearQueue');
 	}
 }
 
@@ -166,10 +67,10 @@ function draw_viewport () {
 
   var subHeadHeight = $('.subhead').outerHeight(true);
   var wizardHeight = $('.wiz').outerHeight(true);
-  var toolBarHaight = $('.toolbar').outerHeight(true);
+  var toolBarHeight = $('.toolbar').outerHeight(true);
   var footHeight = $('.editor footer').outerHeight(true);
 
-  var mastDim = (subHeadHeight + wizardHeight + toolBarHaight);
+  var mastDim = (subHeadHeight + wizardHeight + toolBarHeight);
   var workPort = (((viewport.height() - mastDim) - footHeight) - 32);
 
   $('#topBar').width(viewport.width());
@@ -185,40 +86,6 @@ function draw_viewport () {
 $(window).resize(function() {
 	draw_viewport();
 });
-
-//Redirect & nicename URLs
-// jQuery.redirect = function(url, params) {
-// 	url = url || window.location.href || '';
-// 	url = url.match(/\?/) ? url : url + '?';
-
-// 	for ( var key in params ) {
-// 		var re = RegExp( ';?' + key + '=?[^&;]*', 'g' );
-// 		url = url.replace( re, '');
-// 		url += ';' + key + '=' + params[key];
-// 	}
-
-// 	// cleanup url
-// 	url = url.replace(/[;&]$/, '');
-// 	url = url.replace(/\?[;&]/, '?');
-// 	url = url.replace(/[;&]{2}/g, ';');
-
-// 	// $(location).attr('href', url);
-// 	window.location.replace( url );
-
-// };
-
-// var address = {
-//   getUrlCategory: function() {
-//   	return window.location.pathname.split("/").slice(-2, -1).toString();
-//   },
-//   getUrlFeature: function(){
-//     if (window.location.href.indexOf('?') != -1) {
-//     	return window.location.href.slice(window.location.href.indexOf('?')).split(/[&?]{1}[\w\d]+=/);
-//     } else {
-//     	return;
-//     }
-//   }
-// }
 
 // Global - hide modal
 /*$(document).click(function() {
@@ -238,6 +105,102 @@ $(window).resize(function() {
 	});
 	$(document).dequeue('fullScreenQueue');
 }); */
+
+
+$.ui.plugin.add("resizable", "alsoResizeReverse", {
+
+	start: function(event, ui) {
+
+		var self = $(this).data("resizable"),
+			o = self.options;
+
+		var _store = function(exp) {
+				$(exp).each(function() {
+					$(this).data("resizable-alsoresize-reverse", {
+						width: parseInt($(this).width(), 10),
+						// height: parseInt($(this).height(), 10),
+						left: parseInt($(this).css('left'), 10),
+						top: parseInt($(this).css('top'), 10)
+					});
+				});
+			};
+
+		if (typeof(o.alsoResizeReverse) == 'object' && !o.alsoResizeReverse.parentNode) {
+			if (o.alsoResizeReverse.length) {
+				o.alsoResize = o.alsoResizeReverse[0];
+				_store(o.alsoResizeReverse);
+			} else {
+				$.each(o.alsoResizeReverse, function(exp, c) {
+					_store(exp);
+				});
+			}
+		} else {
+			_store(o.alsoResizeReverse);
+		}
+	},
+
+	resize: function(event, ui) {
+		var self = $(this).data("resizable"),
+			o = self.options,
+			os = self.originalSize,
+			op = self.originalPosition;
+
+		var delta = {
+			// height: (self.size.height - os.height) || 0,
+			width: (self.size.width - os.width) || 0,
+			top: (self.position.top - op.top) || 0,
+			left: (self.position.left - op.left) || 0
+		},
+
+		_alsoResizeReverse = function(exp, c) {
+			$(exp).each(function() {
+				var el = $(this),
+				start = $(this).data("resizable-alsoresize-reverse"),
+				style = {},
+				css = c && c.length ? c : ['width', /*'height',*/ 'top', 'left'];
+
+				$.each(css || ['width', /*'height',*/ 'top', 'left'], function(i, prop) {
+					var sum = (start[prop] || 0) - (delta[prop] || 0);
+					if (sum && sum >= 0) style[prop] = sum || null;
+				});
+
+				//Opera fixing relative position
+				if (/relative/.test(el.css('position')) && $.browser.opera) {
+					self._revertToRelativePosition = true;
+					el.css({
+						position: 'absolute',
+						top: 'auto',
+						left: 'auto'
+					});
+				}
+
+				el.css(style);
+			});
+		};
+
+		if (typeof(o.alsoResizeReverse) == 'object' && !o.alsoResizeReverse.nodeType) {
+			$.each(o.alsoResizeReverse, function(exp, c) {
+				_alsoResizeReverse(exp, c);
+			});
+		} else {
+			_alsoResizeReverse(o.alsoResizeReverse);
+		}
+	},
+
+	stop: function(event, ui) {
+		var self = $(this).data("resizable");
+
+		//Opera fixing relative position
+		if (self._revertToRelativePosition && $.browser.opera) {
+			self._revertToRelativePosition = false;
+			el.css({
+				position: 'relative'
+			});
+		}
+
+		$(this).removeData("resizable-alsoresize-reverse");
+	}
+});
 
 
 // Common UI Functions
@@ -266,17 +229,18 @@ var common = {
 }
 
 var grid = {
-	inPlace: function(obj) {
+	shuffle: function(obj) {
 
-		var $origin = obj.item;
+		if ( typeof $origin === 'undefined'  ) {
+			var $origin = $('.contain .origin');
+			var $target = obj.placeholder;
+		} else {
+			var $origin = obj.item;
+			var $target = $origin.parent().find('.target');
+		}
+
 		var $originPos = obj.position;
-		var $this = obj.placeholder;
-		var canvasPos = $('.contain').position();
-		var canvas50 = ($('.contain').innerWidth() / 2 );
-		var myHeight = $origin.outerHeight();
-		var myWidth = $origin.outerWidth();
-		var nextWidth, nextPos, prevWidth, prevPos;
-
+		var $originOrgPos = obj.originalPosition;
 		var $target = $origin.parent().find('.target');
 		var tarH = $target.outerHeight();
 		var tarW = $target.outerWidth();
@@ -287,73 +251,134 @@ var grid = {
 			$origin.addClass('half');
 			$target.addClass('half');
 
-			// position the placeholder
-			$this
-			.addClass('vert')
-			.css({
-				'left': targetPos.left,
-				'top': targetPos.top,
-				'visibility': 'visible',
-			})
-			.height(myHeight)
-			.removeClass('horiz');
-
-			// console.log('left of target');
+			// console.log('shuffle - left of target');
 
 		} else if ( $originPos.left > ( targetPos.left + tarW - (tarW / 3) ) && $originPos.left < ( targetPos.left + tarW ) ) {
 
 			$origin.addClass('half');
 			$target.addClass('half');
 
-			// position the placeholder
-			$this
-			.addClass('vert')
-			.css({
-				'left': targetPos.left + tarW,
-				'top': targetPos.top,
-				'visibility': 'visible',
-			})
-			.height(myHeight)
-			.removeClass('horiz');
-
-			// console.log('right of target');
+			// console.log('shuffle - right of target');
 
 		} else if ( $originPos.top > targetPos.top && $originPos.top < ( targetPos.top + (tarH / 3) ) ) {
 
 			$origin.removeClass('half');
 			$target.removeClass('half');
 
-			// position the placeholder
-			$this
-			.addClass('horiz')
-			.css({
-				'left': targetPos.left,
-				'top': targetPos.top,
-				'visibility': 'visible',
-			})
-			.removeClass('vert')
-			.width(myWidth);
-
-			// console.log('above target');
+			// console.log('shuffle - above target');
 
 		} else if ( $originPos.top > ( targetPos.top + tarH - (tarH / 3) ) && $originPos.top < ( targetPos.top + tarH ) ) {
 
 			$origin.removeClass('half');
 			$target.removeClass('half');
 
+			// console.log('shuffle - below target');
+
+		}
+
+		if ( $('.bound:not(".textImage")').siblings().has('.half').length < 1 ) {
+			$('.bound:not(".textImage")').removeAttr('style'); /* gross! */
+		} else if ( $('.bound.textImage').siblings().has('.half').length < 1 ) {
+			$('.bound.textImage .editMe, .bound.textImage .imageArea, .bound.textImage .imageArea img').removeAttr('style'); /* gross! */
+		}
+
+	},
+	placeholder: function(obj) {
+
+		var $origin = obj.item;
+		var $originPos = obj.position;
+		var $originOrgPos = obj.originalPosition;
+		var $canPos = $('.contain').position();
+
+		var $this = obj.placeholder;
+		var myHeight = $origin.outerHeight();
+		var myWidth = $origin.outerWidth();
+		var nextWidth, nextPos, prevWidth, prevPos;
+
+		var $target = $origin.parent().find('.target');
+		var tarH = $target.outerHeight();
+		var tarW = $target.outerWidth();
+		var targetPos = $target.position();
+
+		// console.log($originPos.left);
+
+		if ( typeof targetPos === 'undefined' ) {
+
 			// position the placeholder
 			$this
 			.addClass('horiz')
 			.css({
-				'left': targetPos.left,
-				'top': targetPos.top + tarH,
+				'left': '0',
+				'top': '0',
 				'visibility': 'visible',
 			})
-			.removeClass('vert')
-			.width(myWidth);
+			.width($('.contain').innerWidth());
 
-			// console.log('below target');
+		} else {
 
+			var $newLeft = $originPos.left - $originOrgPos.left;
+
+			if ( $newLeft > targetPos.left && $newLeft < ( targetPos.left + (tarW / 3) ) ) {
+
+				// position the placeholder
+				$this
+				.addClass('vert')
+				.css({
+					'left': targetPos.left,
+					'top': targetPos.top,
+					'visibility': 'visible',
+				})
+				.height(tarH)
+				.removeClass('horiz');
+
+				// console.log('left of Target');
+
+			} else if ( $newLeft > ( targetPos.left + tarW - (tarW / 3) ) && $newLeft < ( targetPos.left + tarW ) ) {
+
+				// position the placeholder
+				$this
+				.addClass('vert')
+				.css({
+					'left': targetPos.left + tarW,
+					'top': targetPos.top,
+					'visibility': 'visible',
+				})
+				.height(tarH)
+				.removeClass('horiz');
+
+				// console.log('right of target');
+
+			} else if ( $originPos.top > targetPos.top && $originPos.top < ( targetPos.top + (tarH / 3) ) ) {
+
+				// position the placeholder
+				$this
+				.addClass('horiz')
+				.css({
+					'left': targetPos.left,
+					'top': targetPos.top,
+					'visibility': 'visible',
+				})
+				.removeClass('vert')
+				.width(tarW);
+
+				// console.log('above target');
+
+			} else if ( $originPos.top > ( targetPos.top + tarH - (tarH / 3) ) && $originPos.top < ( targetPos.top + tarH ) ) {
+
+				// position the placeholder
+				$this
+				.addClass('horiz')
+				.css({
+					'left': targetPos.left,
+					'top': targetPos.top + tarH,
+					'visibility': 'visible',
+				})
+				.removeClass('vert')
+				.width(tarW);
+
+				// console.log('below target');
+
+			}
 		}
 	},
 	mason: function() {
@@ -369,14 +394,103 @@ var grid = {
 	},
 	reload: function() {
 		$('.contain').masonry('reload');
+		$('.contain').sortable('refreshPositions');
+		$('.contain').children().removeClass('target');
+	},
+	isResize: function(obj) {
+		$this = obj;
+		parH = $('.contain').innerHeight();
+
+		if ( $this.is('.image, .text') ) {
+			alsoMe = '';
+			parW = $('.contain').innerWidth() - 20;
+			container = $('.contain');
+
+		} else if ( $this.parents('.bound').is('.textImage') ) {
+			alsoMe = $('.editMe');
+			parW = $this.parents('.bound').innerWidth() - 20;
+			container = 'parent';
+		}
+
+		$this.resizable({
+			// containment: container,
+			// alsoResizeReverse: '.editMe, .imageArea',
+			handles: "e, s, w",
+			maxHeight: parH,
+			minHeight: 100,
+			maxWidth: parW,
+			minWidth: 100,
+			resize: function(event, ui) {
+				var newHeight, newWidth;
+
+				if ( $this.is('.image, .text') ) {
+
+					newHeight = ui.element.height();
+					newWidth = ui.element.width();
+
+					$('.image', $this).height(newHeight).width(newWidth);
+
+				} else if ( $this.parents('.bound').is('.textImage') ) {
+
+					newHeight = ui.size.height;
+					newWidth = ui.size.width;
+					newPos = ui.position;
+
+					if ( newWidth < ($('.contain').innerWidth() - 100) ) {
+						myW = newWidth;
+					} else {
+						myW = $('.contain').innerWidth() - 100;
+					}
+
+					ui.element.height(newHeight).width(myW);
+					$('.image', $this).height(newHeight).width(myW);
+
+					$this
+					.css({
+						'left': 0
+					})
+					.siblings()
+					.not('.controls')
+					.css({
+						'left': 0,
+						'height': newHeight,
+						'width': ((parW - myW) - 10)
+					})
+					.find('.image')
+					.css({
+						'height': newHeight,
+						'width': (parW - myW - 10)
+					});
+
+				}
+
+				// console.log($this.resizable('option', 'maxWidth'));
+
+			},
+			create: function(event, ui) {
+				if ( $('.ui-resizable').length > 1 ) {
+					$this.siblings().not('.controls').resizable('destroy');
+				}
+			},
+			start: function(event, ui) {
+
+			},
+			stop: function(event, ui) {
+				$('.contain > div').removeClass('target');
+				grid.reload();
+			}
+		});
 	},
 	startSort: function() {
 		$('.contain').sortable('enable');
 		$('.palette').fadeOut(speed);
 		$('.contain').children('.editMe').blur()
+		$('.gearsList div').draggable('enable');
 	},
 	stopSort: function() {
 		$('.contain').sortable('disable');
+		$('.gearsList div').draggable('disable');
+
 	}
 }
 
@@ -385,13 +499,6 @@ var grid = {
 
 // When document is scriptable
 $(document).ready(function() {
-	// var url = location.href.substring(location.href);
-	// var str = url.charAt(url.length-1);
-
-	// if (($('body').is('.main') == true)) {
-	// 	$('.fuel-loader.campaigns').addClass('noDisplay');
-	// }
-
 	// Taskbar menus
 
 	$('.user-info').on({
@@ -444,24 +551,23 @@ $(document).ready(function() {
 			grid.mason();
 		},
 		beforeStop: function(event, ui) {
-			// if ( sortableIn == 0 ) {
-			// 	ui.item.remove();
-			// }
+			if ( $('.contain').children().length > 3 ) {
+				grid.shuffle(ui);
+			}
 		},
 		change: function(event, ui) {
 			var start_pos = ui.item.data('start_pos');
 			var index = ui.placeholder.index();
 
 			if ( start_pos < index ) {
-				$('.contain > div:nth-child(' + index + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target');
+				$('.contain > div:nth-child(' + index + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target').siblings().removeClass('target');
 			} else {
-				$('.contain > div:eq(' + (index + 1) + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target');
+				$('.contain > div:eq(' + (index + 1) + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target').siblings().removeClass('target');
 			}
 
 		},
 		// containment: '#canvas',
 		cursorAt: {top: 0, left: 0 },
-		distance: 15,
 		// forcePlaceholderSize: true,
 		// grid: [ 120, 120 ],
 		helper: function(event, ui) {
@@ -471,7 +577,6 @@ $(document).ready(function() {
 			return $helper;
 		},
 		over: function(event, ui) {
-
 			var start_pos = ui.item.index();
 			ui.item.data('start_pos', start_pos);
 			
@@ -483,10 +588,6 @@ $(document).ready(function() {
 				$(ui.helper).width('65px');
 			} else if ( $(ui.item).hasClass('gear textImage') ) {
 				$(ui.helper).width('112px');
-			}
-
-			if ( $('.contain').children().length > 3 ) {
-				grid.inPlace(ui);
 			}
 
 			$('#canvas').addClass('activeCanvas');
@@ -513,6 +614,9 @@ $(document).ready(function() {
 		remove: function(event, ui) {
 			// sortableIn = 1;
 		},
+		sort: function(event, ui) {
+			grid.placeholder(ui);
+		},
 		start: function(event, ui) {
 			// sortableIn = 1;
 
@@ -520,12 +624,12 @@ $(document).ready(function() {
 			var index = ui.placeholder.index();
 
 			if ( start_pos < index ) {
-				$('.contain > div:nth-child(' + index + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target');
+				$('.contain > div:nth-child(' + index + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target').siblings().removeClass('target');
 			} else {
-				$('.contain > div:eq(' + (index + 1) + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target');
+				$('.contain > div:eq(' + (index + 1) + ')').not('.ui-sortable-helper, .origin, .ui-sortable-placeholder').addClass('target').siblings().removeClass('target');
 			}
 
-			$(ui.item).addClass('origin');
+			$(ui.item).addClass('origin').css('display','block');
 
 			ui.helper.height('46px'); /* why? */
 
@@ -556,11 +660,13 @@ $(document).ready(function() {
 
 			grid.reload();
 		},
-		tolerance: 'pointer',
+		tolerance: 'intersect',
 		update: function(event, ui) {
 			$('.contain > div').removeClass('target');
+
+			// grid.reload();
 		}
-	}).disableSelection();
+	});
 
 	$('.gearsList div').draggable({
 		connectToSortable:'.contain',
@@ -570,56 +676,69 @@ $(document).ready(function() {
 		revert: 'invalid'
 	});
 
-	$('.contain').on('click', '.bound', function(e) {
+
+	// CASE — Image or Text only
+	$('.contain').on('click', '.bound:not(".textImage")', function(e) {
+
 		grid.stopSort();
 
-		$(this).addClass('active').find('.editMe').focus();
+		$(this).addClass('active');
 		$(this).parents('.contain').addClass('editing');
 		$(this).siblings().removeClass('active');
 
 		if ( $(this).hasClass('text') ) {
 			$('.palette.text, .palette.html').fadeIn(speed);
 			$('.palette.image').fadeOut(speed); /*gross!*/
+			$('.editMe', this).focus();
 		} else if ( $(this).hasClass('image') ) {
 			$('.palette.image').fadeIn(speed);
 			$('.palette.text, .palette.html').fadeOut(speed); /*gross!*/
-		}
+		} 
 
-		if ( $(this).hasClass('active') ) {
-			var newHeight, newWidth;
-
-			$(this).resizable({
-				containment: ".contain",
-				handles: "e, s, w",
-				resize: function(event, ui) {
-					newHeight = ui.element.height();
-					newWidth = ui.element.width();
-
-					$('div', this).not('.ui-resizable-handle').height(newHeight).width(newWidth);
-					$('.image', this).height(newHeight).width(newWidth);
-				},
-				stop: function(event, ui) {
-					$('.contain > div').removeClass('target');
-					grid.reload();
-				}
-			});
-
-		}
+		grid.isResize($(this));
 
 		e.stopPropagation();
 	});
 
-	// $('#canvas').on('click', '.bound:not(.active)', function(e) {
-	// 	$(this).siblings().removeClass('active');
-	// 	$('.palette:visible').fadeOut(speed);
-		
-	// 	e.stopPropagation();
-	// });
+	// CASE — textImage > imagearea only
+	$('.contain').on('click', '.textImage .imageArea', function(e) {
+		grid.stopSort();
+
+		$(this).parents('.bound').addClass('active');
+		$(this).parents('.contain').addClass('editing');
+		$(this).parents('.bound').siblings().removeClass('active');
+
+		$('.palette.image').fadeIn(speed);
+		$('.palette.text, .palette.html').fadeOut(speed); /*gross!*/
+
+		grid.isResize($(this));
+
+		e.stopPropagation();
+
+	});
+
+	// CASE — textImage > editMe only
+	$('.contain').on('click', '.textImage .editMe', function(e) {
+		grid.stopSort();
+
+		$(this).parents('.bound').addClass('active');
+		$(this).parents('.contain').addClass('editing');
+		$(this).parents('.bound').siblings().removeClass('active');
+
+		$('.palette.text, .palette.html').fadeIn(speed);
+		$('.palette.image').fadeOut(speed); /*gross!*/
+		$('.editMe', this).focus();
+
+		grid.isResize($(this));
+
+		e.stopPropagation();
+	});
+
 
 	$('.contain').on({
 		click: function(e) {
 			$(this).children('.bound').removeClass('active');
-			$('.palette:visible').fadeOut(speed);
+			// $('.palette:visible').fadeOut(speed);
 			grid.startSort();
 			
 			e.stopPropagation();
@@ -632,12 +751,12 @@ $(document).ready(function() {
 
 	$('.contain').on('click', '.controls .remove', function(e) {
 			$(this).parents('.bound').remove();
+			$('.palette').fadeOut(speed);
 
+			grid.startSort();
 			grid.reload();
-
 			e.stopPropagation();
-
-	})
+	});
 
 });
 

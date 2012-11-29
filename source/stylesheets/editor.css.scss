@@ -534,6 +534,20 @@ button {
 						}
 					}
 
+					&.ui-draggable-disabled {
+
+						&:hover {
+							border:none;
+							margin:0;
+							@include background(transparent url(../images/ui/bg_dottedCCC.png) repeat-x bottom left);
+							@include box-shadow(none);
+
+							a {
+								cursor:default !important;
+							}
+						}
+					}
+
 					&.ui-draggable-dragging {
 						border:1px solid #82bbd6;
 						cursor:hand;
@@ -551,6 +565,13 @@ button {
 
 						&:hover {
 							margin:-2px 0 -1px 0;
+						}
+
+						&.ui-draggable-disabled {
+
+							&:hover {
+								margin:0;
+							}
 						}
 					}
 
@@ -657,8 +678,11 @@ button {
 	}
 
 	.contain {
+		left:0;
 		min-height:inherit !important;
 		overflow: visible !important;
+		position:relative;
+		top:0;
 		width:100%;
 	}
 
@@ -690,6 +714,7 @@ button {
 		&.horiz {
 			height:2px !important;
 			width:auto;
+			clear:both;
 
 			&:after {
 				color:#fff;
@@ -777,12 +802,17 @@ button {
 		// width:572px;
 		// @include background(#fff);
 
+		// &.target {
+		// 	border:1px solid green;
+		// }
+
 		> div {
 			height:100%;
 			// left:0;
 			position:relative;
 			// top:0;
 			width:100%;
+			z-index:0;
 		}
 
 		&.dragging {
@@ -794,6 +824,11 @@ button {
 
 		&.half {
 			width:276px !important;
+
+			img {
+				height:auto !important;
+				width:100% !important;
+			}
 		}
 
 		.controls {
@@ -804,7 +839,7 @@ button {
 			position:absolute;
 			top:0;
 			width:100%;
-			z-index:0;
+			z-index:-1;
 			@include background(url(../images/ui/bg_editorBoundTopLeft.png) no-repeat top left, url(../images/ui/bg_editorBoundBottomRight.png) no-repeat bottom right);
 
 			ul {
@@ -900,21 +935,73 @@ button {
 			.imageArea {
 				display:inline;
 				float:left;
-				height:auto;
-				margin:0 10px 0 0;
-				width:auto;
+				height:203px;
+				left:0;
+				// margin:0 10px 0 0;
+				position:relative;
+				top:0;
+				width:270px;
+				z-index:2;
+
+				img {
+					display:block;
+					// height:inherit;
+					width:100%;
+					z-index:1;
+				}
+
+				.ui-resizable-e {
+					right:-4px;
+				}
+
+				.ui-resizable-w {
+					left:-4px;
+				}
+
+				.ui-resizable-s {
+					bottom:-4px;
+				}
+
 			}
 
-			p {
+			.editMe {
+				display:inline;
 				font-family:$sans;
 				font-size:14px;
+				float:left;
+				height:auto;
+				left:0;
 				line-height:1.26em;
+				outline:0 !important;
+				padding:0 0 0 10px;
+				position:relative;
+				top:0;
+				width:292px;
+				z-index:2;
 
 				&:after {
 					clear:both;
 					content:"";
 					display:block;
 				}
+
+			}
+
+			.ui-resizable {
+				@include background(url(../images/ui/bg_editorBoundTopLeft.png) no-repeat top left, url(../images/ui/bg_editorBoundBottomRight.png) no-repeat bottom right);
+
+				.ui-resizable-e {
+					right:-4px;
+				}
+
+				.ui-resizable-w {
+					left:-4px;
+				}
+
+				.ui-resizable-s {
+					bottom:-4px;
+				}
+
 			}
 		}
 
