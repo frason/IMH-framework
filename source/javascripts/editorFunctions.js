@@ -101,7 +101,7 @@ var doGear = {
 		var no = common.random();
 
 		$markup = '<div id="item_' + no + '">';
-		$markup += '<div class="textarea editMe" contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div><div class="controls">';
+		$markup += '<div class="textarea editMe" contenteditable="true"><h1>Lorem ipsum dolor sit amet</h1> <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div><div class="controls">';
 		$markup += '<ul><li class="save"><a href="#" title="Save"></a></li><li class="copy"><a href="#" title="Copy"></a></li><li class="remove"><a href="#" title="Remove"></a></li></ul>';
 		$markup += '</div></div>';
 
@@ -184,6 +184,7 @@ function draw_viewport () {
 
 $(window).resize(function() {
 	draw_viewport();
+	myAccord();
 });
 
 //Redirect & nicename URLs
