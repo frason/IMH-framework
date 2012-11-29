@@ -85,7 +85,7 @@ div id='container'
 
 			menu class='tabs'
 				ul
-					li class='main'
+					li class='main inActive'
 						a href='#' 
 							span
 							' Main
@@ -99,6 +99,7 @@ div id='container'
 					/		' Status
 
 			aside
+				div id='main-tab' class='inactiveDrawer'
 				div id='accordion'
 					section class='content current' 
 						header class='heading'
@@ -122,10 +123,22 @@ div id='container'
         							div class="search-icon"
 							        input type="text" class='search-input' value="Search..." onfocus="if(this.value == 'Search...') { this.value = ''; }" onblur="if (this.value == '') {this.value = 'Search...';}"
 							li
-								button class="treePicker dropdown noFloat"
+								button class="treePicker dropdown "
 									span 
 									' Shared Content
-									
+									span class="treePicker-Folder-Icon"
+							li 
+								div class='filter-box'
+									div class='floatRight'
+										span class="eyebrow-text" filter by
+										button class="dropdown filterPicker"
+											span 
+											' All
+									div 
+										span class="eyebrow-text" sort by
+										button class="dropdown filterPicker"
+											span 
+											' Date Created
 
 						div class='gearsList'
 							div class='gear savedGear image'
@@ -158,6 +171,8 @@ div id='container'
 									span class='saved-Gear-Date' Saved 8/12/12 - 8:50PM
 						p class='ua'
 							' Drag and drop any content gear to the canvas to build your email.
+				
+					
 
 		section class='workspace'
 

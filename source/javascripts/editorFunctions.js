@@ -85,6 +85,7 @@ function draw_viewport () {
 
 $(window).resize(function() {
 	draw_viewport();
+	myAccord();
 });
 
 // Global - hide modal
