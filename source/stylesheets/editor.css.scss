@@ -404,21 +404,21 @@ button {
 				&.main {
 
 					span {
-						@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -397px);
+						@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -1px);
 					}
 				}
 
 				&.gears {
 
 					span {
-						@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -442px);
+						@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -46px);
 					}
 				}
 
 				&.status {
 
 					span {
-						@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -487px);
+						@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -487px);
 					}
 				}
 
@@ -427,8 +427,8 @@ button {
 					a {
 						margin: 0 0 0 -2px;
 						padding:9px 0 5px 2px;
-						background-color:#f3f3f3;
-						// @include background(#F3F3F3);
+						//background-color:#f3f3f3;
+						@include background(#F3F3F3);
 
 						span {
 							margin:0 0 0 4px;
@@ -440,21 +440,22 @@ button {
 						&.main {
 
 							span {
-								@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -265px);
+								@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -265px);
 							}
 						}
 
 						&.gears {
+							
 
 							span {
-								@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -310px);
+								@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -310px);
 							}
 						}
 
 						&.status {
 
 							span {
-								@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -355px);
+								@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -355px);
 							}
 						}
 

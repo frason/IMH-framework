@@ -11,6 +11,12 @@
 @mixin accordion-header-gradient-hover {
 	@include background-image(linear-gradient(top, #f3f9ff 0%,#CDDCEE 100%));
 }
+
+@mixin drawer-tab-gradient-hover {
+	@include background-image(linear-gradient(left, #f3f3f3 0%,#f9f9f9 100%));
+}
+
+
 /* @end MIXINS */
 
 .editor {
@@ -22,38 +28,129 @@
 	//clip:rect(0px,500px,400px,0px);
 	.tabs {
 		li {
-			a {
+			
+			&:hover {
 
-			}
-			&.collapsed {
-				//border:1px solid #000;
-				&:hover {
-
-					&.main {
-
-						span {
-							@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -133px);
-						}
+				&.main {
+					a {
+						//border:1px solid #000;
+						@include drawer-tab-gradient-hover; 					
 					}
+					
+				}
 
-					&.gears {
-
-						span {
-							@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -178px);
-						}
-					}
-
-					&.status {
-
-						span {
-							@include background(#eee url(../images/icons/sprite_editorTabs.png) no-repeat center -355px);
-						}
+				&.gears  {
+					a {
+						//border:1px solid #000;
+						@include drawer-tab-gradient-hover; 					
 					}
 				}
+
+				&.status {
+					a {
+						//border:1px solid #000;
+						@include drawer-tab-gradient-hover; 					
+					}
+					
+				}
 			}
+
+			&.inActive {
+
+				&.main {
+
+					span {
+						@include background( url(../images/icons/sprite_editorTabs.png) no-repeat center -397px);
+					}
+				}
+
+				&.gears {
+
+					span {
+						@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -442px);
+					}
+				}
+
+				&.status {
+
+					span {
+						@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -355px);
+					}
+				}
+
+
+			}
+				
+	
+			&.collapsed  { 
+
+				&.active { 
+
+					&:hover {
+
+						&.main {
+
+							span {
+								@include background( url(../images/icons/sprite_editorTabs.png) no-repeat center -133px);
+							}
+						}
+
+						&.gears {
+
+							span {
+								@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -178px);
+							}
+						}
+
+						&.status {
+
+							span {
+								@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -355px);
+							}
+						}
+					}
+					
+				}
+			}
+			&.collapsed  { 
+
+				&.inActive { 
+
+					&:hover {
+
+						&.main {
+
+							span {
+								@include background( url(../images/icons/sprite_editorTabs.png) no-repeat center -529px);
+							}
+						}
+
+						&.gears {
+
+							span {
+								@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -574px);
+							}
+						}
+
+						&.status {
+
+							span {
+								@include background(url(../images/icons/sprite_editorTabs.png) no-repeat center -355px);
+							}
+						}
+					}
+					
+				}
+			}
+			
 		}
 	}
 	aside {
+		#main-tab {
+			display:none; 
+			@include background(#eee url(../images/main_tab.png) no-repeat top );
+
+		}
 		#accordion {
 			position:relative;
 
@@ -83,23 +180,26 @@
   				
 			}
 			.savedLoaded {
-					width:220px;
-					position:absolute;
-					bottom:0px; 
-				}
+				width:220px;
+				position:absolute;
+				bottom:0px; 
+			}
 				
 			.search-filter {
-				background-color:#e5e5e5;
-				height:70px;
+				display:block;
+				background-color:#e6e6e6;
+				height:128px;
+				//padding:10px;
 				color:#A2A2A2;
-				z-index:-500;
+				border-color:#ccc;
+				border-size: 1px;
 			}
 				
 			.search-box {
 				display: inline-block;
 				vertical-align: top;
 				position: relative;
-				margin:5px 0px;
+				margin:10px 0px 5px 0px;
 				left: 10px;
 				width:195px;
 				height:19px;
@@ -114,6 +214,7 @@
 				border: none;
 				width:170px;
 				@include border-radius(3px);
+				outline: none;
 			}
 			.search-icon {
 				float: right;
@@ -131,13 +232,47 @@
 				display: inline-block;
 				vertical-align: top;
 				position: relative;
-				margin:5px 0px;
+				margin:5px 0px 10px 0px;
 				left: 10px;
 				width:195px;
-				height:19px;
-				//padding:0px 0px 0px -30px;
+				height:21px;
+				text-align:left !important;
+
+				span.treePicker-Folder-Icon {
+					float: left;
+					cursor: pointer;
+					background-image: url(../images/icons/folder-icon.png);
+					background-repeat: no-repeat;
+					background-position: 0px 0px;
+					width: 14px;
+					height: 12px;
+					margin: 0px 5px 0px 0px;
+				}
+			
+			}
+			
+			.filter-box {
+				display: block;
+				height: 38px;
+				padding: 10px;
+				background-color: #f6f6f6;
+				border-style: solid;
+				border-size: 1px;
+				border-color:#ccc;
+				.eyebrow-text {
+					text-transform: uppercase;
+					font-size: 10px;
+					//margin-bottom: 5px;
+				}
+				.filterPicker {
+					width:91px;
+					height:21px;
+					margin-top:5px;
+					text-align:left !important;
+				}
 
 			}
+
 			.savedGear {
 				//height:30px;
 				a {
@@ -146,8 +281,17 @@
 					padding-bottom:7px;
 				}
 			}
-		
+		.inactiveDrawer {
+			display:none;	
 		}
+		}
+	}
+}
+div.textarea {
+	h1 {
+		font-size:20px;
+		font-weight:bold;
+		line-height: 34px;
 	}
 }
 
